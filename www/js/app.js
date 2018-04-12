@@ -287,8 +287,8 @@ angular.module('starter', ['ionic','rzModule'])
 
     $scope.otherSlide = {
       min: 0,
-      max: 30,
-      ceil: 30,
+      max: 24,
+      ceil: 24,
       floor: 0,
     };
 

@@ -6,6 +6,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
   font-family: 'Montserrat', sans-serif!important;
 }
 
+.scroll{
+  min-height: 100%;
+}
+
 .bar-stable{
   background-color: #fff !important;
   color:#fff;
@@ -122,16 +126,37 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 
 .content-header{
     background-color: #e7ecf7;
-    text-align: center;
-    font-size: 17px;
+    justify-content: center;
+    font-size: 16px;
     padding: 12px;
-    margin: 0 -14px;    
-    margin-bottom:30px;
+    margin: 0 !important;    
+    margin-bottom: 30px !important;
     letter-spacing: 2px;
-    color: #18274a;
+    color: #3a3a3a;
 }
 
 
+.insurance-content .content-header{
+    background-color: #e7ecf7;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px;
+    margin: 0 -14px !important;    
+    margin-bottom:10px !important;
+    letter-spacing: 2px;
+    color: #3a3a3a;
+}
+
+.smry-content .content-header{
+    background-color: #e7ecf7;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px;
+    margin: 0 -24px !important;    
+    margin-bottom:10px !important;
+    letter-spacing: 2px;
+    color: #3a3a3a;
+}
 
 .content-header p{
   margin-bottom:0; 
@@ -148,11 +173,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 }
 
 .bill-content h2{
-  font-size: 50px;
+    font-size: 56px;
+    font-weight: 300;
+    color: #5153a3;
 }
 
 .bill-content p{
-  font-size: 18px;
+    font-size: 16px;
+    color: #40403f;
+    font-weight: 600;
 }
 .pink{
   color: #d75b7e; 
@@ -184,6 +213,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 
 .button-bar{
   padding:20px;
+}
+
+.bar-assertive{
+  background-color: #d75b7e;
 }
 
 /*.button-bar .button:first-child {
@@ -260,8 +293,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     background-color: #eee;
     border-radius: 50%;
     border: 1px solid #d75b7e;
@@ -282,7 +315,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 
 /* Show the indicator (dot/circle) when checked */
 .container input:checked ~ .checkmark:after {
-    display: block;
+    display: none;
 }
 
 /* Style the indicator (dot/circle) */
@@ -530,6 +563,7 @@ li.item.activated i,li.item.activated h1{
 .bar-header.visa{
   height: 72px;
   background-color: #f8f8f8;
+  padding: 0 !important;
 }
 .bar-header.visa .title{
   height: 72px;
@@ -555,14 +589,75 @@ li.item.activated i,li.item.activated h1{
     color: #5152a3;
     z-index: 1;
 }
+.smry-consultant{
+    position: fixed;
+    top: 116px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 12px 24px;
+    background-color: #fff;
+    border-bottom: 1px solid #b2c0da;
+    color: #5152a3;
+    z-index: 1;
+}
+.smry-consultant h3{
+    font-size: 16px;
+    font-weight: 600;
+    color: #5153a3;
+    margin-bottom: 1px;
+}
+.smry-consultant p{
+    font-size: 14px;
+    font-weight: 500;
+    color: #515251;
+    margin-bottom: 0px;
+}
+.smry-consultant h2{
+    font-size: 22px;
+    font-weight: 400;
+    color: #5153a3;
+}
+.smry-content{
+  margin-top: 88px !important;
+  margin-bottom: 0px !important;
+}
+.smry-table tr:nth-child(even){
+  background-color: #f2f2f3;
+}
+.smry-table th, .smry-table td {
+    text-align: left;
+    padding: 10px;
+}
+.smry-table h2{
+    border-top: 1px solid #ddd;
+    margin: 10px -10px 0;
+    padding: 10px 20px 0;
+    font-size: 15px;
+    color: #d75b7e;
+    font-weight: 600;
+}
+.smry-table h2 span{
+  float: right;
+}
+.smry-table{
+  margin: 20px 0;
+}
 .content-view {
     margin-top: 74px;
     margin-bottom: 56px;
     padding: 0 14px;
 }
-.pot-content .button-bar {
+.pot-content .button-bar{
     padding: 20px 50px;
     margin: 40px 0;
+}
+.saraly-content .button-bar{
+    padding: 20px 50px;
+    margin: 10px 0;
 }
 .button-bar a.button{
   min-height: 40px !important
@@ -573,6 +668,7 @@ li.item.activated i,li.item.activated h1{
     border-radius: 7px !important;
     margin: 0 6px !important;
     font-weight: 500;
+    font-size: 1em;
     color: #5152a3;
 }
 a.button.button-block.button-circle {
@@ -606,4 +702,89 @@ a.button.button-block.button-circle {
     padding: 10px;
     margin-top: 30px;
     border-radius: 4px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.row.radio{
+  margin-bottom: 20px;
+}
+.card-border{
+  border: 1px solid #e3e3e3;
+  border-radius: 7px;
+  margin: 0 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+.card-border p{
+    font-size: 12px;
+    color: #d75b7e;
+    margin-bottom: 0px;
+}
+.card-border h4{
+  font-size: 28px;
+  color: #4c4c4d;
+  margin: 0;
+}
+.row.radio .col-50{
+  padding: 5px 25px;
+}
+.add-icon{
+    float: right;
+    color: #fff;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    height: 50px;
+    display: flex;
+    width: 50px;
+    background-color: #f3777a;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+.misc_hour input, .miscOne_time input{
+    border: 2px solid #bcbcbc;
+    border-radius: 7px;
+    height: 40px;
+    padding-left: 5px;
+    width: 100%;
+    font-size: 16px !important;
+    color: #515051 !important;
+    font-weight: 500;
+}
+.per-diem{
+    margin-top: 30px;
+}
+.per-diem p{
+  text-align: center;
+  color: #282828;
+  font-size: 16px;
+  font-weight: 600;
+}
+.per-diem .group-center{
+  align-items: center;
+}
+.per-diem .group-center span{
+  color: #525252;
+  font-size: 14px;
+  font-weight: 600;
+}
+.per-diem .group-center input{
+    border: 2px solid #7f7f7f;
+    border-radius: 7px;
+    height: 40px;
+    padding-left: 5px;
+    width: 100%;
+    font-size: 16px !important;
+    color: #515051 !important;
+    font-weight: 500;
+}
+.bill-rate .col{
+  margin: 0 auto;
+  text-align: center;
+}
+.bill-rate .col .card-border{
+  padding: 10px 25px;
 }

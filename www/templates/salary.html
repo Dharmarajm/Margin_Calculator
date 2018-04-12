@@ -11,11 +11,9 @@
   		<button class="icon header-title ion-power" ng-click="logout()"></button>
 	</ion-nav-buttons>
 
-	<div class="bar bar-subheader">
-	    <span>Bharath</span>
-    </div>
+	<h1 class="consultant-name">James</h1>
 
-   <ion-content class="ion-content content-pad">
+   <ion-content class="ion-content content-view saraly-content">
     <div class="button-bar">
       <a class="button button-block" ng-class="{'button-circle': dollar == true}" ng-click="dollarButton()">Dollar</a>
       <a class="button button-block" ng-class="{'button-circle': bill == true }" ng-click="billButton()">Bill Rate</a>
@@ -55,16 +53,16 @@
 	  	</div>
 	  </div>
 
-  	<div class="row bill-content">
+  	<div class="per-diem">
   		<p>Per Diem</p>
-  	</div>
-  	<div class="row group-center">
-  		<div class="col col-50 col-50-align">
-  			<span>Daily Max:</span>
-  		</div>
-  		<div class="col col-50">
-  			<input type="text" class="button botton-border button-block">
-  		</div>
+	  	<div class="row group-center">
+	  		<div class="col col-50 col-50-align">
+	  			<span>Daily Max:</span>
+	  		</div>
+	  		<div class="col col-50">
+	  			<input type="text">
+	  		</div>
+	  	</div>
   	</div>
 
    </ion-content>
