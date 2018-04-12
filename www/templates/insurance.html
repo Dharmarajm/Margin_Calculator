@@ -1,6 +1,6 @@
 <ion-view cache-view="false" ng-controller="LoginCtrl">
 	<ion-nav-title>
-	  <span class="bar-stable"><strong class="header-title">INSUARNCE</strong></span>
+	  <span class="bar-stable"><strong class="header-title">INSURANCE</strong></span>
 	</ion-nav-title>
 	
 	<ion-nav-buttons side="left" >
@@ -11,13 +11,11 @@
   		<button class="icon header-title ion-power" ng-click="logout()"></button>
 	</ion-nav-buttons>
 
-	<div class="bar bar-subheader">
-	    <span>Bharath</span>
-    </div>
+	<h1 class="consultant-name">James</h1>
 
-   <ion-content class="ion-content content-pad">
+   <ion-content class="ion-content content-view">
    		 
-   		  <div class="row content-header">
+   		  <div class="content-header">
 	      	<p>MEDICAL</p>
 	      </div>
          <div>
@@ -56,7 +54,7 @@
 		    </div>
 
 </div>
-                  <div class="row content-header">
+                  <div class="content-header">
 				      <p>DENTAL</p>
 				    </div>
      <div>
@@ -98,7 +96,7 @@
 	</div>
 
 
-					<div class="row content-header">
+					<div class="content-header">
 				      <p>EMP CONTRIBUTION</p>
 				    </div>
 
@@ -122,13 +120,16 @@
    </ion-content>
 
     <div class="bar bar-footer">
-	    <div class="row">
+      <!-- <div class="footer-title">Margin:&nbsp;<span class="title">${{marginDollar}}-{{marginPercentage}}%</span></div> -->
+
+      <div class="row">
         <div class="col col-50 footer-title">
-          Adj.Rate:<span>{{adjRate}}
+          Adj. Rate:<span>${{adjRate}}</span>
         </div>
         <div class="col col-50 footer-title">
-          Margin:<span>${{marginDollar}}-{{marginPercentage}}%
+          Margin:<span>${{marginDollar}} - {{marginPercentage}}%</span>
         </div>
       </div>
-  	</div>
+    </div>
+
 </ion-view>

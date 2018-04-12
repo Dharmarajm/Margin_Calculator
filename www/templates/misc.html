@@ -54,7 +54,7 @@
 
 
   	<div class="row group1 border">
-  	  <textarea placeholder="Relocation notes" rows="4"></textarea>
+  	  <textarea placeholder="Misc notes" rows="4"></textarea>
   	</div>
 
   	<div class="group-icon_right">
@@ -64,14 +64,16 @@
    </ion-content>
 
     <div class="bar bar-footer">
-	    <div class="row">
+      <!-- <div class="footer-title">Margin:&nbsp;<span class="title">${{marginDollar}}-{{marginPercentage}}%</span></div> -->
+
+      <div class="row">
         <div class="col col-50 footer-title">
-          Adj.Rate:<span>{{adjRate}}
+          Adj. Rate:<span>${{adjRate}}</span>
         </div>
         <div class="col col-50 footer-title">
-          Margin:<span>${{marginDollar}}-{{marginPercentage}}%
+          Margin:<span>${{marginDollar}} - {{marginPercentage}}%</span>
         </div>
       </div>
-  	</div>
+    </div>
 
 </ion-view>

@@ -136,7 +136,7 @@ angular.module('starter', ['ionic','rzModule'])
   });
   
   if(localStorage.getItem("user") == 0){
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/tab/consultant');
   }
   else{
    $urlRouterProvider.otherwise('/register'); 
@@ -307,18 +307,36 @@ angular.module('starter', ['ionic','rzModule'])
       floor: 1,
     };   
   
-
+    $scope.open=false;
 
 
 
 })
 
-.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
-  $scope.showMenu = function () {
-    $ionicSideMenuDelegate.toggleLeft();
-  };
-  $scope.showRightMenu = function () {
-    $ionicSideMenuDelegate.toggleRight();
-  };
-})
+.directive('tabsSwipable', function($ionicGesture) {
+    return {
+      restrict: 'A',
+      require: 'ionTabs',
+      link: function(scope, elm, attrs, tabsCtrl) {
+        var onSwipeLeft = function() {
+          var target = tabsCtrl.selectedIndex() + 1;
+          if (target < tabsCtrl.tabs.length) {
+            scope.$apply(tabsCtrl.select(target));
+          }
+        };
+        var onSwipeRight = function() {
+          var target = tabsCtrl.selectedIndex() - 1;
+          if (target >= 0) {
+            scope.$apply(tabsCtrl.select(target));
+          }
+        };
 
+        var swipeGesture = $ionicGesture.on('swipeleft', onSwipeLeft, elm)
+          .on('swiperight', onSwipeRight);
+        scope.$on('$destroy', function() {
+          $ionicGesture.off(swipeGesture, 'swipeleft', onSwipeLeft);
+          $ionicGesture.off(swipeGesture, 'swiperight', onSwipeRight);
+        });
+      }
+    };
+});

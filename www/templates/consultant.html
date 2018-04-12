@@ -14,7 +14,7 @@
 	</ion-nav-buttons>
 
 
-   <ion-content class="ion-content content-pad">
+   <ion-content class="ion-content content-pad consultant-content">
 
    	<div class="groupText">      
       <input class="inputMaterial" type="text" ng-Required="true"  ng-model="consultant" required>
@@ -30,23 +30,19 @@
       </div>
   	</div>
 
-    <div class="row">
+    <div class="row mrgn-btm-30">
       <div class="col col-50">
-        <div class="row">
-          Bill Rate
-        </div> 
-        <div class="row">
-          <input type="text" class="button button-block button-border_left">
-          <label class="button button-block botton-border">$</label>
+        <label>Bill Rate</label>
+        <div class="input-group">
+          <input type="text">
+          <span>$</span>
         </div>
       </div>
       <div class="col col-50">
-        <div class="row">
-          Client Fee
-        </div> 
-        <div class="row">
-          <input type="text" class="button button-block button-border_left">
-          <label class="button button-block botton-border">%</label>
+        <label>Client Fee</label> 
+        <div class="input-group">
+          <input type="text">
+          <span>%</span>
         </div>
       </div>
     </div>
@@ -54,20 +50,12 @@
 
     <div class="row">
       <div class="col col-50">
-        <div class="row">
-          LCA Min
-        </div> 
-        <div class="row">
-          <input type="text" class="button button-block botton-border">
-        </div>
+        <label>LCA Min</label>
+          <input type="text" class="form-control">
       </div>
       <div class="col col-50">
-        <div class="row">
-          Location
-        </div> 
-        <div class="row">
-          <input type="text" class="button button-block botton-border">
-        </div>
+        <label>Location</label>
+        <input type="text" class="form-control">
       </div>
     </div>   
 
@@ -85,10 +73,10 @@
 
       <div class="row">
         <div class="col col-50 footer-title">
-          Adj.Rate:<span>{{adjRate}}
+          Adj. Rate:<span>${{adjRate}}</span>
         </div>
         <div class="col col-50 footer-title">
-          Margin:<span>${{marginDollar}}-{{marginPercentage}}%
+          Margin:<span>${{marginDollar}} - {{marginPercentage}}%</span>
         </div>
       </div>
   	</div>

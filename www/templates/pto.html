@@ -10,12 +10,8 @@
 	<ion-nav-buttons side="right">
   		<button class="icon header-title ion-power" ng-click="logout()"></button>
 	</ion-nav-buttons>
-
-	<div class="bar bar-subheader">
-	    	<span>Bharath</span>
-    </div>
-
-   <ion-content class="ion-content content-pad">
+	<h1 class="consultant-name">James</h1>
+   <ion-content class="ion-content content-view pot-content">
     <div class="button-bar">
       <a class="button button-block" ng-class="{'button-circle': standard == true}" ng-click="standarButton()">Standard</a>
       <a class="button button-block" ng-class="{'button-circle': other == true }" ng-click="otherButton()">Other</a>
@@ -24,11 +20,11 @@
 	  <div ng-show="standard">
 	  	<div class="row group-center">
 			<div class="col col-50 col-50-align line">
-				<p>HOURS</p>
+				<label>HOURS</label>
 				<h2>15</h2>
 			</div>
 			<div class="col col-50 col-50-align">
-				<p>DAYS</p>
+				<label>DAYS</label>
 				<h2 >10</h2>
 			</div>
 	  	</div>
@@ -37,12 +33,12 @@
 	  <div ng-show="other">
 	  	<div class="row group-center">
 			<div class="col col-50 col-50-align line">
-				<p>HOURS</p>
+				<label>HOURS</label>
 				<h2>{{min.other}}</h2>
 			</div>
 			<div class="col col-50 col-50-align">
-				<p>DAYS</p>
-				<h2 >0</h2>
+				<label>DAYS</label>
+				<h2>0</h2>
 			</div>
 	  	</div>
 	  	<br>
@@ -59,13 +55,15 @@
 
    </ion-content>
 
-    <div class="bar bar-footer">
-	    <div class="row">
+     <div class="bar bar-footer">
+	    <!-- <div class="footer-title">Margin:&nbsp;<span class="title">${{marginDollar}}-{{marginPercentage}}%</span></div> -->
+
+      <div class="row">
         <div class="col col-50 footer-title">
-          Adj.Rate:<span>{{adjRate}}
+          Adj. Rate:<span>${{adjRate}}</span>
         </div>
         <div class="col col-50 footer-title">
-          Margin:<span>${{marginDollar}}-{{marginPercentage}}%
+          Margin:<span>${{marginDollar}} - {{marginPercentage}}%</span>
         </div>
       </div>
   	</div>

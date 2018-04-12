@@ -6,7 +6,7 @@
   margin-bottom: 35px; 
   margin-left: 15px;
   margin-right: 15px;
-  border-bottom: 1px #c2c2c2 solid;
+  
 }
 
 .groupButton  { 
@@ -22,14 +22,13 @@
   margin-bottom: 35px; 
   margin-left: 40px;
   margin-right: 40px;
-  border-bottom: 1px #c2c2c2 solid;
+  /*border-bottom: 1px #c2c2c2 solid;*/
 }
 
 .group1        { 
   position:relative; 
-  margin-bottom: 35px; 
-  margin-left: 40px;
-  width:80%;
+  width:100%;
+  padding: 0px 14px;
 }
 
 .inputMaterial        {
@@ -38,10 +37,12 @@
   display:block;
   width:300px;
   border:none;
-  border-bottom:1px solid #000;
-   background: transparent;
+  background: transparent;
+  border-bottom: 1px solid #c3c3c3!important;
 }
-
+.inputMaterial:focus        {
+  border-bottom:1px solid #d85b7e!important;
+}
 
 .label          {
   color:#000; 
@@ -63,6 +64,7 @@
   font-size:14px;
   color: #d75b7e;
   background: transparent;
+
 }
 
 /* BOTTOM BARS ================================= */
@@ -71,6 +73,7 @@
 /* active state */
 .inputMaterial:focus ~ .bar:before, .inputMaterial:focus ~ .bar:after {
   width:50%;
+    /*border-bottom:1px solid #000;*/
 }
 
 
@@ -79,6 +82,7 @@
   -webkit-animation:inputHighlighter 0.3s ease;
   -moz-animation:inputHighlighter 0.3s ease;
   animation:inputHighlighter 0.3s ease;
+
 }
 
 /* ANIMATIONS ================ */
