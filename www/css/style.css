@@ -44,11 +44,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     top: 56px;
 }
 
-.tab-item-active,.tab-item-active.activated{
+.tab-item-active,.tab-item-active.activated, .tabs-top.tabs-striped .tab-item.tab-item-active{
   background-color: #45539a !important;
   border:1px solid #45539a !important;
+  margin: 0px 4px !important;
 }
 
+.tabs-top.tabs-striped .tab-item.activated > i{
+  margin-top: 0px !important;
+}
+.tab-item .icon{
+  margin: -1px auto;
+}
 .tab-item,.tab-item.activated,.tabs-top.tabs-striped .tab-item,.tabs-top.tabs-striped .tab-item.activated{
   background-color: #fff;
   border-width: 1px !important;
@@ -227,7 +234,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 .bar-footer{
   background-color: #45539a;
   color: #fff;
-  padding: 13px 8px !important;
+  padding: 18px 10px !important;
   height: auto;
 }
 .bar-footer .row{
@@ -248,6 +255,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 .footer-title {
     font-size: 12px;
     font-weight: 500;
+    padding: 0px;
+    text-align: center;
 }
 
 .footer-title span{
@@ -256,7 +265,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     border: 1px solid #6479b7;
     border-radius: 7px;
     color: #fff;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: 600;
     margin-left: 10px;
 }
@@ -465,7 +474,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 }
 .consultant-content .inputMaterial {
     width: 100%;
-    margin-top: 10px;
     border-bottom: 2px solid #ababab !important;
 }
 .groupText .label {
@@ -546,7 +554,7 @@ li.item{
     padding: 16px 30px;
     background-color: #f8f8f8;
 }
-li.item.activated{
+li.item.activated, li.item.active{
   background-color: #f3777a;
   border-color: #f3777a;
 }
@@ -648,7 +656,7 @@ li.item.activated i,li.item.activated h1{
     padding: 20px 50px;
     margin: 25px 0;
 }
-.saraly-content .button-bar{
+.salary-content .button-bar{
     padding: 20px 30px;
     margin: 10px 0;
 }
@@ -668,6 +676,7 @@ li.item.activated i,li.item.activated h1{
 }
 a.button.button-block.button-circle {
     background-color: #5152a3;
+    border: 1px solid #44458b;
     color: #fff;
 }
 .group-center label{
@@ -754,6 +763,7 @@ a.button.button-block.button-circle {
 }
 .per-diem{
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 .per-diem p{
   text-align: center;
@@ -770,7 +780,7 @@ a.button.button-block.button-circle {
   font-weight: 600;
 }
 .per-diem .group-center input{
-    border: 2px solid #7f7f7f;
+    border: 1px solid #7f7f7f;
     border-radius: 7px;
     height: 40px;
     padding-left: 5px;
@@ -790,4 +800,15 @@ a.button.button-block.button-circle {
 
 .button-bar  .button {
   padding: 0px 7px !important;
+}
+.salary-content .bill-content .col{
+  text-align: center;
+}
+.dash-cmp h4{
+    margin: 0;
+    padding: 10px;
+    background-color: #e7ecf7;
+    text-align: center;
+    font-size: 16px;
+    color: #2f2f2f;
 }

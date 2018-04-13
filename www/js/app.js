@@ -198,7 +198,7 @@ angular.module('starter', ['ionic','rzModule'])
     }
 
     $scope.marginPercentage=45;
-    $scope.marginDollar=1345.19;
+    $scope.marginDollar=13.19;
 
     $scope.anual=true;
 
@@ -266,7 +266,7 @@ angular.module('starter', ['ionic','rzModule'])
     }
 
     $scope.email=function(){
-      alert("Cost Summary for xyz is send to your email.")
+      alert("Cost Summary for ARUN is send to your email.")
       $state.go("dashboard")
     }
 
@@ -281,9 +281,25 @@ angular.module('starter', ['ionic','rzModule'])
       bill:18,
       other:0,
       relocation:0,
-      mis_bill:1
+      mis_bill:1,
+      hourly:1,
+      rate:1
+
     }
 
+    $scope.hourSlider = {
+      min: 1,
+      max: 24,
+      ceil: 24,
+      floor: 1,
+    };
+
+    $scope.rateSlider = {
+      min: 1,
+      max: 100,
+      ceil: 100,
+      floor: 1,
+    };
 
 
     $scope.DollarSlider = {

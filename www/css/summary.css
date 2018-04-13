@@ -42,8 +42,8 @@
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 20px !important;
-    min-height: 40px;
-    line-height: 38px;
+    min-height: 35px;
+    line-height: 30px;
 }
 .bar.bar-assertive {
     border-color: #45539a;
