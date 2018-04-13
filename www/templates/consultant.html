@@ -14,7 +14,7 @@
 	</ion-nav-buttons>
 
 
-   <ion-content class="ion-content content-pad consultant-content">
+   <ion-content class="ion-content content-pad consultant-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
    	<div class="groupText">      
       <input class="inputMaterial" type="text" ng-Required="true"  ng-model="consultant" required>

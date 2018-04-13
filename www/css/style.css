@@ -6,10 +6,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
   font-family: 'Montserrat', sans-serif!important;
 }
 
-.scroll{
+/*.scroll{
   min-height: 100%;
 }
-
+*/
 .bar-stable{
   background-color: #fff !important;
   color:#fff;
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 .logo{
 	width: 100%;
 	text-align: center;
-	padding: 50px;
+	padding: 30px 40px;
 }
 .start{
   width: 100%;
@@ -199,7 +199,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 	background-color: #45539a;
 	color: #fff;
 }
-.button-purple:focus, .button-purple:hover, .button-purple:active
+.button-purple:focus, .button-purple:hover, .button-purple:active,.button-purple.activated
 {
   background-color: #d85b7e;
   color: #fff;
@@ -212,21 +212,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 }
 
 .button-bar{
-  padding:20px;
+  padding:20px 8px;
 }
 
 .bar-assertive{
   background-color: #d75b7e;
 }
-
-/*.button-bar .button:first-child {
-    border-radius: 21px 21px 20px 19px;
-}
-
-
-.button-bar .button:last-child {
-    border-radius: 21px 21px 20px 19px;
-}*/
 
 .bar{
 	padding :0px !important;
@@ -236,10 +227,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 .bar-footer{
   background-color: #45539a;
   color: #fff;
-  padding: 8px !important;
+  padding: 13px 8px !important;
   height: auto;
 }
-
+.bar-footer .row{
+  padding: 0px;
+}
 .item-input .icon {
     min-width: 53px;
     font-size: 35px;
@@ -253,7 +246,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 }
 
 .footer-title {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
 }
 
@@ -263,7 +256,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     border: 1px solid #6479b7;
     border-radius: 7px;
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.9em;
     font-weight: 600;
     margin-left: 10px;
 }
@@ -340,7 +333,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 }
 .bar-header{
   border-bottom: 0px;
-  padding: 25px 10px !important;
+  padding: 0px 10px !important;
   align-items: center;
   height: 56px;
 }
@@ -481,7 +474,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     font-weight: bold;
 }
 .input-group input{
-    border: 2px solid #7f7f7f;
+    border: 1px solid #7f7f7f;
     border-right: 1px solid #939393;
     border-radius: 7px 0 0 7px;
     height: 40px;
@@ -497,7 +490,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     align-items: center;
     justify-content: center;
     width: 20%;
-    border: 2px solid #7f7f7f;
+    border: 1px solid #7f7f7f;
     border-left: 0px solid #939393;
     border-radius: 0 7px 7px 0;
     color: #231f20;
@@ -515,7 +508,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     line-height: 2;
 }
 .form-control{
-    border: 2px solid #7f7f7f !important;
+    border: 1px solid #7f7f7f !important;
     border-radius: 7px !important;
     height: 40px !important;
     padding-left: 5px !important;
@@ -653,14 +646,14 @@ li.item.activated i,li.item.activated h1{
 }
 .pot-content .button-bar{
     padding: 20px 50px;
-    margin: 40px 0;
+    margin: 25px 0;
 }
 .saraly-content .button-bar{
-    padding: 20px 50px;
+    padding: 20px 30px;
     margin: 10px 0;
 }
 .button-bar a.button{
-  min-height: 40px !important
+  min-height: 35px !important
 }
 .button-bar a.button.button-block {
     border: 1px solid #b0b0b0;
@@ -669,7 +662,9 @@ li.item.activated i,li.item.activated h1{
     margin: 0 6px !important;
     font-weight: 500;
     font-size: 1em;
+    line-height: 30px;
     color: #5152a3;
+    padding: 0 8px !important;
 }
 a.button.button-block.button-circle {
     background-color: #5152a3;
@@ -701,6 +696,7 @@ a.button.button-block.button-circle {
     border: 2px solid #ababab;
     padding: 10px;
     margin-top: 30px;
+    margin-bottom: 15px;
     border-radius: 4px;
     font-size: 16px;
     font-weight: 400;
@@ -732,8 +728,8 @@ a.button.button-block.button-circle {
     float: right;
     color: #fff;
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    right: 15px;
+    bottom: 70px;
     padding: 10px;
     border-radius: 50%;
     height: 50px;
@@ -743,6 +739,8 @@ a.button.button-block.button-circle {
     justify-content: center;
     align-items: center;
     font-size: 22px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }
 .misc_hour input, .miscOne_time input{
     border: 2px solid #bcbcbc;
@@ -787,4 +785,9 @@ a.button.button-block.button-circle {
 }
 .bill-rate .col .card-border{
   padding: 10px 25px;
+  margin-bottom: 10px;
+}
+
+.button-bar  .button {
+  padding: 0px 7px !important;
 }

@@ -1,5 +1,6 @@
 // Ionic Starter App
 
+
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -196,17 +197,31 @@ angular.module('starter', ['ionic','rzModule'])
       $state.go("tab.consultant") 
     }
 
-    $scope.marginPercentage=0;
-    $scope.marginDollar=0;
-    $scope.dollar=true;
-    $scope.billButton=function(){
-      $scope.dollar=false;
-      $scope.bill=true;
-    }
-    $scope.dollarButton=function(){
-      $scope.dollar=true;
+    $scope.marginPercentage=45;
+    $scope.marginDollar=1345.19;
+
+    $scope.anual=true;
+
+
+    
+    $scope.anualButton=function(){
+      $scope.hour=false;
+      $scope.anual=true;
       $scope.bill=false;
     }
+    $scope.hourlyButton=function(){
+      $scope.hour=true;
+      $scope.anual=false;
+      $scope.bill=false;
+    }
+
+    $scope.billButton=function(){
+      $scope.bill=true;
+      $scope.anual=false;
+      $scope.hour=false;
+    }
+
+
 
     $scope.standard=true;
     $scope.standarButton=function(){
@@ -255,7 +270,7 @@ angular.module('starter', ['ionic','rzModule'])
       $state.go("dashboard")
     }
 
-    $scope.adjRate=0;
+    $scope.adjRate=42;
 
     $scope.misc_bill=true;
     /*misc_hour
@@ -321,12 +336,14 @@ angular.module('starter', ['ionic','rzModule'])
         var onSwipeLeft = function() {
           var target = tabsCtrl.selectedIndex() + 1;
           if (target < tabsCtrl.tabs.length) {
+            scope.data="swipeleft";
             scope.$apply(tabsCtrl.select(target));
           }
         };
         var onSwipeRight = function() {
           var target = tabsCtrl.selectedIndex() - 1;
           if (target >= 0) {
+            scope.data="swiperight";
             scope.$apply(tabsCtrl.select(target));
           }
         };

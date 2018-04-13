@@ -13,13 +13,15 @@
 
 	<h1 class="consultant-name">James</h1>
 
-   <ion-content class="ion-content content-view saraly-content">
+   <ion-content class="ion-content content-view saraly-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     <div class="button-bar">
-      <a class="button button-block" ng-class="{'button-circle': dollar == true}" ng-click="dollarButton()">Dollar</a>
+      <a class="button button-block" ng-class="{'button-circle': anual == true}" ng-click="anualButton()">Anual</a>
+      <a class="button button-block" ng-class="{'button-circle': hour == true }" ng-click="hourlyButton()">Hourly</a>
       <a class="button button-block" ng-class="{'button-circle': bill == true }" ng-click="billButton()">Bill Rate</a>
+      
   	</div>
 
-	  <div ng-show="dollar">
+	  
 	  	<div class="row bill-content">
 	  		<h2>${{min.dollar}}</h2>
 	  	</div>
@@ -34,24 +36,7 @@
 		    	rz-slider-ceil="DollarSlider.ceil">
 		    </rzslider>
 	  	</div>
-	  </div>
-
-	  <div ng-show="bill">
-	  	<div class="row bill-content">
-	  		<h2>${{min.bill}}</h2>
-	  	</div>
-	  	<div class="row bill-content">
-	  		<p>HOURLY&nbsp;<span class="pink">$32.93</span> </p>
-	  	</div>
-
-	  	<div class="row group1">
-		  	<rzslider 
-		  		 rz-slider-model="min.bill"
-		    	rz-slider-floor="BillSlider.floor"
-		    	rz-slider-ceil="BillSlider.ceil">
-		    </rzslider>
-	  	</div>
-	  </div>
+	  
 
   	<div class="per-diem">
   		<p>Per Diem</p>

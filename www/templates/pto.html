@@ -11,7 +11,7 @@
   		<button class="icon header-title ion-power" ng-click="logout()"></button>
 	</ion-nav-buttons>
 	<h1 class="consultant-name">James</h1>
-   <ion-content class="ion-content content-view pot-content">
+   <ion-content class="ion-content content-view pot-content " ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     <div class="button-bar">
       <a class="button button-block" ng-class="{'button-circle': standard == true}" ng-click="standarButton()">Standard</a>
       <a class="button button-block" ng-class="{'button-circle': other == true }" ng-click="otherButton()">Other</a>
