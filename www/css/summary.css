@@ -38,7 +38,7 @@
 }
 .email-btn{
     color: white;
-    background-color: #45539a;
+    background-color: #5153a3;
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 20px !important;
@@ -46,8 +46,14 @@
     line-height: 30px;
 }
 .bar.bar-assertive {
-    border-color: #45539a;
-    background-color: #45539a;
+    border-color: #5153a3;
+    background-color: #5153a3;
     background-image: linear-gradient(0deg, #e42112, #e42112 50%, transparent 50%);
     color: #fff;
+	height: 150px;
+    text-align: center;
+    padding: 0 30px !important;
+}
+.bar.bar-assertive img{
+	width: 100%;
 }
