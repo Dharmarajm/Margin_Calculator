@@ -266,7 +266,7 @@ angular.module('starter', ['ionic','rzModule'])
     }
 
     $scope.email=function(){
-      alert("Cost Summary for ARUN is send to your email.")
+      alert("Cost Summary for James is send to your email.")
       $state.go("dashboard")
     }
 
