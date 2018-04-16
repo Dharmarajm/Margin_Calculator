@@ -3,13 +3,6 @@
 	  <span class="bar-stable"><strong class="header-title">SALARY</strong></span>
 	</ion-nav-title>
 	
-	<ion-nav-buttons side="left" >
-	  <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-	</ion-nav-buttons>
-
-	<ion-nav-buttons side="right">
-  		<button class="icon header-title ion-power" ng-click="logout()"></button>
-	</ion-nav-buttons>
 
 	<h1 class="consultant-name">James</h1>
 
@@ -27,10 +20,10 @@
 	  	</div>
 	  	<div class="row bill-content">
 	  		<div class="col Col-50">
-	  			<p>HOURLY&nbsp;<span class="pink">${{min.hourly}}</span> </p>
+	  			<p>HOURLY:&nbsp;<span class="pink">${{min.hourly}}</span> </p>
 	  		</div>
 	  		<div class="col Col-50">
-	  		<p>BILL RATE&nbsp;<span class="pink">{{min.rate}}%</span> </p>
+	  		<p>BILL RATE:&nbsp;<span class="pink">{{min.rate}}%</span> </p>
 	  		</div>
 	  	</div>
 
@@ -66,10 +59,8 @@
   	<div class="per-diem">
   		<p>Per Diem</p>
 	  	<div class="row group-center">
-	  		<div class="col col-50 col-50-align">
+	  		<div class="col col-100 col-50-align">
 	  			<span>Daily Max:</span>
-	  		</div>
-	  		<div class="col col-50">
 	  			<input type="text">
 	  		</div>
 	  	</div>
@@ -81,11 +72,11 @@
       <!-- <div class="footer-title">Margin:&nbsp;<span class="title">${{marginDollar}}-{{marginPercentage}}%</span></div> -->
 
       <div class="row">
-        <div class="col col-50 footer-title">
+        <div class="col col-40 footer-title">
           Adj. Rate:<span>${{adjRate}}</span>
         </div>
-        <div class="col col-50 footer-title">
-          Margin:<span>${{marginDollar}} - {{marginPercentage}}%</span>
+        <div class="col col-60 footer-title">
+          Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
         </div>
       </div>
     </div>

@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 }
 
 .button-white{
-  border: 1px solid #b0b0b0;
+  border: 1px solid #ababab;
   background-color: #fff;
   border-radius: 7px;
   font-weight: 500;
@@ -251,13 +251,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     background-color: transparent;
     border: transparent;
     font-weight: 600;
+    font-size: 22px;
 }
 
 .footer-title {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     padding: 0px;
-    text-align: center;
+    text-align: left;
 }
 
 .footer-title span{
@@ -337,6 +338,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
   letter-spacing: 1px;
   font-weight: 500;
   font-size: 12px;
+  margin-top: 30px;
 }
 .ion-power, .ion-navicon{
   color: #5153a3!important;
@@ -475,7 +477,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 }
 .consultant-content .inputMaterial {
     width: 100%;
-    border-bottom: 2px solid #ababab !important;
+    border-bottom: 1px solid #ababab !important;
 }
 .groupText .label {
     color: #383938;
@@ -483,8 +485,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     font-weight: bold;
 }
 .input-group input{
-    border: 1px solid #7f7f7f;
-    border-right: 1px solid #939393;
+    border: 1px solid #ababab;
+    border-right: 1px solid #ababab;
     border-radius: 7px 0 0 7px;
     height: 40px;
     padding-left: 5px;
@@ -499,8 +501,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     align-items: center;
     justify-content: center;
     width: 20%;
-    border: 1px solid #7f7f7f;
-    border-left: 0px solid #939393;
+    border: 1px solid #ababab;
+    border-left: 0px solid #ababab;
     border-radius: 0 7px 7px 0;
     color: #231f20;
     background-color: #fff;
@@ -517,7 +519,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     line-height: 2;
 }
 .form-control{
-    border: 1px solid #7f7f7f !important;
+    border: 1px solid #ababab !important;
     border-radius: 7px !important;
     height: 40px !important;
     padding-left: 5px !important;
@@ -583,9 +585,9 @@ li.item.activated i,li.item.activated h1{
     top: 96px;
     width: 100%;
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 400;
-    padding: 12px 10px;
+    padding: 5px 10px;
     background-color: #fff;
     border-bottom: 1px solid #b2c0da;
     color: #5152a3;
@@ -648,7 +650,7 @@ li.item.activated i,li.item.activated h1{
   margin: 20px 0;
 }
 .content-view {
-    margin-top: 74px;
+    margin-top: 54px;
     margin-bottom: 56px;
     padding: 0 14px;
 }
@@ -774,6 +776,11 @@ a.button.button-block.button-circle {
 .per-diem .group-center{
   align-items: center;
 }
+.per-diem .group-center .col{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .per-diem .group-center span{
   color: #525252;
   font-size: 14px;
@@ -784,7 +791,8 @@ a.button.button-block.button-circle {
     border-radius: 7px;
     height: 40px;
     padding-left: 5px;
-    width: 100%;
+    width: 40%;
+    margin-left: 15px;
     font-size: 16px !important;
     color: #515051 !important;
     font-weight: 500;
@@ -822,12 +830,21 @@ a.button.button-block.button-circle {
     color: #fff;
     font-size: 16px;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
 }
 .sidebar a.activated{
     background-color: #3d408d;
     border-color: #3d408d;
 }
 .sidebar a i{
-  float: right;
+  margin-right: 25px;
   font-size: 24px;
+}
+.overflow-scroll .scroll {
+    height: auto;
+}
+.bar .title + .buttons {
+    top: auto;
+    bottom: 6px;
 }

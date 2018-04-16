@@ -62,21 +62,24 @@ angular.module('starter', ['ionic','rzModule'])
     url: '/consultant',
     views: {
       'consultant': {
-        templateUrl: 'templates/consultant.html'
+        templateUrl: 'templates/consultant.html',
+        controller:'LoginCtrl'
       }
     }
   })
 
   .state('visaStatus', {
      url: '/visaStatus',
-     templateUrl: 'templates/visaStatus.html'
+     templateUrl: 'templates/visaStatus.html',
+      controller:'LoginCtrl'
   })
 
   .state('tab.salary', {
       url: '/salary',
       views: {
         'salary': {
-          templateUrl: 'templates/salary.html'
+          templateUrl: 'templates/salary.html',
+          controller:'LoginCtrl'
         }
     }
   })
@@ -85,14 +88,16 @@ angular.module('starter', ['ionic','rzModule'])
       url: '/relocation',
       views: {
         'relocation': {
-          templateUrl: 'templates/relocation.html'
+          templateUrl: 'templates/relocation.html',
+        controller:'LoginCtrl'
         }
     }
   })
 
   .state('location_states', {
     url: '/location_states',
-    templateUrl: 'templates/location_states.html'
+    templateUrl: 'templates/location_states.html',
+        controller:'LoginCtrl'
   })
 
 
@@ -100,7 +105,8 @@ angular.module('starter', ['ionic','rzModule'])
     url: '/pto',
     views: {
       'pto': {
-        templateUrl: 'templates/pto.html'
+        templateUrl: 'templates/pto.html',
+        controller:'LoginCtrl'
       }
     }
   })
@@ -109,7 +115,8 @@ angular.module('starter', ['ionic','rzModule'])
     url: '/misc',
     views: {
       'misc': {
-        templateUrl: 'templates/misc.html'
+        templateUrl: 'templates/misc.html',
+        controller:'LoginCtrl'
       }
     }
   })
@@ -121,7 +128,8 @@ angular.module('starter', ['ionic','rzModule'])
     url: '/insurance',
     views: {
       'insurance': {
-        templateUrl: 'templates/insurance.html'
+        templateUrl: 'templates/insurance.html',
+        controller:'LoginCtrl'
       }
     }
   })
@@ -131,13 +139,14 @@ angular.module('starter', ['ionic','rzModule'])
     url: '/summary',
     views: {
       'summary': {
-        templateUrl: 'templates/summary.html'
+        templateUrl: 'templates/summary.html',
+        controller:'LoginCtrl'
       }
     }
   });
   
   if(localStorage.getItem("user") == 0){
-    $urlRouterProvider.otherwise('/tab/consultant');
+    $urlRouterProvider.otherwise('/login');
   }
   else{
    $urlRouterProvider.otherwise('/register'); 

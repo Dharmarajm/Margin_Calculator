@@ -3,13 +3,6 @@
 	  <span class="bar-stable"><strong class="header-title">MISCELLANEOUS</strong></span>
 	</ion-nav-title>
 	
-	<ion-nav-buttons side="left" >
-	  <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-	</ion-nav-buttons>
-
-	<ion-nav-buttons side="right">
-  		<button class="icon header-title ion-power" ng-click="logout()"></button>
-	</ion-nav-buttons>
 	<h1 class="consultant-name">James</h1>
    <ion-content class="ion-content content-view" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     <div class="button-bar">
@@ -60,11 +53,11 @@
       <!-- <div class="footer-title">Margin:&nbsp;<span class="title">${{marginDollar}}-{{marginPercentage}}%</span></div> -->
 
       <div class="row">
-        <div class="col col-50 footer-title">
+        <div class="col col-40 footer-title">
           Adj. Rate:<span>${{adjRate}}</span>
         </div>
-        <div class="col col-50 footer-title">
-          Margin:<span>${{marginDollar}} - {{marginPercentage}}%</span>
+        <div class="col col-60 footer-title">
+          Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
         </div>
       </div>
     </div>
