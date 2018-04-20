@@ -1,14 +1,8 @@
-<ion-view cache-view="false" ng-controller="LoginCtrl">
-  <ion-nav-title>
-    <!-- <span class="bar-stable"><strong class="header-title">DASHBOARD</strong></span> -->
-  </ion-nav-title>
-  <ion-nav-buttons side="left" >
+<ion-view cache-view="false">
+  <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
-  <ion-nav-buttons side="right">
-      <button class="icon header-title ion-power" ng-click="logout()"></button>
-  </ion-nav-buttons>
-  <ion-content class="ion-content" ng-controller="LoginCtrl">
+  <ion-content class="ion-content">
 
     <div class="logo">
       <img src="img/logo.png" style="width:100%;" ng-click="start()">
@@ -16,15 +10,20 @@
     <div class="dash-cmp">
       <h4>TOM Technology</h4>
     </div>
-   <!--  <div class="start" ng-mouseover="open = true" ng-mouseleave="open = false">
+    <!--  <div class="start" ng-mouseover="open = true" ng-mouseleave="open = false">
       <img src="img/btn_start_nrm.png" style="width:75%;" ng-click="start()" ng-show="!open">
       <img src="img/btn_start_hvr.png" style="width:75%;" ng-click="start()" ng-show="open">
     </div> -->
 
     <div class="start">
-      <img src="img/btn_start_nrm.png" style="width:75%;" ng-click="start()" >
+      <img src="img/btn_start_nrm.png" style="width:75%;" ng-click="start()">
     </div>
 
-   </ion-content>
+    <div class="row social">
+      <i class="icon ion-social-facebook"></i>
+      <i class="icon ion-social-twitter"></i>
+      <i class="icon ion-social-instagram"></i>
+    </div>
+
+  </ion-content>
 </ion-view>
- 

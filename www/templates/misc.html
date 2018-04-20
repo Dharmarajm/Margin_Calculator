@@ -1,4 +1,4 @@
-<ion-view cache-view="false" ng-controller="LoginCtrl">
+<ion-view cache-view="false">
 	<ion-nav-title>
 	  <span class="bar-stable"><strong class="header-title">MISCELLANEOUS</strong></span>
 	</ion-nav-title>
@@ -49,17 +49,15 @@
   	<div class="add-icon">
   		<i class="icon ion-plus"></i>
   	</div>
-    <div class="bar bar-footer">
-      <!-- <div class="footer-title">Margin:&nbsp;<span class="title">${{marginDollar}}-{{marginPercentage}}%</span></div> -->
-
-      <div class="row">
-        <div class="col col-40 footer-title">
-          Adj. Rate:<span>${{adjRate}}</span>
-        </div>
-        <div class="col col-60 footer-title">
-          Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
-        </div>
+    <div class="bar bar-footer" ng-controller="LoginCtrl">
+    <div class="row">
+      <div class="col col-40 footer-title">
+        Adj. Rate:<span>${{adjRate}}</span>
+      </div>
+      <div class="col col-60 footer-title1">
+        Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
       </div>
     </div>
+  </div>
 
 </ion-view>

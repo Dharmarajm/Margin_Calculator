@@ -1,7 +1,6 @@
 <ion-view cache-view="false" hide-nav-bar="true">
-  <ion-content ng-controller="LoginCtrl">
+  <ion-content>
 
-  
     <div class="logo">
       <img src="img/logo.png" style="width:100%">
     </div>
@@ -10,41 +9,38 @@
       <p>REGISTER</p>
     </div>
 
-   
     <form name="log">
-      
-    <div class="group">      
-      <input class="inputMaterial" type="text" ng-Required="true"  ng-model="user.email" required>
-      <span class="highlight"></span>
-      <div class="label">Email id</div>
-    </div>
-       
-    <div class="group">      
-      <input class="inputMaterial" type="text" ng-Required="true"  ng-model="user.active" required>
-      <span class="highlight"></span>
-      <div class="label">Activation Code</div>
-    </div>
-
-    <div class="group">      
-      <input class="inputMaterial" type="text" ng-Required="true"  ng-model="user.password" required>
-      <span class="highlight"></span>
-      <div class="label">Password</div>
-    </div> 
-
-    <div class="group">      
-      <input class="inputMaterial" type="text" ng-Required="true"  ng-model="user.confirm_password" required>
-      <span class="highlight"></span>
-      <div class="label">Confirm Password</div>
-    </div> 
-      
-      <div class="group1">
-            <button class="button button-block  button-purple"  ng-click='save()'>
-              REGISTER
-            </button>
+      <div class="group">
+        <input class="inputMaterial" type="text" ng-Required="true" ng-model="user.email" required>
+        <span class="highlight"></span>
+        <div class="label">Email&nbsp;id</div>
       </div>
 
+      <div class="group">
+        <input class="inputMaterial" type="text" ng-Required="true" ng-model="user.active" required>
+        <span class="highlight"></span>
+        <div class="label">Activation&nbsp;Code</div>
+      </div>
 
-   	</form>
+      <div class="group">
+        <input class="inputMaterial" type="text" ng-Required="true" ng-model="user.password" required>
+        <span class="highlight"></span>
+        <div class="label">Password</div>
+      </div>
 
-  </ion-content>          
+      <div class="group">
+        <input class="inputMaterial" type="text" ng-Required="true" ng-model="user.confirm_password" required>
+        <span class="highlight"></span>
+        <div class="label">Confirm&nbsp;Password</div>
+      </div>
+
+      <div class="group1">
+        <button class="button button-block  button-purple" ng-click='save()'>
+          REGISTER
+        </button>
+      </div>
+
+    </form>
+
+  </ion-content>
 </ion-view>

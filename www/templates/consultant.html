@@ -1,30 +1,18 @@
 <ion-view cache-view="false">
+  
+  <ion-nav-title>
+    <span class="bar-stable"><strong class="header-title">CONSULTANT</strong></span>
+  </ion-nav-title>
+  
+  <ion-content class="ion-content content-pad consultant-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
-
-	<ion-nav-title>
-	  <span class="bar-stable"><strong class="header-title">CONSULTANT</strong></span>
-	</ion-nav-title>
-	
-	
-	
-
-   <ion-content class="ion-content content-pad consultant-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
-
-   	<div class="groupText">      
-      <input class="inputMaterial" type="text" ng-Required="true"  ng-model="consultant" required>
+    <div class="groupText">
+      <input class="inputMaterial" type="text" ng-Required="true" ng-model="consultant" required>
       <span class="highlight"></span>
       <div class="label">Name</div>
     </div>
 
     <div class="row">
-      <div class="groupButton">
-        <button class="button button-block button-white" ng-click="visa()">
-          {{visaname}}<i class="icon ion-chevron-right group-icon_right"></i>
-        </button>
-      </div>
-  	</div>
-
-    <div class="row mrgn-btm-30">
       <div class="col col-50">
         <label>Bill Rate</label>
         <div class="input-group">
@@ -33,7 +21,7 @@
         </div>
       </div>
       <div class="col col-50">
-        <label>Client Fee</label> 
+        <label>Client Fee</label>
         <div class="input-group">
           <input type="text">
           <span>%</span>
@@ -41,38 +29,48 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col col-100">
+        <div class="groupButton">
+          <button class="button button-block button-white" ng-click="visa()">
+            {{visaname}}<i class="icon ion-chevron-right group-icon_right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col col-50">
         <label>LCA Min</label>
-          <input type="text" class="form-control">
+        <input type="text" class="form-control">
       </div>
       <div class="col col-50">
         <label>Location</label>
         <input type="text" class="form-control">
       </div>
-    </div>   
+    </div>
 
-
-    <!-- <div class="row">
-      <input type="range"  placeholder="Name" ng-Required="true"  ng-model="user.text" style="font-size: 30px;" nim="0">
-    </div> -->
-
-
-
-   </ion-content>
-
-    <div class="bar bar-footer">
-	    <!-- <div class="footer-title">Margin:&nbsp;<span class="title">${{marginDollar}}-{{marginPercentage}}%</span></div> -->
-
-      <div class="row">
-        <div class="col col-40 footer-title">
-          Adj. Rate:<span>${{adjRate}}</span>
-        </div>
-        <div class="col col-60 footer-title">
-          Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+    <div class="row">
+      <div class="col col-100">
+        <div class="groupButton">
+          <button class="button button-block button-white" ng-click="selectNet()">
+            {{netValue}}<i class="icon ion-chevron-right group-icon_right"></i>
+          </button>
         </div>
       </div>
-  	</div>
+    </div>
+
+  </ion-content>
+
+  <div class="bar bar-footer" ng-controller="LoginCtrl">
+    <div class="row">
+      <div class="col col-40 footer-title">
+        Adj. Rate:<span>${{adjRate}}</span>
+      </div>
+      <div class="col col-60 footer-title1">
+        Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+      </div>
+    </div>
+  </div>
 
 </ion-view>

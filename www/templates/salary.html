@@ -1,85 +1,61 @@
-<ion-view cache-view="false"  ng-controller="LoginCtrl">
-	<ion-nav-title>
-	  <span class="bar-stable"><strong class="header-title">SALARY</strong></span>
-	</ion-nav-title>
-	
+<ion-view cache-view="false">
+  <ion-nav-title>
+    <span class="bar-stable"><strong class="header-title">SALARY</strong></span>
+  </ion-nav-title>
 
-	<h1 class="consultant-name">James</h1>
+  <h1 class="consultant-name">James</h1>
 
-   <ion-content class="ion-content content-view salary-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
-    <div class="button-bar">
+  <ion-content class="ion-content content-view salary-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
+    <!-- <div class="button-bar">
       <a class="button button-block" ng-class="{'button-circle': anual == true}" ng-click="anualButton()">Annual</a>
       <a class="button button-block" ng-class="{'button-circle': hour == true }" ng-click="hourlyButton()">Hourly</a>
       <a class="button button-block" ng-class="{'button-circle': bill == true }" ng-click="billButton()">Bill Rate</a>
-      
-  	</div>
+    </div> -->
 
-	  
-	  	<div class="row bill-content">
-	  		<h2>${{min.dollar}}</h2>
-	  	</div>
-	  	<div class="row bill-content">
-	  		<div class="col Col-50">
-	  			<p>HOURLY:&nbsp;<span class="pink">${{min.hourly}}</span> </p>
-	  		</div>
-	  		<div class="col Col-50">
-	  		<p>BILL RATE:&nbsp;<span class="pink">{{min.rate}}%</span> </p>
-	  		</div>
-	  	</div>
+    <div class="row bill-content">
+      <h2>${{min.dollar}}</h2>
+    </div>
+    <div class="row bill-content">
+      <div class="col Col-50">
+        <p>HOURLY:&nbsp;<span class="pink">${{min.hourly}}</span> </p>
+      </div>
+      <div class="col Col-50">
+        <p>BILL RATE:&nbsp;<span class="pink">{{min.rate}}%</span> </p>
+      </div>
+    </div>
 
-	  	
-
-
-	  	<div class="row group1" ng-show="anual">
-		  	<rzslider 
-		  		 rz-slider-model="min.dollar"
-		    	rz-slider-floor="DollarSlider.floor"
-		    	rz-slider-ceil="DollarSlider.ceil">
-		    </rzslider>
-	  	</div>
-
-	  	<div class="row group1" ng-show="hour">
-		  	<rzslider 
-		  		 rz-slider-model="min.hourly"
-		    	rz-slider-floor="hourSlider.floor"
-		    	rz-slider-ceil="hourSlider.ceil">
-		    </rzslider>
-	  	</div>
+    <div class="row group1" >
+      <rzslider rz-slider-model="min.dollar" rz-slider-floor="DollarSlider.floor" rz-slider-ceil="DollarSlider.ceil">
+      </rzslider>
+    </div>
 
 
-	  	<div class="row group1" ng-show="bill">
-		  	<rzslider 
-		  		 rz-slider-model="min.rate"
-		    	rz-slider-floor="rateSlider.floor"
-		    	rz-slider-ceil="rateSlider.ceil">
-		    </rzslider>
-	  	</div>
-	  
-
-  	<div class="per-diem">
-  		<p>Per Diem</p>
-	  	<div class="row group-center">
-	  		<div class="col col-100 col-50-align">
-	  			<span>Daily Max:</span>
-	  			<input type="text">
-	  		</div>
-	  	</div>
-  	</div>
-
-   </ion-content>
-
-    <div class="bar bar-footer">
-      <!-- <div class="footer-title">Margin:&nbsp;<span class="title">${{marginDollar}}-{{marginPercentage}}%</span></div> -->
-
-      <div class="row">
-        <div class="col col-40 footer-title">
-          Adj. Rate:<span>${{adjRate}}</span>
-        </div>
-        <div class="col col-60 footer-title">
-          Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+    <div class="per-diem">
+      <p>Per Diem</p>
+      <div class="row group-center">
+        <div class="col col-100 col-50-align">
+          <span>Daily Max:</span>
+          <input type="text" ng-model="min.perdiem">
         </div>
       </div>
     </div>
-	  
+
+    <div class="row group1" >
+      <rzslider rz-slider-model="min.perdiem" rz-slider-floor="perdiemSlider.floor" rz-slider-ceil="perdiemSlider.ceil">
+      </rzslider>
+    </div>
+
+  </ion-content>
+
+  <div class="bar bar-footer" ng-controller="LoginCtrl">
+    <div class="row">
+      <div class="col col-40 footer-title">
+        Adj. Rate:<span>${{adjRate}}</span>
+      </div>
+      <div class="col col-60 footer-title1">
+        Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+      </div>
+    </div>
+  </div>
 
 </ion-view>

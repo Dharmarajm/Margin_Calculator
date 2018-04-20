@@ -12,9 +12,7 @@
 
 .groupButton  { 
   position:relative; 
-  margin-bottom: 35px; 
-/*  margin-left: 5px;
-  margin-right: 5px;*/
+  margin: 35px 0 30px;
   width:100%;
 }
 
@@ -93,9 +91,8 @@
 /* ANIMATIONS ================ */
 
 
-
-
-
-
- 
-
+@media only screen and (max-width: 480px) {
+    .companyname {
+        font-size: 10px;
+    }
+}

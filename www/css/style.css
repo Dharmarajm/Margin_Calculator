@@ -6,15 +6,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
   font-family: 'Montserrat', sans-serif!important;
 }
 
-/*.scroll{
-  min-height: 100%;
-}
-*/
-.bar-stable{
-  background-color: #fff !important;
-  color:#fff;
-}
-
 .bar-subheader{
 	background-color: #fafcfc !important;
   color:#fff;
@@ -261,7 +252,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     text-align: left;
 }
 
-.footer-title span{
+.footer-title1 {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px;
+    text-align: right;
+}
+
+.footer-title span, .footer-title1 span{
     padding: 5px 10px;
     background-color: #494daa;
     border: 1px solid #44479b;
@@ -847,4 +845,15 @@ a.button.button-block.button-circle {
 .bar .title + .buttons {
     top: auto;
     bottom: 6px;
+}
+
+.social{
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-size: 30px;
+    color: #787878;
+}
+.social .icon {
+    padding: 0px 20px;
 }

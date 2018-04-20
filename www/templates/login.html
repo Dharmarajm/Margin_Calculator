@@ -1,5 +1,5 @@
 <ion-view cache-view="false" hide-nav-bar="true">
-  <ion-content class="ion-content" ng-controller="LoginCtrl">
+  <ion-content class="ion-content">
     <div class="logo">
       <img src="img/logo.png" style="width:100%">
     </div>
@@ -7,38 +7,30 @@
     <div class="row content-header">
       <p>LOGIN</p>
     </div>
-   
-   <form name="log">
-    
-    <!-- <div class="item item-input group1">
-      <input type="text"  placeholder="Username" ng-Required="true"  ng-model="user.username">
-    </div>
-     
-    <div  class="item item-input group1">
-      <input type="{{password}}"  placeholder="password" ng-Required="true" ng-model="user.password">
-      <i class="icon" ng-click='ShowPassword()' ng-class=" password =='password' ?  'ion-eye-disabled' : 'ion-eye'"></i>
-    </div>  --> 
-    
-    <div class="group">      
-       <input class="inputMaterial" type="text" ng-Required="true"  ng-model="user.username" required>
-       <span class="highlight"></span>
-       <div class="label">Email id</div>
-    </div>
-   
-    <div class="group">      
-       <input class="inputMaterial" type="password" ng-Required="true" ng-model="user.password"  required>
-       <span class="highlight"></span>
-       <div class="label">Password</div>
-    </div>
-    
-    <div class="group1">
-      <button class="button button-block button-purple" ng-click='login()'>  SIGN IN
-      </button>
-    </div>
+
+    <form name="log">
+
+      <div class="group">
+        <input class="inputMaterial" type="text" ng-Required="true" ng-model="user.email" required>
+        <span class="highlight"></span>
+        <div class="label">Email&nbsp;id</div>
+      </div>
+
+      <div class="group">
+        <input class="inputMaterial" type="password" ng-Required="true" ng-model="user.password" required>
+        <span class="highlight"></span>
+        <div class="label">Password</div>
+      </div>
+
+      <div class="group1">
+        <button class="button button-block button-purple" ng-click='login()'> SIGN IN
+        </button>
+        <!-- <button class="button button-block button-purple" ng-disabled="log.$invalid" ng-click='login()'> SIGN IN
+        </button> -->
+      </div>
 
       <p class="forgot_pw">FORGOT PASSWORD?</p>
 
-
-	</form>
-   </ion-content>
+    </form>
+  </ion-content>
 </ion-view>

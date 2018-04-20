@@ -1,65 +1,60 @@
 <ion-view cache-view="false">
-	 <ion-nav-title>
-	  <span class="bar-stable"><strong class="header-title">PTO</strong></span>
-	</ion-nav-title>
-	
-	
-	<h1 class="consultant-name">James</h1>
-   <ion-content class="ion-content content-view pot-content " ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
+  <ion-nav-title>
+    <span class="bar-stable"><strong class="header-title">PTO</strong></span>
+  </ion-nav-title>
+
+
+  <h1 class="consultant-name">James</h1>
+  <ion-content class="ion-content content-view pot-content " ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     <div class="button-bar">
       <a class="button button-block" ng-class="{'button-circle': standard == true}" ng-click="standarButton()">Standard</a>
       <a class="button button-block" ng-class="{'button-circle': other == true }" ng-click="otherButton()">Other</a>
-  	</div>
+    </div>
 
-	  <div ng-show="standard">
-	  	<div class="row group-center">
-			<div class="col col-50 col-50-align line">
-				<label>HOURS</label>
-				<h2>15:00</h2>
-			</div>
-			<div class="col col-50 col-50-align">
-				<label>DAYS</label>
-				<h2 >10</h2>
-			</div>
-	  	</div>
-	  </div>
-
-	  <div ng-show="other">
-	  	<div class="row group-center">
-			<div class="col col-50 col-50-align line">
-				<label>HOURS</label>
-				<h2>{{min.other}}:00</h2>
-			</div>
-			<div class="col col-50 col-50-align">
-				<label>DAYS</label>
-				<h2>0</h2>
-			</div>
-	  	</div>
-	  	<br>
-	  	<div class="row group1">
-		  	<rzslider 
-		  		 rz-slider-model="min.other"
-		    	rz-slider-floor="otherSlide.floor"
-		    	rz-slider-ceil="otherSlide.ceil">
-		    </rzslider>
-	  	</div>
-	  </div>
-
-  	
-
-   </ion-content>
-
-     <div class="bar bar-footer">
-	    <!-- <div class="footer-title">Margin:&nbsp;<span class="title">${{marginDollar}}-{{marginPercentage}}%</span></div> -->
-
-      <div class="row">
-        <div class="col col-40 footer-title">
-          Adj. Rate:<span>${{adjRate}}</span>
+    <div ng-show="standard">
+      <div class="row group-center">
+        <div class="col col-50 col-50-align line">
+          <label>HOURS</label>
+          <h2>15:00</h2>
         </div>
-        <div class="col col-60 footer-title">
-          Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+        <div class="col col-50 col-50-align">
+          <label>DAYS</label>
+          <h2>10</h2>
         </div>
       </div>
-  	</div>
+    </div>
+
+    <div ng-show="other">
+      <div class="row group-center">
+        <div class="col col-50 col-50-align line">
+          <label>HOURS</label>
+          <h2>{{min.other}}:00</h2>
+        </div>
+        <div class="col col-50 col-50-align">
+          <label>DAYS</label>
+          <h2>0</h2>
+        </div>
+      </div>
+      <br>
+      <div class="row group1">
+        <rzslider rz-slider-model="min.other" rz-slider-floor="otherSlide.floor" rz-slider-ceil="otherSlide.ceil">
+        </rzslider>
+      </div>
+    </div>
+
+
+
+  </ion-content>
+
+  <div class="bar bar-footer" ng-controller="LoginCtrl">
+    <div class="row">
+      <div class="col col-40 footer-title">
+        Adj. Rate:<span>${{adjRate}}</span>
+      </div>
+      <div class="col col-60 footer-title1">
+        Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+      </div>
+    </div>
+  </div>
 
 </ion-view>
