@@ -7,8 +7,8 @@
   <h1 class="consultant-name">James</h1>
   <ion-content class="ion-content content-view pot-content " ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     <div class="button-bar">
-      <a class="button button-block" ng-class="{'button-circle': standard == true}" ng-click="standarButton()">Standard</a>
-      <a class="button button-block" ng-class="{'button-circle': other == true }" ng-click="otherButton()">Other</a>
+      <a class="button button-block" id="pto_std" ng-class="{'button-circle': standard == true}" ng-click="standarButton()">Standard</a>
+      <a class="button button-block" id="pto_other" ng-class="{'button-circle': other == true }" ng-click="otherButton()">Other</a>
     </div>
 
     <div ng-show="standard">
@@ -37,7 +37,7 @@
       </div>
       <br>
       <div class="row group1">
-        <rzslider rz-slider-model="min.other" rz-slider-floor="otherSlide.floor" rz-slider-ceil="otherSlide.ceil">
+        <rzslider rz-slider-model="min.other" id="pto_slider" rz-slider-floor="otherSlide.floor" rz-slider-options="" rz-slider-ceil="otherSlide.ceil">
         </rzslider>
       </div>
     </div>

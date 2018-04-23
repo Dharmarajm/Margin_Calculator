@@ -6,9 +6,9 @@
 	<h1 class="consultant-name">James</h1>
    <ion-content class="ion-content content-view" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     <div class="button-bar">
-      <a class="button button-block" ng-class="{'button-circle': misc_bill == true}" ng-click="MiscBill()">Bill Rate</a>
-      <a class="button button-block" ng-class="{'button-circle': misc_hour == true }" ng-click="MiscHour()">Hourly</a>
-      <a class="button button-block" ng-class="{'button-circle': miscOne_time == true }" ng-click="MiscOne()">OneTime</a>
+      <a class="button button-block" id="mis_bill" ng-class="{'button-circle': misc_bill == true}" ng-click="MiscBill()">Bill Rate</a>
+      <a class="button button-block" id="mis_hrs" ng-class="{'button-circle': misc_hour == true }" ng-click="MiscHour()">Hourly</a>
+      <a class="button button-block" id="mis_one" ng-class="{'button-circle': miscOne_time == true }" ng-click="MiscOne()">OneTime</a>
   	</div>
 
 	  <div ng-show="misc_bill">
@@ -21,7 +21,7 @@
 
 	  	<div class="row group1">
 		  	<rzslider 
-		  		 rz-slider-model="min.mis_bill"
+		  		 rz-slider-model="min.mis_bill" id="misc_bill_slide"
 		    	rz-slider-floor="MiscbillSlide.floor"
 		    	rz-slider-ceil="MiscbillSlide.ceil">
 		    </rzslider>
@@ -30,20 +30,20 @@
 
 	  <div ng-show="misc_hour" class="misc_hour">
 	  	<div class="row group1">
-	  		<input type="text" placeholder="$">
+	  		<input type="text" placeholder="$" id="misc_hr">
 	  	</div>
 	  </div>
 
 	  <div ng-show="miscOne_time" class="miscOne_time">
 	  	<div class="row group1">
-	  		<input type="text" placeholder="$">
+	  		<input type="text" placeholder="$" id="misc_one">
 	  	</div>
 	  </div>
 
 
 
   	<div class="row group1 border">
-  	  <textarea placeholder="Misc notes" rows="4"></textarea>
+  	  <textarea placeholder="Misc notes" rows="4" id="mis_note"></textarea>
   	</div>
    </ion-content>
   	<div class="add-icon">

@@ -7,7 +7,7 @@
   <ion-content class="ion-content content-pad consultant-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
     <div class="groupText">
-      <input class="inputMaterial" type="text" ng-Required="true" ng-model="consultant" required>
+      <input class="inputMaterial" id="con_name" type="text" ng-Required="true" ng-model="consultant" required>
       <span class="highlight"></span>
       <div class="label">Name</div>
     </div>
@@ -16,14 +16,14 @@
       <div class="col col-50">
         <label>Bill Rate</label>
         <div class="input-group">
-          <input type="text">
+          <input type="text" id="bill_rate">
           <span>$</span>
         </div>
       </div>
       <div class="col col-50">
         <label>Client Fee</label>
         <div class="input-group">
-          <input type="text">
+          <input type="text" id="client_fee">
           <span>%</span>
         </div>
       </div>
@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col col-100">
         <div class="groupButton">
-          <button class="button button-block button-white" ng-click="visa()">
+          <button class="button button-block button-white" ng-click="visa()" id="visa">
             {{visaname}}<i class="icon ion-chevron-right group-icon_right"></i>
           </button>
         </div>
@@ -42,18 +42,18 @@
     <div class="row">
       <div class="col col-50">
         <label>LCA Min</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" id="lca_min">
       </div>
       <div class="col col-50">
         <label>Location</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" id="location">
       </div>
     </div>
 
     <div class="row">
       <div class="col col-100">
         <div class="groupButton">
-          <button class="button button-block button-white" ng-click="selectNet()">
+          <button class="button button-block button-white" id="net" ng-click="selectNet()">
             {{netValue}}<i class="icon ion-chevron-right group-icon_right"></i>
           </button>
         </div>

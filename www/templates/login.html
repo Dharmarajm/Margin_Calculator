@@ -11,19 +11,19 @@
     <form name="log">
 
       <div class="group">
-        <input class="inputMaterial" type="text" ng-Required="true" ng-model="user.email" required>
+        <input class="inputMaterial" id="email" type="text" ng-Required="true" ng-model="user.email" required>
         <span class="highlight"></span>
         <div class="label">Email&nbsp;id</div>
       </div>
 
       <div class="group">
-        <input class="inputMaterial" type="password" ng-Required="true" ng-model="user.password" required>
+        <input class="inputMaterial" id="password" type="password" ng-Required="true" ng-model="user.password" required>
         <span class="highlight"></span>
         <div class="label">Password</div>
       </div>
 
       <div class="group1">
-        <button class="button button-block button-purple" ng-click='login()'> SIGN IN
+        <button class="button button-block button-purple" id="login-button" ng-click='login()'> SIGN IN
         </button>
         <!-- <button class="button button-block button-purple" ng-disabled="log.$invalid" ng-click='login()'> SIGN IN
         </button> -->

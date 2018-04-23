@@ -21,7 +21,11 @@ angular.module('Pto', [])
     max: 24,
     ceil: 24,
     floor: 0,
+    onEnd: $scope.myEndListener
   };
 
+ $scope.myEndListener = function(sliderId) {
+    console.log(sliderId, 'has ended with ', $scope.slider.min);
+}
 
 })

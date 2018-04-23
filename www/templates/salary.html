@@ -25,7 +25,7 @@
     </div>
 
     <div class="row group1" >
-      <rzslider rz-slider-model="min.dollar" rz-slider-floor="DollarSlider.floor" rz-slider-ceil="DollarSlider.ceil">
+      <rzslider rz-slider-model="min.dollar" id="sal_slider" rz-slider-floor="DollarSlider.floor" rz-slider-ceil="DollarSlider.ceil">
       </rzslider>
     </div>
 
@@ -34,17 +34,17 @@
       <p>Per Diem</p>
       <div class="row group-center">
         <div class="col col-100 col-50-align">
-          <span>Daily Max:</span>
-          <input type="text" ng-model="min.perdiem">
+          <span>Hourly:</span>
+          <input type="text" ng-model="min.perdiem" id="sal_perdiem">
         </div>
       </div>
     </div>
 
     <div class="row group1" >
-      <rzslider rz-slider-model="min.perdiem" rz-slider-floor="perdiemSlider.floor" rz-slider-ceil="perdiemSlider.ceil">
+      <rzslider rz-slider-model="min.perdiem" rz-slider-floor="perdiemSlider.floor" rz-slider-ceil="perdiemSlider.ceil" id="sal_perdiem_slide">
       </rzslider>
     </div>
-
+<br>
   </ion-content>
 
   <div class="bar bar-footer" ng-controller="LoginCtrl">

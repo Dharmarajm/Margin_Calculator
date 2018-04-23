@@ -8,7 +8,7 @@
   <ion-content class="ion-content content-view relocation-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
     <div class="groupButton">
-      <button class="button button-block button-white" ng-click="selectState()">
+      <button class="button button-block button-white" id="select_locate" ng-click="selectState()">
         Select State <i class="icon ion-chevron-right group-icon_right"></i>
       </button>
     </div>
@@ -34,7 +34,7 @@
 
     <br>
     <div class="row group1">
-      <rzslider rz-slider-model="min.relocation" rz-slider-floor="minLocation.floor" rz-slider-ceil="minLocation.ceil">
+      <rzslider rz-slider-model="min.relocation" id="loca_slide" rz-slider-floor="minLocation.floor" rz-slider-ceil="minLocation.ceil">
       </rzslider>
     </div>
 
