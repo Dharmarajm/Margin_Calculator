@@ -4,7 +4,7 @@
   </div>
   <ion-content class="ion-content visa-status">
     <ul class="list">
-      <li class="item" ng-repeat="i in ['Net-15','Net-30','Net-45','Net-60','Net-75','Net-90']" id="select_net" ng-click="backNet(i)">
+      <li class="item" ng-repeat="i in ['Net-15','Net-30','Net-45','Net-60','Net-75','Net-90']" id="select_net{{$index}}" ng-click="backNet(i)">
         <i class="icon ion-chevron-left"></i>
         <h1>{{i}}</h1>
       </li>

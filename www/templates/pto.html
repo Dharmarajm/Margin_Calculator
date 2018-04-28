@@ -1,11 +1,14 @@
-<ion-view cache-view="false">
+<ion-view cache-view="false" ng-cloak>
   <ion-nav-title>
     <span class="bar-stable"><strong class="header-title">PTO</strong></span>
   </ion-nav-title>
 
 
-  <h1 class="consultant-name">James</h1>
+  <h1 class="consultant-name">{{candidatename}}</h1>
   <ion-content class="ion-content content-view pot-content " ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
+    
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+
     <div class="button-bar">
       <a class="button button-block" id="pto_std" ng-class="{'button-circle': standard == true}" ng-click="standarButton()">Standard</a>
       <a class="button button-block" id="pto_other" ng-class="{'button-circle': other == true }" ng-click="otherButton()">Other</a>
@@ -15,11 +18,11 @@
       <div class="row group-center">
         <div class="col col-50 col-50-align line">
           <label>HOURS</label>
-          <h2>15:00</h2>
+          <h2>{{pto.hours}}</h2>
         </div>
         <div class="col col-50 col-50-align">
           <label>DAYS</label>
-          <h2>10</h2>
+          <h2>{{pto.days}}</h2>
         </div>
       </div>
     </div>
@@ -28,16 +31,16 @@
       <div class="row group-center">
         <div class="col col-50 col-50-align line">
           <label>HOURS</label>
-          <h2>{{min.other}}:00</h2>
+          <h2 editable-text="slider.min"></h2>
         </div>
         <div class="col col-50 col-50-align">
           <label>DAYS</label>
-          <h2>0</h2>
+          <h2>{{otherDays}}</h2>
         </div>
       </div>
       <br>
       <div class="row group1">
-        <rzslider rz-slider-model="min.other" id="pto_slider" rz-slider-floor="otherSlide.floor" rz-slider-options="" rz-slider-ceil="otherSlide.ceil">
+        <rzslider rz-slider-model="slider.min" id="ptoSlider" rz-slider-high="slider.max" rz-slider-options="slider">
         </rzslider>
       </div>
     </div>
@@ -49,10 +52,10 @@
   <div class="bar bar-footer" ng-controller="LoginCtrl">
     <div class="row">
       <div class="col col-40 footer-title">
-        Adj. Rate:<span>${{adjRate}}</span>
+        Adj. Rate:<span>${{adjRate | number:2 }}</span>
       </div>
       <div class="col col-60 footer-title1">
-        Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+        Margin:<span>${{marginDollar | number:2 }}&nbsp;|&nbsp;{{marginPercentage | number:2 }}%</span>
       </div>
     </div>
   </div>

@@ -1,9 +1,9 @@
-<ion-view cache-view="false">
+<ion-view cache-view="false" ng-cloak>
   <ion-nav-title>
     <span class="bar-stable"><strong class="header-title">SALARY</strong></span>
   </ion-nav-title>
 
-  <h1 class="consultant-name">James</h1>
+  <h1 class="consultant-name">{{candidatename}}</h1>
 
   <ion-content class="ion-content content-view salary-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     <!-- <div class="button-bar">
@@ -12,21 +12,23 @@
       <a class="button button-block" ng-class="{'button-circle': bill == true }" ng-click="billButton()">Bill Rate</a>
     </div> -->
 
+      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+      
     <div class="row bill-content">
-      <h2>${{min.dollar}}</h2>
+      <h2>$<span editable-text="salarySlider.min"></span> </h2>
     </div>
     <div class="row bill-content">
       <div class="col Col-50">
-        <p>HOURLY:&nbsp;<span class="pink">${{min.hourly}}</span> </p>
+        <p>HOURLY:&nbsp;<span class="pink">${{hour}}</span> </p>
       </div>
       <div class="col Col-50">
-        <p>BILL RATE:&nbsp;<span class="pink">{{min.rate}}%</span> </p>
+        <p>BILL RATE:&nbsp;<span class="pink">{{bill}}%</span> </p>
       </div>
     </div>
 
     <div class="row group1" >
-      <rzslider rz-slider-model="min.dollar" id="sal_slider" rz-slider-floor="DollarSlider.floor" rz-slider-ceil="DollarSlider.ceil">
-      </rzslider>
+       <rzslider  rz-slider-model="salarySlider.min" id="salerySlider" rz-slider-high="salarySlider.max" rz-slider-options="salarySlider">
+       </rzslider>
     </div>
 
 
@@ -35,25 +37,25 @@
       <div class="row group-center">
         <div class="col col-100 col-50-align">
           <span>Hourly:</span>
-          <input type="text" ng-model="min.perdiem" id="sal_perdiem">
+          <input type="number" ng-model="perdiemSlider.min" id="sal_perdiem" max="100">
         </div>
       </div>
     </div>
 
-    <div class="row group1" >
-      <rzslider rz-slider-model="min.perdiem" rz-slider-floor="perdiemSlider.floor" rz-slider-ceil="perdiemSlider.ceil" id="sal_perdiem_slide">
-      </rzslider>
+    <div class="row group1">
+      <rzslider rz-slider-model="perdiemSlider.min" id="periem_id" rz-slider-high="perdiemSlider.max" rz-slider-options="perdiemSlider">
+       </rzslider>
     </div>
-<br>
+
   </ion-content>
 
   <div class="bar bar-footer" ng-controller="LoginCtrl">
     <div class="row">
       <div class="col col-40 footer-title">
-        Adj. Rate:<span>${{adjRate}}</span>
+        Adj. Rate:<span>${{adjRate | number:2 }}</span>
       </div>
       <div class="col col-60 footer-title1">
-        Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+        Margin:<span>${{marginDollar | number:2 }}&nbsp;|&nbsp;{{marginPercentage | number:2 }}%</span>
       </div>
     </div>
   </div>

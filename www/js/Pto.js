@@ -1,11 +1,8 @@
 angular.module('Pto', [])
 
-.controller('PtoCtrl', function($scope,$state,$http,$rootScope) {
-
-  $scope.min = {
-    other: 0
-  }
+.controller('PtoCtrl', function($scope,$state,$http,$rootScope,$timeout) {
 	
+  $scope.pto=$rootScope.OverAllData[0].pto;
   $scope.standard = true;
   $scope.standarButton = function() {
     $scope.standard = true;
@@ -15,17 +12,23 @@ angular.module('Pto', [])
     $scope.standard = false;
     $scope.other = true;
   }
-
-  $scope.otherSlide = {
-    min: 0,
-    max: 24,
-    ceil: 24,
-    floor: 0,
-    onEnd: $scope.myEndListener
+  $scope.otherDays=0;
+  $scope.myEndListener = function() {
+    $rootScope.ptoHrs=$rootScope.slider.min;
+    $scope.otherDays=Math.round($rootScope.slider.min/8);
+    $rootScope.doRefresh();   
   };
 
- $scope.myEndListener = function(sliderId) {
-    console.log(sliderId, 'has ended with ', $scope.slider.min);
-}
+  $rootScope.slider = {
+    min: 1,
+    max: 250,
+    floor: 1,
+    onEnd: $scope.myEndListener
+  }
 
-})
+  
+
+  
+
+
+})  

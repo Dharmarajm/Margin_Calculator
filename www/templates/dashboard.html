@@ -1,14 +1,14 @@
-<ion-view cache-view="false">
+<ion-view cache-view="false" ng-cloak>
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="ion-content">
 
     <div class="logo">
-      <img src="img/logo.png" style="width:100%;" ng-click="start()">
+      <img src="img/logo.png" style="width:100%;">
     </div>
     <div class="dash-cmp">
-      <h4>TOM Technology</h4>
+      <h4>{{company_name}}</h4>
     </div>
     <!--  <div class="start" ng-mouseover="open = true" ng-mouseleave="open = false">
       <img src="img/btn_start_nrm.png" style="width:75%;" ng-click="start()" ng-show="!open">
@@ -16,7 +16,7 @@
     </div> -->
 
     <div class="start">
-      <img src="img/btn_start_nrm.png" style="width:75%;" ng-click="start()" id="start">
+      <img src="img/btn_start_nrm.png" style="width:75%;" ng-click="start()">
     </div>
 
     <div class="row social">

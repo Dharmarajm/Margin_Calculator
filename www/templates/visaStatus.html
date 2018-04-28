@@ -4,17 +4,26 @@
     </div>
    <ion-content class="ion-content visa-status">
     <ul class="list">
-        <li class="item" ng-repeat="i in ['H1-New/Xfer','H1 Contn..','Others','GC/GUSC']" id="slect_visa" ng-click="backVisa(i)">
+        <li class="item" id="slect_visa1" ng-model="Allvisa.h1_new" ng-click="backVisa(Allvisa.h1_new,'H1-New/Xfer')">
             <i class="icon ion-chevron-left"></i>
-            <h1>{{i}}</h1>
+            <h1>H1-New/Xfer</h1>
         </li>
+        
+        <li class="item" id="slect_visa2" ng-model="Allvisa.h1_con" ng-click="backVisa(Allvisa.h1_con,'H1 Contn..')">
+            <i class="icon ion-chevron-left"></i>
+            <h1>H1 Contn..</h1>
+        </li>
+        <li class="item" id="slect_visa3" ng-model="Allvisa.gc_holder" ng-click="backVisa(Allvisa.gc_holder,'Others')">
+            <i class="icon ion-chevron-left"></i>
+            <h1>Others</h1>
+        </li>
+        <li class="item" id="slect_visa4" ng-model="Allvisa.us_citizen" ng-click="backVisa(Allvisa.us_citizen,'GC/CUSC')">
+            <i class="icon ion-chevron-left"></i>
+            <h1>GC/CUSC</h1>
+        </li>
+
     </ul>
-<!--     <div class="row" ng-repeat="i in ['H1-New/Xfer','H1 Contn..','GC Holder','US Citizen']">
-        <button class="button button-block button-white" ng-click="backVisa(i)">
-        <i class="icon ion-chevron-left group-icon_left"></i>
-          {{i}} 
-        </button>
-    </div> --> 
+
 
    </ion-content>
 

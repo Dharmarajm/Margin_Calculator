@@ -1,11 +1,13 @@
-<ion-view cache-view="false">
+<ion-view cache-view="false" ng-cloak>
   <ion-nav-title>
     <span class="bar-stable"><strong class="header-title">INSURANCE</strong></span>
   </ion-nav-title>
 
-  <h1 class="consultant-name">James</h1>
+  <h1 class="consultant-name">{{candidatename}}</h1>
 
   <ion-content class="ion-content content-view insurance-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
 
     <div class="content-header">
       <p>MEDICAL</p>
@@ -14,29 +16,14 @@
     <div>
       <div class="row radio">
         <div class="col col-50">
-          <label class="container">Single
-            <input type="radio"  name="radio" id="med_rad_1">
+          <label class="container" ng-model="medical.single" ng-click="medicalButton(medical.single,'single')">Single
+            <input type="radio"  name="radio" id="med_rad_1" ng-checked="checked11">
             <span class="checkmark"></span>
           </label>
         </div>
         <div class="col col-50">
-          <label class="container">Couple
-            <input type="radio"  name="radio" id="med_rad_2">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="row radio">
-        <div class="col col-50">
-          <label class="container">Family
-            <input type="radio" name="radio" id="med_rad_3">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-        <div class="col col-50">
-          <label class="container">E & C
-            <input type="radio"  name="radio" id="med_rad_4">
+          <label class="container" ng-model="medical.couple" ng-click="medicalButton(medical.couple,'couple')">Couple
+            <input type="radio"  name="radio" id="med_rad_2" ng-checked="checked22">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -44,8 +31,23 @@
 
       <div class="row radio">
         <div class="col col-50">
-          <label class="container">Waive
-            <input type="radio"  name="radio" id="med_rad_5">
+          <label class="container" ng-model="medical.family" ng-click="medicalButton(medical.family,'family')">Family
+            <input type="radio" name="radio" id="med_rad_3" ng-checked="checked33">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="container" ng-model="medical.eandc" ng-click="medicalButton(medical.eandc,'eandc')">E & C
+            <input type="radio"  name="radio" id="med_rad_4" ng-checked="checked44">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="row radio">
+        <div class="col col-50">
+          <label class="container" ng-model="medical.none" ng-click="medicalButton(medical.none,'none')">Waive
+            <input type="radio"  name="radio" id="med_rad_5" ng-checked="checked55">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -60,29 +62,29 @@
     <div>
       <div class="row radio">
         <div class="col col-50">
-          <label class="container">Single
-            <input type="radio" name="radio1" id="den_rad_1">
+          <label class="container" ng-model="dental.single" ng-click="dentalButton(dental.single,'single')">Single
+            <input type="radio" name="radio1" id="den_rad_1" ng-checked="checked1">
             <span class="checkmark"></span>
           </label>
         </div>
         <div class="col col-50">
-          <label class="container">Couple
-            <input type="radio" name="radio1" id="den_rad_2">
+          <label class="container" ng-model="dental.couple" ng-click="dentalButton(dental.couple,'couple')">Couple
+            <input type="radio" name="radio1" id="den_rad_2" ng-checked="checked2">
             <span class="checkmark"></span>
           </label>
         </div>
       </div>
 
       <div class="row radio">
-        <div class="col col-50">
-          <label class="container">Family
-            <input type="radio" name="radio1" id="den_rad_3">
+        <div class="col col-50" >
+          <label class="container" ng-model="dental.family" ng-click="dentalButton(dental.family,'family')">Family
+            <input type="radio" name="radio1" id="den_rad_3" ng-checked="checked3">
             <span class="checkmark"></span>
           </label>
         </div>
         <div class="col col-50">
-          <label class="container">E & C
-            <input type="radio" name="radio1" id="den_rad_4">
+          <label class="container" ng-model="dental.eandc" ng-click="dentalButton(dental.eandc,'eandc')">E & C
+            <input type="radio" name="radio1" id="den_rad_4" ng-checked="checked4">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -91,8 +93,8 @@
 
       <div class="row radio">
         <div class="col col-50">
-          <label class="container">Waive
-            <input type="radio"  name="radio" id="den_rad_5">
+          <label class="container" ng-model="dental.none" ng-click="dentalButton(dental.none,'none')">Waive
+            <input type="radio"  name="radio" id="den_rad_5" ng-checked="checked5">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -124,10 +126,10 @@
    <div class="bar bar-footer" ng-controller="LoginCtrl">
     <div class="row">
       <div class="col col-40 footer-title">
-        Adj. Rate:<span>${{adjRate}}</span>
+        Adj. Rate:<span>${{adjRate| number:2 }}</span>
       </div>
       <div class="col col-60 footer-title1">
-        Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+        Margin:<span>${{marginDollar| number:2 }}&nbsp;|&nbsp;{{marginPercentage| number:2 }}%</span>
       </div>
     </div>
   </div>

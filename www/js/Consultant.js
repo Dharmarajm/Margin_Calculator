@@ -1,18 +1,181 @@
 angular.module('Consultant', [])
 
-.controller('ConsultantCtrl', function($scope,$state,$http,$rootScope) {
- $scope.visaname = "Visa Status"
+.controller('ConsultantCtrl', function($scope,$state,$http,$rootScope,$timeout) {
+
+/*if($rootScope.cons.bill_rate != "" || $rootScope.cons.client_fee != "" && $rootScope.cons.bill_rate !=undefined || $rootScope.cons.client_fee != undefined){
+  $rootScope.cons.bill_rate=$rootScope.cons.bill_rate;
+  $rootScope.cons.client_fee=$rootScope.cons.client_fee;
+}
+else{
+  $rootScope.cons={bill_rate:'',client_fee:''}  
+}*/
+
+if($rootScope.cons != undefined){
+   $rootScope.cons.bill_rate=$rootScope.cons.bill_rate;
+  $rootScope.cons.client_fee=$rootScope.cons.client_fee;
+}else{
+  $rootScope.cons={bill_rate:'',client_fee:''}  
+}
+
+
+  if($rootScope.adjRate == "" || $rootScope.adjRate == 0){
+    $rootScope.adjRate=0;
+  }
+  if($rootScope.marginPercentage == "" || $rootScope.marginPercentage == undefined){
+    $rootScope.marginPercentage=0;
+  }
+  if($rootScope.marginDollar =="" || $rootScope.marginDollar == undefined){
+    $rootScope.marginDollar=0;
+  }
+
+ $rootScope.doRefresh =function() {
+       var data ={
+      "cost_calc":
+        {
+        "salary":$rootScope.SalaryValue,
+        "bill_rate":$rootScope.cons.bill_rate,
+        "client_fee":$rootScope.cons.client_fee,
+        "visa_status":$rootScope.visaStateValue,
+        "payment_term":$rootScope.netTerm,
+        "pto_hours":$rootScope.ptoHrs,
+        "state": $rootScope.relocation_value,
+        "relocation":$rootScope.reLocationValue,
+        "medical":$rootScope.medicalvalue,
+        "dental":$rootScope.dentalvalue,
+        "per_diem":$rootScope.perdiemValue,
+        "corporate_insurance":$rootScope.OverAllData[0].corporate_insurance,
+        "finance_charge":$rootScope.OverAllData[0].financial_insurance,
+        "company_id":$rootScope.company_Details.id,
+        "misc":$rootScope.misc
+        }
+      }
+      $http({
+        method: 'post',
+        url: CommonURL + '/recruiters/margin_calc',
+        data: data
+      }).then(function(response) {
+            $scope.margin_values=response.data;
+            $rootScope.adjRate = $scope.margin_values.adjusted_rate;           
+            $rootScope.marginPercentage=$scope.margin_values.margin_percent;
+            $rootScope.marginDollar=$scope.margin_values.margin_rate;
+  
+            if($rootScope.adjRate == "" || $rootScope.adjRate == 0){
+              $rootScope.adjRate=0;
+            }
+            if($rootScope.marginPercentage == "" || $rootScope.marginPercentage == undefined){
+              $rootScope.marginPercentage=0;
+            }
+            if($rootScope.marginDollar =="" || $rootScope.marginDollar == undefined){
+              $rootScope.marginDollar=0;
+            }
+
+           $timeout(function() {
+              $scope.$broadcast('scroll.refreshComplete');
+            }, 2000);
+      })      
+  }
+
+if($rootScope.lcamin != ""){
+  $rootScope.lcamin = $rootScope.lcamin 
+}
+else{
+$rootScope.lcamin=""  
+}
+$scope.LcaMinChange=function(name){
+ $rootScope.lcamin=name; 
+}
+if($rootScope.locationval != ""){
+  $rootScope.locationval = $rootScope.locationval 
+}
+else{
+$rootScope.locationval=""  
+}
+
+$scope.LocationChange=function(name){
+ $rootScope.locationval=name; 
+}
+$scope.billvalues=function(values){
+  $rootScope.doRefresh();
+  $rootScope.bill_rate=values;
+}
+
+$scope.clientvalues=function(values){
+  $rootScope.doRefresh();
+  $rootScope.client_fee=values;
+}
+
+if($rootScope.consultant != ""){
+  $rootScope.consultant=$rootScope.candidatename;
+}
+else{
+ $rootScope.consultant="" 
+}
+
+$scope.namevalues=function(values){
+  $rootScope.doRefresh();
+  $rootScope.candidatename=values;
+}
+
+ 
+ if($rootScope.visvalue!=null){
+  $scope.visaname = $rootScope.visvalue;
+ }else{
+  $scope.visaname = " Select Visa Status" 
+ }
+ 
   $scope.visa = function() {
     $state.go("visaStatus")
   }
-  $scope.netValue='Select Payment Term'
+  if($rootScope.netval != null){
+    $scope.netValue = $rootScope.netval
+  }else{
+    $scope.netValue='Select Payment Term'
+  }
   $scope.selectNet=function(){
   	$state.go('net')
   }
+
+
+  
+  
+ /* $scope.AllSave=function(){
+    var data ={
+    "cost_calc":
+      {
+      "bill_rate":$scope.cons.bill_rate,
+      "client_fee":$scope.cons.client_fee,
+      "visa_status":$rootScope.visaStateValue,
+      "payment_term":$rootScope.netTerm,
+      "pto_hours":$rootScope.ptoHrs,
+      "state":$rootScope.visaStateValue,
+      "relocation":$rootScope.reLocationValue,
+      "medical":$rootScope.medicalvalue,
+      "dental":$rootScope.dentalvalue,
+      "misc":$rootScope.misc
+      }
+    }
+    $http({
+      method: 'post',
+      url: CommonURL + '/recruiters/cost_calc',
+      data: data
+    }).then(function(response) {
+      alert("Successfully")
+    })
+
+  }*/
 })
 
+
+
 .controller('NetCtrl',function($scope,$state,$http,$rootScope) {
-	$scope.backNet=function(){
-	  $state.go('tab.consultant')
+	
+
+  $scope.backNet=function(netvalue){
+    $rootScope.netval=netvalue;
+    var splitTerm=netvalue.split("-")
+    $rootScope.netTerm=splitTerm[1]
+    $rootScope.doRefresh();
+    	  $state.go('tab.consultant')
 	}
+
 })

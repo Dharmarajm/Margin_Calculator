@@ -1,4 +1,4 @@
-<ion-view cache-view="false">
+<ion-view cache-view="false" ng-cloak>
 	<ion-nav-title>
 	  <span class="bar-stable"><strong class="header-title">COST SUMMARY</strong></span>
 	</ion-nav-title>
@@ -6,16 +6,15 @@
 		
 	<div class="smry-consultant">
 		<span>
-			<h3>ARUN </h3>
-			<p class="companyname">TOM Technology</p>
+			<h3>{{recruiters_Details.contact_first_name}}</h3>
+			<p class="companyname">{{company_Details.company_name}}</p>
 		</span>
 		<span>
-			<h2>James</h2>
+			<h2>{{candidatename}}</h2>
 		</span>
 	</div>
-   <ion-content class="ion-content content-view smry-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
+   <ion-content class="ion-content content-view smry-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }" >
    		
-
    	<!-- 	 <center><h5>EMP CONTRIBUTION</h5></center>
 
    		 <div class="row">
@@ -34,61 +33,62 @@
 	      	<p>COST SUMMARY</p>
 	     </div>
 
-	     <div class="smry-table">
-	     	<div class="card-border">
+	     <div class="smry-table" >
+	     	<div class="card-border">	     	
 	     		<table width="100%">
 	     			<tr>
 	     				<th>Salary</th>
-	     				<td>$40.00</td>
+	     				<td>{{summary.salary | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>PTO</th>
-	     				<td>$2.00</td>
+	     				<td>{{summary.pto | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Fed Taxes</th>
-	     				<td>$3.37</td>
+	     				<td>{{summary.federal_taxes | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>State Taxes</th>
-	     				<td>$0.11</td>
+	     				<td>{{summary.state_tax | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Visa</th>
-	     				<td>-</td>
+	     				<td>{{summary.visa | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Perdiem</th>
-	     				<td>-</td>
+	     				<td>{{summary.perdiem | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Med/Dent</th>
-	     				<td>-</td>
+	     				<td>{{summary.med_den | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Relo</th>
-	     				<td>-</td>
+	     				<td>{{summary.relo | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Misc 1 Exp</th>
-	     				<td>$1.83</td>
+	     				<td>{{summary.misc | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Finance Charge</th>
-	     				<td>$1.83</td>
+	     				<td>{{summary.finance_chrg | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Corporate Insurance</th>
-	     				<td>$0.50</td>
+	     				<td>{{summary.corp_ins | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<td>Total</td>
-	     				<td>$46.96</td>
+	     				<td>{{summary.total | number:2 }}</td>
 	     			</tr>
 	     		</table>
 	     	</div>
 	     </div>
 
+	  
    		<div class="content-header">
 	      	<p>ACTUAL MARGIN</p>
 	      </div>
@@ -96,12 +96,13 @@
    		 <div class="row">
    			<div class="col col-50">
 	    	    <div class="card-border">
-	    	    	<h4 class="emp-text">$13.19</h4>
+	    	    	<h4 class="emp-text">${{summary.margin_rate | number:2 }}</h4>
 	    	    </div>
 		    </div>
 		    <div class="col col-50">
 		    	<div class="card-border">
-		    		<h4 class="emp-text">45%</h4>
+		    		<h4 class="emp-text">{{summary.margin_percent | number:2 }}%</h4>
+		    		<!-- <h4 class="emp-text" ng-if="summary.margin_percent == null">0</h4> -->
 		    	</div>
 		  	</div>
    		 </div>
@@ -124,30 +125,18 @@
    		<div class="row">
    			<div class="col col-50">
 	    	    <div class="card-border">
-	    	    	<h4 class="emp-text">$25.75</h4>
+	    	    	<h4 class="emp-text">${{summary.desired_margin | number:2 }}</h4>
 	    	    </div>
 		    </div>
 		    <div class="col col-50">
 		    	<div class="card-border">
-		    		<h4 class="emp-text">15%</h4>
+		    		<h4 class="emp-text">{{OverAllData[0].desired_margin.desired_margin_percent | number:2 }}%</h4>
 		    	</div>
 		  	</div>
    		</div>
-
-   		<div class="content-header">
-			<p>COST RECOVERY MONTHS</p>
-		</div>
-
-		<div class="row  bill-rate">
-   			<div class="col col-60">
-   				<div class="card-border">
-		    	    <h4 class="emp-text">70</h4>
-   				</div>
-		    </div>
-   		</div>
    		
 
-   		  <button class="button button-block email-btn" ng-click="email()">Email</button>
+   		  <button class="button button-block email-btn" id="Email" ng-click="email()">Email</button>
 
 
    </ion-content>

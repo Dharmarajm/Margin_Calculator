@@ -1,4 +1,4 @@
-<ion-view cache-view="false" hide-nav-bar="true">
+<ion-view cache-view="false" hide-nav-bar="true" ng-cloak>
   <ion-content>
 
     <div class="logo">
@@ -23,21 +23,26 @@
       </div>
 
       <div class="group">
-        <input class="inputMaterial" id="reg_pass" type="text" ng-Required="true" ng-model="user.password" required> 
+        <input class="inputMaterial" id="reg_pass" type="password" ng-Required="true" ng-model="user.password" required> 
         <span class="highlight"></span>
         <div class="label">Password</div>
       </div>
 
       <div class="group">
-        <input class="inputMaterial" id="reg_confirm_pass" type="text" ng-Required="true" ng-model="user.confirm_password" required>
+        <input class="inputMaterial" id="reg_confirm_pass" type="password" ng-Required="true" ng-model="user.confirm_password" required>
         <span class="highlight"></span>
         <div class="label">Confirm&nbsp;Password</div>
       </div>
 
       <div class="group1">
-        <button class="button button-block button-purple" id="reg_button" ng-click='register()'>
+        <!-- <button class="button button-block button-purple" id="reg_button" ng-click='register()'>
+          REGISTER
+        </button> -->
+
+        <button class="button button-block button-purple" ng-disabled="log.$invalid" id="reg_button" ng-click='register()'>
           REGISTER
         </button>
+
       </div>
 
     </form>

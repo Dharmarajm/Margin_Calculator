@@ -1,4 +1,4 @@
-<ion-view cache-view="false">
+<ion-view cache-view="false" ng-cloak>
   
   <ion-nav-title>
     <span class="bar-stable"><strong class="header-title">CONSULTANT</strong></span>
@@ -6,8 +6,11 @@
   
   <ion-content class="ion-content content-pad consultant-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+
+
     <div class="groupText">
-      <input class="inputMaterial" id="con_name" type="text" ng-Required="true" ng-model="consultant" required>
+      <input class="inputMaterial" id="con_name" type="text" ng-Required="true" ng-model="consultant" ng-change="namevalues(consultant)" required>
       <span class="highlight"></span>
       <div class="label">Name</div>
     </div>
@@ -16,14 +19,14 @@
       <div class="col col-50">
         <label>Bill Rate</label>
         <div class="input-group">
-          <input type="text" id="bill_rate">
+          <input type="number" ng-model="cons.bill_rate" id="bill_rate" ng-blur="billvalues(cons.bill_rate)">
           <span>$</span>
         </div>
       </div>
       <div class="col col-50">
         <label>Client Fee</label>
         <div class="input-group">
-          <input type="text" id="client_fee">
+          <input type="number" id="client_fee" ng-model="cons.client_fee" ng-blur="clientvalues(cons.client_fee)">
           <span>%</span>
         </div>
       </div>
@@ -42,11 +45,11 @@
     <div class="row">
       <div class="col col-50">
         <label>LCA Min</label>
-        <input type="text" class="form-control" id="lca_min">
+        <input type="number" class="form-control" ng-model="lcamin" ng-change="LcaMinChange(lcamin)" id="lca_min">
       </div>
       <div class="col col-50">
         <label>Location</label>
-        <input type="text" class="form-control" id="location">
+        <input type="text" class="form-control" ng-model="locationval" ng-change="LocationChange(locationval)" id="location">
       </div>
     </div>
 
@@ -65,10 +68,10 @@
   <div class="bar bar-footer" ng-controller="LoginCtrl">
     <div class="row">
       <div class="col col-40 footer-title">
-        Adj. Rate:<span>${{adjRate}}</span>
+        Adj. Rate:<span>${{adjRate | number:2 }}</span>
       </div>
       <div class="col col-60 footer-title1">
-        Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+        Margin:<span>${{marginDollar | number:2 }}&nbsp;|&nbsp;{{marginPercentage | number:2 }}%</span>
       </div>
     </div>
   </div>

@@ -1,15 +1,17 @@
-<ion-view cache-view="false">
+<ion-view cache-view="false" ng-cloak>
   <ion-nav-title>
     <span class="bar-stable"><strong class="header-title">RELOCATION</strong></span>
   </ion-nav-title>
 
-  <h1 class="consultant-name">James</h1>
+  <h1 class="consultant-name">{{candidatename}}</h1>
 
   <ion-content class="ion-content content-view relocation-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+    
     <div class="groupButton">
       <button class="button button-block button-white" id="select_locate" ng-click="selectState()">
-        Select State <i class="icon ion-chevron-right group-icon_right"></i>
+        {{state_name}} <i class="icon ion-chevron-right group-icon_right"></i>
       </button>
     </div>
 
@@ -25,22 +27,29 @@
     
     <div class="row group-center">
       <div class="col col-50">
-        <h3><strong>$10,0000</strong></h3>
+        <h3><strong>${{relocation.relocation}}</strong></h3>
       </div>
       <div class="col col-50">
-        <h3><strong>${{min.relocation}}</strong></h3>
+       <!-- <h3>$<strong editable-text="sliderRelocation.min" ng-pattern="/^[0-9]*$/" ng-model="sliderRelocation.min" ng-change="ss()"></strong></h3>-->        
+       <!-- <span class="textvalues">$<input style="font-weight: 600;color: #5153A3;font-size: 25px;" type="text" ng-model="sliderRelocation.min" name="currency"></span> -->
+      
+        <div class="input-group">
+          <span class="textvalues">$</span>
+          <input class="textvalues" type="number" id="reloaction_id" ng-model="sliderRelocation.min">          
+        </div>
+
       </div>
     </div>
 
     <br>
     <div class="row group1">
-      <rzslider rz-slider-model="min.relocation" id="loca_slide" rz-slider-floor="minLocation.floor" rz-slider-ceil="minLocation.ceil">
-      </rzslider>
+      <rzslider rz-slider-model="sliderRelocation.min" rz-slider-high="sliderRelocation.max" id="relocationSlider" rz-slider-options="sliderRelocation"></rzslider>
+        </rzslider>
     </div>
 
 
     <div class="row group1">
-      <textarea placeholder="Relocation notes" rows="4"></textarea>
+      <textarea placeholder="Relocation notes" id="relocation_notes" rows="4"></textarea>
     </div>
 
   </ion-content>
@@ -48,10 +57,10 @@
    <div class="bar bar-footer" ng-controller="LoginCtrl">
     <div class="row">
       <div class="col col-40 footer-title">
-        Adj. Rate:<span>${{adjRate}}</span>
+        Adj. Rate:<span>${{adjRate | number:2 }}</span>
       </div>
       <div class="col col-60 footer-title1">
-        Margin:<span>${{marginDollar}}&nbsp;-&nbsp;{{marginPercentage}}%</span>
+        Margin:<span>${{marginDollar| number:2 }}&nbsp;|&nbsp;{{marginPercentage | number:2 }}%</span>
       </div>
     </div>
   </div>

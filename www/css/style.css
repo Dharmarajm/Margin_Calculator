@@ -817,6 +817,7 @@ a.button.button-block.button-circle {
     text-align: center;
     font-size: 16px;
     color: #2f2f2f;
+    text-transform: uppercase;
 }
 .sidebar{
   margin-top: 105px;
@@ -856,4 +857,11 @@ a.button.button-block.button-circle {
 }
 .social .icon {
     padding: 0px 20px;
+}
+.input-group .textvalues{
+  font-weight: 600;
+  color: #5153A3!important;
+  font-size: 25px!important;
+  border:none;
+  background: transparent;
 }
