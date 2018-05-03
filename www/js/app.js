@@ -19,7 +19,7 @@ angular.module('starter', ['ionic',
   'Summary'
 ])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$state,$ionicPopup) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -29,6 +29,34 @@ angular.module('starter', ['ionic',
       StatusBar.styleDefault();
     }
   });
+
+  $ionicPlatform.registerBackButtonAction(function(e) {
+    e.preventDefault();
+     function showConfirm() {
+      var confirmPopup = $ionicPopup.show({
+       title : 'MARGINO',
+       template : 'Are you sure want to exit ?',
+       buttons : [{
+        text : 'Cancel',
+        type : 'button-danger',
+       }, {
+        text : 'Ok',
+        type : 'button-positive',
+        onTap : function() {
+         ionic.Platform.exitApp();
+        }
+       }]
+      });
+     };
+
+      if($state.current.name=='login' || $state.current.name=='register' || $state.current.name=='dashboard' ){
+           showConfirm();
+      }
+      else {
+        navigator.app.backHistory();
+      }
+    }, 100);
+
 
 })
 
@@ -188,7 +216,7 @@ angular.module('starter', ['ionic',
 })
 
 /*This dircetive using Swipe the page right and left*/
-.directive('tabsSwipable', function($ionicGesture) {
+.directive('tabsSwipable', function($ionicGesture,$rootScope) {
   return {
     restrict: 'A',
     require: 'ionTabs',
@@ -196,6 +224,7 @@ angular.module('starter', ['ionic',
       
       /*Swipe left function using all tabs page*/
       var onSwipeLeft = function() {
+        $rootScope.doRefresh();
         var target = tabsCtrl.selectedIndex() + 1;
         if (target < tabsCtrl.tabs.length) {
           scope.data = "swipeleft";
@@ -205,6 +234,7 @@ angular.module('starter', ['ionic',
 
       /*Swipe right function using all tabs page*/
       var onSwipeRight = function() {
+        $rootScope.doRefresh();
         var target = tabsCtrl.selectedIndex() - 1;
         if (target >= 0) {
           scope.data = "swiperight";
@@ -222,4 +252,5 @@ angular.module('starter', ['ionic',
   };
 })
 /*This is using common Url  this variable using all http method*/
-var CommonURL = "http://192.168.1.72:4001/api/v1";
+//var CommonURL = "http://192.168.1.72:4001/api/v1";
+var CommonURL = "http://115.111.129.98:4001/api/v1";

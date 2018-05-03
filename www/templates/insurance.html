@@ -7,7 +7,7 @@
 
   <ion-content class="ion-content content-view insurance-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+    <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
 
     <div class="content-header">
       <p>MEDICAL</p>
@@ -94,7 +94,7 @@
       <div class="row radio">
         <div class="col col-50">
           <label class="container" ng-model="dental.none" ng-click="dentalButton(dental.none,'none')">Waive
-            <input type="radio"  name="radio" id="den_rad_5" ng-checked="checked5">
+            <input type="radio"  name="radio1" id="den_rad_5" ng-checked="checked5">
             <span class="checkmark"></span>
           </label>
         </div>

@@ -2,7 +2,7 @@
     "cordova-plugin-device": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-device@1.1.4"
+            "id": "cordova-plugin-device@~1.1.4"
         },
         "is_top_level": true,
         "variables": {}
@@ -43,6 +43,39 @@
         "source": {
             "type": "registry",
             "id": "ionic-plugin-keyboard@~2.2.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-uniquedeviceid": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Paldom/UniqueDeviceID.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-x-socialsharing": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-x-socialsharing"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "es6-promise-plugin": {
+        "source": {
+            "type": "registry",
+            "id": "es6-promise-plugin"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser@3.0.0"
         },
         "is_top_level": true,
         "variables": {}

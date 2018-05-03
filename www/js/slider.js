@@ -720,7 +720,7 @@
          */
         manageElementsStyle: function() {
           if (!this.range) this.maxH.css('display', 'none')
-          else this.maxH.css('display', '')
+          else this.maxH.css('display', 'none')
 
           this.alwaysHide(
             this.flrLab,

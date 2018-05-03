@@ -12,10 +12,10 @@
       <a class="button button-block" ng-class="{'button-circle': bill == true }" ng-click="billButton()">Bill Rate</a>
     </div> -->
 
-      <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+      <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
       
     <div class="row bill-content">
-      <h2>$<span editable-text="salarySlider.min"></span> </h2>
+      <h2>$<span ng-blur="salary(salarySlider.min)" editable-text="salarySlider.min"></span> </h2>
     </div>
     <div class="row bill-content">
       <div class="col Col-50">

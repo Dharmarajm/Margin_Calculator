@@ -7,7 +7,7 @@
   <h1 class="consultant-name">{{candidatename}}</h1>
   <ion-content class="ion-content content-view pot-content " ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+    <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
 
     <div class="button-bar">
       <a class="button button-block" id="pto_std" ng-class="{'button-circle': standard == true}" ng-click="standarButton()">Standard</a>
@@ -31,7 +31,7 @@
       <div class="row group-center">
         <div class="col col-50 col-50-align line">
           <label>HOURS</label>
-          <h2 editable-text="slider.min"></h2>
+          <h2 editable-text="slider.min" ng-blur="ptohours(slider.min)"></h2>
         </div>
         <div class="col col-50 col-50-align">
           <label>DAYS</label>

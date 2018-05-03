@@ -1,6 +1,6 @@
 angular.module('Consultant', [])
 
-.controller('ConsultantCtrl', function($scope,$state,$http,$rootScope,$timeout) {
+.controller('ConsultantCtrl', function($scope,$state,$http,$rootScope,$timeout,$ionicLoading) {
 
 /*if($rootScope.cons.bill_rate != "" || $rootScope.cons.client_fee != "" && $rootScope.cons.bill_rate !=undefined || $rootScope.cons.client_fee != undefined){
   $rootScope.cons.bill_rate=$rootScope.cons.bill_rate;
@@ -54,6 +54,9 @@ if($rootScope.cons != undefined){
         url: CommonURL + '/recruiters/margin_calc',
         data: data
       }).then(function(response) {
+          $timeout(function() {
+           $ionicLoading.hide();
+          });
             $scope.margin_values=response.data;
             $rootScope.adjRate = $scope.margin_values.adjusted_rate;           
             $rootScope.marginPercentage=$scope.margin_values.margin_percent;
@@ -95,20 +98,39 @@ $scope.LocationChange=function(name){
  $rootScope.locationval=name; 
 }
 $scope.billvalues=function(values){
+ if(values!='' && values!=null && values!=undefined){
+   $ionicLoading.show({
+       content: 'Loading',
+       animation: 'fade-in',
+       showBackdrop: true,
+       maxWidth: 200,
+       showDelay: 0
+  });
   $rootScope.doRefresh();
   $rootScope.bill_rate=values;
+ }
 }
 
 $scope.clientvalues=function(values){
+ if(values!='' && values!=null && values!=undefined){ 
+  $ionicLoading.show({
+       content: 'Loading',
+       animation: 'fade-in',
+       showBackdrop: true,
+       maxWidth: 200,
+       showDelay: 0
+  });
   $rootScope.doRefresh();
   $rootScope.client_fee=values;
+ } 
 }
 
-if($rootScope.consultant != ""){
-  $rootScope.consultant=$rootScope.candidatename;
-}
-else{
- $rootScope.consultant="" 
+if($rootScope.consultant == undefined && $rootScope.consultant == null && $rootScope.consultant == ""){  
+  $rootScope.consultant=""; 
+}else if($rootScope.candidatename == "Consultant Name"){
+ $rootScope.consultant=""; 
+}else{
+ $rootScope.consultant=$rootScope.candidatename;
 }
 
 $scope.namevalues=function(values){
@@ -117,7 +139,7 @@ $scope.namevalues=function(values){
 }
 
  
- if($rootScope.visvalue!=null){
+ if($rootScope.visvalue!=null ){
   $scope.visaname = $rootScope.visvalue;
  }else{
   $scope.visaname = " Select Visa Status" 
@@ -167,10 +189,17 @@ $scope.namevalues=function(values){
 
 
 
-.controller('NetCtrl',function($scope,$state,$http,$rootScope) {
+.controller('NetCtrl',function($scope,$state,$http,$rootScope,$ionicLoading,$timeout) {
 	
 
   $scope.backNet=function(netvalue){
+    $ionicLoading.show({
+       content: 'Loading',
+       animation: 'fade-in',
+       showBackdrop: true,
+       maxWidth: 200,
+       showDelay: 0
+    });
     $rootScope.netval=netvalue;
     var splitTerm=netvalue.split("-")
     $rootScope.netTerm=splitTerm[1]

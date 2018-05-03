@@ -6,7 +6,7 @@
 	<h1 class="consultant-name">{{candidatename}}</h1>
    <ion-content class="ion-content content-view" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     
-       <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+       <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
 
     <div class="button-bar">
       <a class="button button-block" id="mis_bill" ng-class="{'button-circle': misc_bill == true}" ng-click="MiscBill()">Bill Rate</a>
@@ -19,7 +19,7 @@
 	  		<h2>{{miscslider.min}}%</h2>
 	  	</div>
 	  	<div class="row bill-content">
-	  		<p>HOURLY:&nbsp;<span class="pink">$32.93</span> </p>
+	  		<p>HOURLY:&nbsp;<span class="pink">${{hour_total | number:2 }}</span> </p>
 	  	</div>
 
 	    <div class="row group1" >
@@ -62,7 +62,7 @@
   	<div class="add-icon">
   		<i class="icon ion-plus" ng-click="AddMisc()"></i>
   	</div>
-    <div class="bar bar-footer" ng-controller="LoginCtrl">
+    <div class="bar bar-footer hide-on-keyboard-open" ng-controller="LoginCtrl">
     <div class="row">
       <div class="col col-40 footer-title">
         Adj. Rate:<span>${{adjRate| number:2 }}</span>

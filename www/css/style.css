@@ -225,7 +225,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 .bar-footer{
   background-color: #5153a3;
   color: #fff;
-  padding: 18px 10px !important;
+  padding: 18px 8px !important;
   height: auto;
   background-image: none;
 }
@@ -246,14 +246,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 }
 
 .footer-title {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     padding: 0px;
     text-align: left;
 }
 
 .footer-title1 {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     padding: 0px;
     text-align: right;
@@ -265,9 +265,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
     border: 1px solid #44479b;
     border-radius: 7px;
     color: #fff;
-    font-size: 1em;
+    font-size: 0.7rem;
     font-weight: 600;
-    margin-left: 10px;
+    margin-left: 3px;
 }
 
 .container {
@@ -864,4 +864,54 @@ a.button.button-block.button-circle {
   font-size: 25px!important;
   border:none;
   background: transparent;
+}
+.total_value{
+  text-align: right;
+}
+.button-canel{
+  color: red;
+}
+.button-ok{
+  color: #5153a3;
+}
+
+.button.button-positive {
+    border-color: transparent;
+    background-color: #5153A3;
+    color: #fff;
+}
+.button.button-positive:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #D85B7E;
+}
+.button.button-positive.active{
+    border-color: transparent;
+    background-color: #5153A3;
+    color: #fff;
+}
+.button.button-positive.activated{
+    border-color: transparent;
+    background-color: #5153A3;
+    color: #fff;
+}
+
+.gg-editable-text textarea, .gg-editable-text input{
+  width: 85% !important;
+}
+
+.keyboard-body .hide-with-keyboard{
+  display:none !important;
+}
+
+.keyboard-open .add-icon{
+  bottom: 10px;
+}
+
+.keyboard-open .content-view{
+  margin-bottom: 0;
+}
+
+.keyboard-open .bar.bar-footer {
+    display: none;
 }

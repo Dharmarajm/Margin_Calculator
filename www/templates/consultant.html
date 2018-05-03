@@ -1,12 +1,15 @@
 <ion-view cache-view="false" ng-cloak>
-  
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+  </ion-nav-buttons>
   <ion-nav-title>
     <span class="bar-stable"><strong class="header-title">CONSULTANT</strong></span>
   </ion-nav-title>
   
   <ion-content class="ion-content content-pad consultant-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+    <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
 
 
     <div class="groupText">
@@ -19,14 +22,14 @@
       <div class="col col-50">
         <label>Bill Rate</label>
         <div class="input-group">
-          <input type="number" ng-model="cons.bill_rate" id="bill_rate" ng-blur="billvalues(cons.bill_rate)">
+          <input type="number" ng-model="cons.bill_rate" min="0" id="bill_rate" ng-blur="billvalues(cons.bill_rate)">
           <span>$</span>
         </div>
       </div>
       <div class="col col-50">
         <label>Client Fee</label>
         <div class="input-group">
-          <input type="number" id="client_fee" ng-model="cons.client_fee" ng-blur="clientvalues(cons.client_fee)">
+          <input type="number" id="client_fee" min="0" ng-model="cons.client_fee" ng-blur="clientvalues(cons.client_fee)">
           <span>%</span>
         </div>
       </div>

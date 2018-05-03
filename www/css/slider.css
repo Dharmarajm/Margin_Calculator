@@ -139,9 +139,9 @@ rzslider span.bubble.selection {
       -ms-user-select: none;
           user-select: none;
 }
-.rz-pointer.rz-pointer-max {
+/*.rz-pointer.rz-pointer-max {
     display: none;
-  }
+  }*/
 .rzslider .rz-bar-wrapper.rz-right-out-selection .rz-bar .rz-pointer-max{
   background: transparent;
 }

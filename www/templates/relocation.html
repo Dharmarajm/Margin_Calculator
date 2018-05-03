@@ -7,7 +7,7 @@
 
   <ion-content class="ion-content content-view relocation-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+    <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
     
     <div class="groupButton">
       <button class="button button-block button-white" id="select_locate" ng-click="selectState()">
@@ -30,12 +30,12 @@
         <h3><strong>${{relocation.relocation}}</strong></h3>
       </div>
       <div class="col col-50">
-       <!-- <h3>$<strong editable-text="sliderRelocation.min" ng-pattern="/^[0-9]*$/" ng-model="sliderRelocation.min" ng-change="ss()"></strong></h3>-->        
-       <!-- <span class="textvalues">$<input style="font-weight: 600;color: #5153A3;font-size: 25px;" type="text" ng-model="sliderRelocation.min" name="currency"></span> -->
+<!--         <h3>$<strong editable-text="sliderRelocation.min"  ng-blur="relocation(sliderRelocation.min)" ng-model="sliderRelocation.min" ng-change="ss()"></strong></h3>        
+ -->       <!-- <span class="textvalues">$<input style="font-weight: 600;color: #5153A3;font-size: 25px;" type="text" ng-model="sliderRelocation.min" name="currency"></span> -->
       
         <div class="input-group">
           <span class="textvalues">$</span>
-          <input class="textvalues" type="number" id="reloaction_id" ng-model="sliderRelocation.min">          
+          <input class="textvalues" type="number" id="reloaction_id" ng-model="sliderRelocation.min" max="relocation.relocation" ng-blur="relocations(sliderRelocation.min)">          
         </div>
 
       </div>
