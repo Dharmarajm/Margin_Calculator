@@ -226,6 +226,7 @@ rzslider span.bubble.selection {
   z-index: 2;
   background: grey;
   border-radius: 2px;
+  margin-left: 16px;
 }
 
 .rzslider .rz-pointer {

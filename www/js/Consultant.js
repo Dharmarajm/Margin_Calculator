@@ -16,15 +16,14 @@ if($rootScope.cons != undefined){
 }else{
   $rootScope.cons={bill_rate:'',client_fee:''}  
 }
-
-
-  if($rootScope.adjRate == "" || $rootScope.adjRate == 0){
+ 
+  if($rootScope.adjRate == "" || $rootScope.adjRate == 0 || $rootScope.adjRate==undefined || $rootScope.adjRate==null){
     $rootScope.adjRate=0;
   }
-  if($rootScope.marginPercentage == "" || $rootScope.marginPercentage == undefined || $rootScope.marginPercentage == null){
+  if($rootScope.marginPercentage == "" || $rootScope.marginPercentage == undefined || $rootScope.marginPercentage == null || $rootScope.marginPercentage==0){
     $rootScope.marginPercentage=0;
   }
-  if($rootScope.marginDollar =="" || $rootScope.marginDollar == undefined || $rootScope.marginDollar == null ){
+  if($rootScope.marginDollar =="" || $rootScope.marginDollar == undefined || $rootScope.marginDollar == null || $rootScope.marginDollar==0){
     $rootScope.marginDollar=0;
   }
 
@@ -98,7 +97,7 @@ $scope.LocationChange=function(name){
  $rootScope.locationval=name; 
 }
 $scope.billvalues=function(values){
- if(values!='' && values!=null && values!=undefined){
+ /*if(values!='' && values!=null && values!=undefined){*/
    $ionicLoading.show({
        content: 'Loading',
        animation: 'fade-in',
@@ -110,11 +109,11 @@ $scope.billvalues=function(values){
   $rootScope.bill_rate=values;
   $rootScope.reloadmisc=null;
   $rootScope.hour_total=0;
- }
+ /*}*/
 }
 
 $scope.clientvalues=function(values){
- if(values!='' && values!=null && values!=undefined){ 
+ /*if(values!='' && values!=null && values!=undefined){ */
   $ionicLoading.show({
        content: 'Loading',
        animation: 'fade-in',
@@ -126,7 +125,7 @@ $scope.clientvalues=function(values){
   $rootScope.client_fee=values;
   $rootScope.reloadmisc=null;
   $rootScope.hour_total=0;
- } 
+ /*} */
 }
 
 if($rootScope.consultant == undefined && $rootScope.consultant == null && $rootScope.consultant == ""){  

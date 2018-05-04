@@ -9,15 +9,12 @@ angular.module('Login', [])
       $scope.$apply();
   });*/
 
-   document.addEventListener("deviceready", function () {
-
+  document.addEventListener("deviceready", function () {
     var device = $cordovaDevice.getDevice();
-
     $scope.uuid = $cordovaDevice.getUUID();
+  }, false);
 
-   }, false);
-
-  /*$scope.uuid="1234"*/
+  $scope.uuid="1234"
 
   /*This is used to variable declaration using login page*/
   $scope.user = {
@@ -49,15 +46,15 @@ angular.module('Login', [])
       $timeout(function() {
         $ionicLoading.hide();
       });
-      if(response.data != false){
-        $rootScope.company_Details=response.data.company;
-        $rootScope.recruiters_Details=response.data.recruiter;
-        $state.go('dashboard');
-      }else if (response.data.login == 'Disable'){
+      if (response.data.login == 'Disable'){
         var alertPopup = $ionicPopup.alert({
           title: "MARGINO",
           content: "Please contact your employer to activate your account"
         })  
+      }else if(response.data != false){
+        $rootScope.company_Details=response.data.company;
+        $rootScope.recruiters_Details=response.data.recruiter;
+        $state.go('dashboard');
       }
       else{
         var alertPopup = $ionicPopup.alert({
@@ -183,7 +180,7 @@ angular.module('Login', [])
 
 })
 
-.controller('forgotCtrl',function($state,$http,$rootScope,$scope){
+.controller('forgotCtrl',function($state,$http,$rootScope,$scope,$ionicLoading,$timeout){
   $scope.forget={mail_id:$rootScope.new_mail,password:''}
   $scope.save=function(){
     $ionicLoading.show({

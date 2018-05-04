@@ -75,7 +75,6 @@ else{
    $rootScope.doRefresh();
   }
 
-
 })  
 
 

@@ -20,8 +20,13 @@ angular.module('Salary', [])
        showDelay: 0
     });
     $rootScope.SalaryValue=$scope.salarySlider.min;
-    $scope.hour=Math.round($scope.salarySlider.min/2080);
-    $scope.bill=Math.round(($scope.hour/42)*100);
+    $scope.hour=$scope.salarySlider.min/2080;
+    if($rootScope.adjRate !=0 || $rootScope.adjRate !=null || $rootScope.adjRate !="" || $rootScope.adjRate != undefined){
+      $scope.bill=($scope.hour/$rootScope.adjRate)*100;
+    }else{
+      $scope.bill=0;
+    }
+    
     $rootScope.doRefresh();   
   };
 
@@ -42,7 +47,7 @@ angular.module('Salary', [])
   $scope.perdiemSlider = {
     min: 0,
     max: 100.5,
-    floor: 1,
+    floor: 0,
     ceil: 100.5,
     step: 0.5,
     precision: 1,
@@ -50,9 +55,9 @@ angular.module('Salary', [])
   }; 
 
   $scope.salarySlider = {
-        min: 18000,
+        min: 0,
         max: 250000,
-        floor: 18000,
+        floor: 0,
         ceil: 250000,
         onEnd: $scope.SalarySliderEnd
   };
@@ -62,14 +67,18 @@ angular.module('Salary', [])
           $scope.salarySlider = {
             min: $rootScope.salaryText,
             max: 250000,
-            floor: 18000,
+            floor: 0,
             ceil: 250000,
             onEnd: $scope.SalarySliderEnd
-          };
+          };     
   }
 
-  $scope.hour=Math.round($scope.salarySlider.min/2080);
-  $scope.bill=Math.round(($scope.hour/42)*100);
+  $scope.hour=$scope.salarySlider.min/2080;
+  if($rootScope.adjRate !=0 || $rootScope.adjRate !=null || $rootScope.adjRate !="" || $rootScope.adjRate != undefined){
+     $scope.bill=($scope.hour/$rootScope.adjRate)*100;
+   }else{
+     $scope.bill=0;
+   }
 
   $scope.$watch('salarySlider.min',function(data){      
     $rootScope.salaryText=data;
@@ -80,7 +89,7 @@ angular.module('Salary', [])
             $scope.perdiemSlider = {
               min:$rootScope.perdiemText,
               max: 100.5,
-              floor: 1,
+              floor: 0,
               ceil: 100.5,
               step: 0.5,
               precision: 1,
@@ -96,19 +105,15 @@ angular.module('Salary', [])
     $scope.$broadcast('rzSliderForceRender');
   });
   
-    $scope.Salary=function(values){
-       $ionicLoading.show({
-        content: 'Loading',
-        animation: 'fade-in',
-        showBackdrop: true,
-        maxWidth: 200,
-        showDelay: 0
-       });
-        $rootScope.SalaryValue=values;
-        $rootScope.doRefresh();   
-    }
-
-
-
+  $scope.salaryEdit=function(values){
+      $rootScope.SalaryValue=values;
+      $scope.hour=values/2080;
+      if($rootScope.adjRate !=0 || $rootScope.adjRate !=null || $rootScope.adjRate !="" || $rootScope.adjRate != undefined){
+        $scope.bill=($scope.hour/$rootScope.adjRate)*100;
+      }else{
+        $scope.bill=0;
+      }
+      $rootScope.doRefresh();   
+  }
 
 })

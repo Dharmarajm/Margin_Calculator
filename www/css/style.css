@@ -163,7 +163,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
 
 
 .bill-content{
-  justify-content:center;
+    justify-content: center;
+    font-weight: 600;
+    color: #5153A3!important;
+    font-size: 25px!important;
+    display: flex;
+    align-items: center;
 }
 
 .line{
@@ -864,6 +869,15 @@ a.button.button-block.button-circle {
   font-size: 25px!important;
   border:none;
   background: transparent;
+}
+.bill-content .textvalues{
+  font-weight: 600;
+  color: #5153A3!important;
+  font-size: 25px!important;
+  border:none;
+  background: transparent;
+  text-align: center;
+  width: 32%;
 }
 .total_value{
   text-align: right;

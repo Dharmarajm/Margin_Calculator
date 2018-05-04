@@ -1,4 +1,4 @@
-<ion-view cache-view="false" hide-nav-bar="true" ng-cloak>
+<ion-view cache-view="false" hide-nav-bar="true" >
   <ion-content>
 
     <div class="logo">
@@ -9,27 +9,27 @@
       <p>REGISTER</p>
     </div>
 
-    <form name="log">
+    <form name="registerval">
       <div class="group">
-        <input class="inputMaterial" id="reg_mail" type="text" ng-Required="true" ng-model="user.email" required>
+        <input class="inputMaterial" id="reg_mail" type="text" ng-Required="true" ng-model="reg.email">
         <span class="highlight"></span>
         <div class="label">Email&nbsp;id</div>
       </div>
 
       <div class="group">
-        <input class="inputMaterial" id="active" type="text" ng-Required="true" ng-model="user.active" required>
+        <input class="inputMaterial" id="active" type="text" ng-Required="true" ng-model="reg.active" >
         <span class="highlight"></span>
         <div class="label">Activation&nbsp;Code</div>
       </div>
 
       <div class="group">
-        <input class="inputMaterial" id="reg_pass" type="password" ng-Required="true" ng-model="user.password" required> 
+        <input class="inputMaterial" id="reg_pass" type="password" ng-Required="true" ng-model="reg.password" > 
         <span class="highlight"></span>
         <div class="label">Password</div>
       </div>
 
       <div class="group">
-        <input class="inputMaterial" id="reg_confirm_pass" type="password" ng-Required="true" ng-model="user.confirm_password" required>
+        <input class="inputMaterial" id="reg_confirm_pass" type="password" ng-Required="true" ng-model="reg.confirm_password" >
         <span class="highlight"></span>
         <div class="label">Confirm&nbsp;Password</div>
       </div>
@@ -39,7 +39,7 @@
           REGISTER
         </button> -->
 
-        <button class="button button-block button-purple" ng-disabled="log.$invalid" id="reg_button" ng-click='register()'>
+        <button class="button button-block button-purple" ng-disabled="registerval.$invalid" id="reg_button" ng-click='register()'>
           REGISTER
         </button>
 

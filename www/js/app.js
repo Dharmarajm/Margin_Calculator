@@ -1,4 +1,3 @@
-
 /*This is using rzModule Slider directive*/
 
 angular.module('starter', ['ionic',
@@ -28,6 +27,20 @@ angular.module('starter', ['ionic',
     if (window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+   document.addEventListener("deviceready", function() {
+    hockeyapp.start(success, error, "414a60f9c04a4ef9b23505ddeb87386a");
+    
+    function error(error) {
+     console.log(error);
+    }
+    
+    function success(status) {
+     console.log(status);
+    }
+    
+   }, false);
+
   });
 
   $ionicPlatform.registerBackButtonAction(function(e) {

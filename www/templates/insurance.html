@@ -124,12 +124,12 @@
   </ion-content>
 
    <div class="bar bar-footer" ng-controller="LoginCtrl">
-    <div class="row">
-      <div class="col col-40 footer-title">
-        Adj. Rate:<span>${{adjRate| number:2 }}</span>
+    <div class="row" style="justify-content: space-between;">
+      <div class="footer-title">
+        Adj.Rate:<span>${{adjRate | number:2 }}</span>
       </div>
-      <div class="col col-60 footer-title1">
-        Margin:<span>${{marginDollar| number:2 }}&nbsp;|&nbsp;{{marginPercentage| number:2 }}%</span>
+      <div class="footer-title1">
+        Margin:<span>${{marginDollar | number:2 }}&nbsp;|&nbsp;{{marginPercentage | number:2 }}%</span>
       </div>
     </div>
   </div>

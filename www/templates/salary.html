@@ -15,14 +15,14 @@
       <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
       
     <div class="row bill-content">
-      <h2>$<span ng-blur="salary(salarySlider.min)" editable-text="salarySlider.min"></span> </h2>
+      $<input class="textvalues" type="number" ng-model="salarySlider.min" ng-blur="salaryEdit(salarySlider.min)">
     </div>
     <div class="row bill-content">
       <div class="col Col-50">
-        <p>HOURLY:&nbsp;<span class="pink">${{hour}}</span> </p>
+        <p>HOURLY:&nbsp;<span class="pink">${{hour | number:2 }}</span> </p>
       </div>
       <div class="col Col-50">
-        <p>BILL RATE:&nbsp;<span class="pink">{{bill}}%</span> </p>
+        <p>BILL RATE:&nbsp;<span class="pink">{{bill | number:2 }}%</span> </p>
       </div>
     </div>
 
@@ -50,11 +50,11 @@
   </ion-content>
 
   <div class="bar bar-footer" ng-controller="LoginCtrl">
-    <div class="row">
-      <div class="col col-40 footer-title">
-        Adj. Rate:<span>${{adjRate | number:2 }}</span>
+    <div class="row" style="justify-content: space-between;">
+      <div class="footer-title">
+        Adj.Rate:<span>${{adjRate | number:2 }}</span>
       </div>
-      <div class="col col-60 footer-title1">
+      <div class="footer-title1">
         Margin:<span>${{marginDollar | number:2 }}&nbsp;|&nbsp;{{marginPercentage | number:2 }}%</span>
       </div>
     </div>
