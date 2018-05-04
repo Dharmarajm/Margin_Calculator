@@ -21,10 +21,10 @@ if($rootScope.cons != undefined){
   if($rootScope.adjRate == "" || $rootScope.adjRate == 0){
     $rootScope.adjRate=0;
   }
-  if($rootScope.marginPercentage == "" || $rootScope.marginPercentage == undefined){
+  if($rootScope.marginPercentage == "" || $rootScope.marginPercentage == undefined || $rootScope.marginPercentage == null){
     $rootScope.marginPercentage=0;
   }
-  if($rootScope.marginDollar =="" || $rootScope.marginDollar == undefined){
+  if($rootScope.marginDollar =="" || $rootScope.marginDollar == undefined || $rootScope.marginDollar == null ){
     $rootScope.marginDollar=0;
   }
 
@@ -108,6 +108,8 @@ $scope.billvalues=function(values){
   });
   $rootScope.doRefresh();
   $rootScope.bill_rate=values;
+  $rootScope.reloadmisc=null;
+  $rootScope.hour_total=0;
  }
 }
 
@@ -122,6 +124,8 @@ $scope.clientvalues=function(values){
   });
   $rootScope.doRefresh();
   $rootScope.client_fee=values;
+  $rootScope.reloadmisc=null;
+  $rootScope.hour_total=0;
  } 
 }
 

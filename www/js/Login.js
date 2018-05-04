@@ -139,28 +139,47 @@ angular.module('Login', [])
                   //localStorage.clear();
                   $rootScope.SalaryValue="";
                   $rootScope.cons.bill_rate="";
-                  $rootScope.cons.client_fee=""
-                  $rootScope.netTerm=""
-                  $rootScope.ptoHrs=""
-                  $rootScope.relocation_value=""
-                  $rootScope.reLocationValue=""
-                  $rootScope.medicalvalue=""
-                  $rootScope.dentalvalue=""
-                  $rootScope.perdiemValue=""
-                  $rootScope.netTerm="Select Payment Term"
-                  $rootScope.visvalue="Select Visa Status"
-                  $rootScope.lcamin=""
-                  $rootScope.locationval=""
-                  
+                  $rootScope.cons.client_fee="";
+                  $rootScope.consultant == null;
+                  $rootScope.candidatename=null;
+                  $rootScope.ptoHrs="";
+                  $rootScope.relocation_value="";
+                  $rootScope.reLocationValue="";
+                  $rootScope.medicalvalue="";
+                  $rootScope.dentalvalue="";
+                  $rootScope.perdiemValue="";
+                  $rootScope.netTerm="";
+                  $rootScope.netValue="Select Payment Term";
+                  $rootScope.netval=null;
+                  $rootScope.visaStateValue="";
+                  $rootScope.visaname="";
+                  $rootScope.visvalue="Select Visa Status";
+                  $rootScope.relocation_name=null;
+                  $rootScope.reloadText=null;
+                  $rootScope.dentalvalue="";
+                  $rootScope.dentalname=null;
+                  $rootScope.medicalname=null;
+                  $rootScope.medicalvalue="";
+                  $rootScope.reloadmisc=null;
+                  $rootScope.misc=null;
+                  $rootScope.salaryText=null;
+                  $rootScope.perdiemText=null;
+                  $rootScope.lcamin="";
+                  $rootScope.locationval="";
+                  $rootScope.otherDays=0;
+                  $rootScope.adjRate=0;
+                  $rootScope.marginPercentage=null;
+                  $rootScope.marginDollar=null;
+                  $rootScope.ptoText=null;
+                  $rootScope.hour_total=0;
+                  $rootScope.relocation_notes="";
+                  $rootScope.miscdata="";
+
                   $state.go('login');                             
                 }
             }]
         })
     }
-
-
-  
-
 
 })
 

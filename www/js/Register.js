@@ -25,7 +25,7 @@ angular.module('Register', [])
     confirm_password: ''
   }
 
-  /*$scope.uuid="1234"*/
+ /* $scope.uuid="1234"*/
  
   $scope.register = function() {
     if ($scope.user.password != $scope.user.confirm_password) {

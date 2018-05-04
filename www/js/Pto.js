@@ -22,7 +22,9 @@ else{
   $scope.otherButton = function() {
     $scope.standard = false;
     $scope.other = true;
-
+    angular.element(document).ready(function () {
+     $scope.$broadcast('rzSliderForceRender');
+    }); 
   }
   
   if($rootScope.otherDays == null || $rootScope.otherDays == ""){
@@ -38,38 +40,40 @@ else{
   };
 
   $rootScope.slider = {
-    min: 1,
+    min: 0,
     max: 250,
-    floor: 1,
+    floor: 0,
+    ceil: 250,
     onEnd: $scope.myEndListener
   }
 
   if($rootScope.ptoText != null){
-          $rootScope.slider = {
-            min: $rootScope.ptoText,
-            max: 250,
-            floor: 1,
-            onEnd: $scope.myEndListener
-          };
-          $rootScope.otherDays=Math.round($rootScope.ptoText/8);
-     }
+    $rootScope.slider = {
+      min: $rootScope.ptoText,
+      max: 250,
+      floor: 0,
+      ceil: 250,
+      onEnd: $scope.myEndListener
+    };
+    $rootScope.otherDays=Math.round($rootScope.ptoText/8);
+  }
 
-     $scope.$watch('slider.min',function(data){      
-       $rootScope.ptoText=data;
-    });
+  $scope.$watch('slider.min',function(data){      
+     $rootScope.ptoText=data;
+  });
+  
 
-
-     $scope.ptohours=function(values){
-      $ionicLoading.show({
-       content: 'Loading',
-       animation: 'fade-in',
-       showBackdrop: true,
-       maxWidth: 200,
-       showDelay: 0
-      });
-      $rootScope.ptoHrs=values;
-      $rootScope.doRefresh();
-     }
+  $scope.ptohours=function(values){
+   $ionicLoading.show({
+    content: 'Loading',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: 0
+   });
+   $rootScope.ptoHrs=values;
+   $rootScope.doRefresh();
+  }
 
 
 })  

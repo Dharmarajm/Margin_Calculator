@@ -43,6 +43,7 @@ angular.module('Salary', [])
     min: 0,
     max: 100.5,
     floor: 1,
+    ceil: 100.5,
     step: 0.5,
     precision: 1,
     onEnd: $scope.PerdiemSliderEnd
@@ -52,6 +53,7 @@ angular.module('Salary', [])
         min: 18000,
         max: 250000,
         floor: 18000,
+        ceil: 250000,
         onEnd: $scope.SalarySliderEnd
   };
 
@@ -61,12 +63,13 @@ angular.module('Salary', [])
             min: $rootScope.salaryText,
             max: 250000,
             floor: 18000,
+            ceil: 250000,
             onEnd: $scope.SalarySliderEnd
           };
-
-          $scope.hour=Math.round($scope.salarySlider.min/2080);
-          $scope.bill=Math.round(($scope.hour/42)*100);
   }
+
+  $scope.hour=Math.round($scope.salarySlider.min/2080);
+  $scope.bill=Math.round(($scope.hour/42)*100);
 
   $scope.$watch('salarySlider.min',function(data){      
     $rootScope.salaryText=data;
@@ -78,6 +81,7 @@ angular.module('Salary', [])
               min:$rootScope.perdiemText,
               max: 100.5,
               floor: 1,
+              ceil: 100.5,
               step: 0.5,
               precision: 1,
               onEnd: $scope.PerdiemSliderEnd

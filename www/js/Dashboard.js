@@ -2,7 +2,6 @@ angular.module('Dashboard', [])
 
 .controller('DashCtrl', function($scope,$state,$http,$rootScope,$cordovaSocialSharing,$cordovaInAppBrowser) {
   $rootScope.company_name=$rootScope.company_Details.company_name;
-  console.log($rootScope.company_Details.id)
   $http.get(CommonURL + "/recruiters/configuration_details?company_id="+$rootScope.company_Details.id)
     .then(function(response) {
         $rootScope.OverAllData = response.data;

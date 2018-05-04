@@ -28,51 +28,51 @@
 	     		<table width="100%">
 	     			<tr>
 	     				<th>Salary</th>
-	     				<td class="total_value">{{summary.salary | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.salary | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>PTO</th>
-	     				<td class="total_value">{{summary.pto | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.pto | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Fed Taxes</th>
-	     				<td class="total_value">{{summary.federal_taxes | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.federal_taxes | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>State Taxes</th>
-	     				<td class="total_value">{{summary.state_tax | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.state_tax | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Visa</th>
-	     				<td class="total_value">{{summary.visa | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.visa | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Perdiem</th>
-	     				<td class="total_value">{{summary.perdiem | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.perdiem | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Med/Dent</th>
-	     				<td class="total_value">{{summary.med_den | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.med_den | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Relocation</th>
-	     				<td class="total_value">{{summary.relo | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.relo | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Misc</th>
-	     				<td class="total_value">{{summary.misc | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.misc | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Finance Charge</th>
-	     				<td class="total_value">{{summary.finance_chrg | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.finance_chrg | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<th>Corporate Insurance</th>
-	     				<td class="total_value">{{summary.corp_ins | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.corp_ins | number:2 }}</td>
 	     			</tr>
 	     			<tr>
 	     				<td>Total</td>
-	     				<td class="total_value">{{summary.total | number:2 }}</td>
+	     				<td class="total_value">$ {{summary.total | number:2 }}</td>
 	     			</tr>
 	     		</table>
 	     	</div>
@@ -85,12 +85,12 @@
    		<div class="row">
    			<div class="col col-50">
 	    	    <div class="card-border">
-	    	    	<h4 class="emp-text">${{summary.margin_rate | number:2 }}</h4>
+	    	    	<h4 class="emp-text">$ {{summary.margin_rate | number:2 }}</h4>
 	    	    </div>
 		    </div>
 		    <div class="col col-50">
 		    	<div class="card-border">
-		    		<h4 class="emp-text">{{summary.margin_percent | number:2 }}%</h4>   		
+		    		<h4 class="emp-text">{{(summary.margin_percent | number:2) || 0 }} %</h4>   		
 		    	</div>
 		  	</div>
    		 </div>
@@ -103,12 +103,12 @@
    		<div class="row">
    			<div class="col col-50">
 	    	    <div class="card-border">
-	    	    	<h4 class="emp-text">${{summary.desired_margin | number:2 }}</h4>
+	    	    	<h4 class="emp-text">$ {{summary.desired_margin | number:2 }}</h4>
 	    	    </div>
 		    </div>
 		    <div class="col col-50">
 		    	<div class="card-border">
-		    		<h4 class="emp-text">{{OverAllData[0].desired_margin.desired_margin_percent | number:2 }}%</h4>
+		    		<h4 class="emp-text">{{OverAllData[0].desired_margin.desired_margin_percent | number:2 }} %</h4>
 		    	</div>
 		  	</div>
    		</div>

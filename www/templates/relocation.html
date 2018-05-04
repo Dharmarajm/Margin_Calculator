@@ -49,7 +49,7 @@
 
 
     <div class="row group1">
-      <textarea placeholder="Relocation notes" id="relocation_notes" rows="4"></textarea>
+      <textarea ng-model="relocation_notes" placeholder="Relocation notes" id="relocation_notes" rows="4" ng-change="RelocateNote(relocation_notes)"></textarea>
     </div>
 
   </ion-content>

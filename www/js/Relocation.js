@@ -18,10 +18,23 @@ angular.module('Relocation', [])
         $rootScope.doRefresh();   
       };
 
+
+      $scope.RelocateNote=function(name){
+       $rootScope.relocation_notes=name; 
+      }
+      
+      if($rootScope.relocation_notes != ""){
+        $rootScope.relocation_notes = $rootScope.relocation_notes 
+      }
+      else{
+      $rootScope.relocation_notes=""  
+      }
+
       $scope.sliderRelocation = {
-        min: 1000,
+        min: 0,
         max: $scope.relocation.relocation,
-        floor: 1,
+        floor: 0,
+        ceil: $scope.relocation.relocation,
         onEnd: $scope.locationValue
       };  
 
@@ -29,7 +42,8 @@ angular.module('Relocation', [])
          $scope.sliderRelocation = {
             min: $rootScope.reloadText,
             max: $scope.relocation.relocation,
-            floor: 1,
+            floor: 0,
+            ceil: $scope.relocation.relocation,
             onEnd: $scope.locationValue
           }; 
      }
