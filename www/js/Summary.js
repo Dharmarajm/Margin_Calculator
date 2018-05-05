@@ -8,11 +8,8 @@ angular.module('Summary', [])
   }*/
 
 
-/*  $rootScope.bill_rate=0;
-  $rootScope.client_fee=0;*/
+$scope.recruiter=$rootScope.recruiters_Details.first_name;
 
-
-      
     if($rootScope.candidatename == "Consultant Name" ||  $rootScope.candidatename == undefined || $rootScope.candidatename == null || $rootScope.candidatename == ""){  
       $rootScope.candidatename="Consultant Name"; 
     }

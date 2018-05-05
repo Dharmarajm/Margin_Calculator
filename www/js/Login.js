@@ -14,7 +14,7 @@ angular.module('Login', [])
     $scope.uuid = $cordovaDevice.getUUID();
   }, false);
 
-  $scope.uuid="1234"
+  /*$scope.uuid="1234"*/
 
   /*This is used to variable declaration using login page*/
   $scope.user = {

@@ -41,18 +41,20 @@ else{
 
   $rootScope.slider = {
     min: 0,
-    max: 250,
+    // max: 250,
     floor: 0,
     ceil: 250,
+    showSelectionBar: true,
     onEnd: $scope.myEndListener
   }
 
   if($rootScope.ptoText != null){
     $rootScope.slider = {
       min: $rootScope.ptoText,
-      max: 250,
+      // max: 250,
       floor: 0,
       ceil: 250,
+      showSelectionBar: true,
       onEnd: $scope.myEndListener
     };
     $rootScope.otherDays=Math.round($rootScope.ptoText/8);

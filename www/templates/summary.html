@@ -2,7 +2,16 @@
 	<ion-nav-title>
 	  <span class="bar-stable"><strong class="header-title">COST SUMMARY</strong></span>
 	</ion-nav-title>
-	<h1 class="consultant-name">{{candidatename}}</h1>
+	<div class="smry-consultant">
+		<span>
+			<h3>ARUN </h3>
+			<p class="companyname">{{company_name}}</p>
+		</span>
+		<span>
+			<h2>{{candidatename}}</h2>
+		</span>
+	</div>
+
    <ion-content class="ion-content content-view smry-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }" >
    		
    	<!-- 	 <center><h5>EMP CONTRIBUTION</h5></center>

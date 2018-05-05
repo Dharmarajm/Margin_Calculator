@@ -56,18 +56,20 @@ angular.module('Misc', [])
 
   $scope.miscslider = {
     min: 0,
-    max: 100,
+    /*max: 100,*/
     floor: 0,
     ceil: 100,
+    showSelectionBar: true,
     onEnd: $scope.miscbillEnd
   };
 
   if($rootScope.reloadmisc != null){
          $scope.miscslider = {
             min: $rootScope.reloadmisc,
-            max: 100,
+            /*max: 100,*/
             floor: 0,
             ceil: 100,
+            showSelectionBar: true,
             onEnd: $scope.miscbillEnd
           }; 
   }

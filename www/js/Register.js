@@ -18,6 +18,7 @@ angular.module('Register', [])
 
   }, false);
   
+  
   $scope.reg = {
     email: '',
     active: '',
@@ -25,7 +26,7 @@ angular.module('Register', [])
     confirm_password: ''
   }
 
-  $scope.uuid="1234"
+ /* $scope.uuid="1234"*/
  
   $scope.register = function() {
     if ($scope.reg.password != $scope.reg.confirm_password) {
