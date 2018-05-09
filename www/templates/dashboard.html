@@ -19,6 +19,11 @@
       <img src="img/btn_start_nrm.png" style="width:75%;" ng-click="start()">
     </div>
 
+    <div class="row hidecoach">
+        <ion-checkbox ng-checked="{{check_values}}" ng-model="active" ng-change="result(active)">Hide coachmark (Help?)</ion-checkbox>
+    </div>
+
+
     <div class="row social">
       <i class="icon ion-social-facebook" ng-click="sharefb('','','https://www.altiussolution.com/marketplace-data-feed-product-content-requirements/')"></i>
       <i class="icon ion-social-twitter" ng-click="sharetwitter('','','https://www.altiussolution.com/marketplace-data-feed-product-content-requirements/')"></i>

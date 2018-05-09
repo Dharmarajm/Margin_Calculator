@@ -15,7 +15,8 @@ angular.module('starter', ['ionic',
   'Pto',
   'Misc',
   'Insurance',
-  'Summary'
+  'Summary',
+  'ng-walkthrough'
 ])
 
 .run(function($ionicPlatform,$state,$ionicPopup) {
@@ -56,7 +57,7 @@ angular.module('starter', ['ionic',
         text : 'Ok',
         type : 'button-positive',
         onTap : function() {
-         ionic.Platform.exitApp();
+         ionic.Platform.exitApp();         
         }
        }]
       });

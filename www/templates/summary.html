@@ -4,11 +4,11 @@
 	</ion-nav-title>
 	<div class="smry-consultant">
 		<span>
-			<h3>ARUN </h3>
+			<h3>{{recruiter}}</h3>
 			<p class="companyname">{{company_name}}</p>
 		</span>
 		<span>
-			<h2>{{candidatename}}</h2>
+			<h3>{{candidatename}}</h3>
 		</span>
 	</div>
 
@@ -91,13 +91,13 @@
    		<div class="content-header">
 	      	<p>ACTUAL MARGIN</p>
 	    </div>
-   		<div class="row">
-   			<div class="col col-50">
+   		<div class="row pad-0">
+   			<div class="col col-50 pad-0">
 	    	    <div class="card-border">
 	    	    	<h4 class="emp-text">$ {{summary.margin_rate | number:2 }}</h4>
 	    	    </div>
 		    </div>
-		    <div class="col col-50">
+		    <div class="col col-50 pad-0">
 		    	<div class="card-border">
 		    		<h4 class="emp-text">{{(summary.margin_percent | number:2) || 0 }} %</h4>   		
 		    	</div>
@@ -109,13 +109,13 @@
 			<p>DESIRED MARGIN %</p>
 		</div>
    		
-   		<div class="row">
-   			<div class="col col-50">
+   		<div class="row pad-0">
+   			<div class="col col-50 pad-0">
 	    	    <div class="card-border">
 	    	    	<h4 class="emp-text">$ {{summary.desired_margin | number:2 }}</h4>
 	    	    </div>
 		    </div>
-		    <div class="col col-50">
+		    <div class="col col-50 pad-0">
 		    	<div class="card-border">
 		    		<h4 class="emp-text">{{OverAllData[0].desired_margin.desired_margin_percent | number:2 }} %</h4>
 		    	</div>
@@ -128,8 +128,9 @@
    		
    		<div class="row">
    			<div class="col col-100">
-	    	    <div class="card-border">
-	    	       <center> <h6 class="sub-emp-text">COST RECOVERY MONTH</h6></center>
+	    	    <div class="card-border text-center">
+	    	    	<p class="pink">COST RECOVERY MONTH</p>
+<!-- 	    	       <center> <h6 class="sub-emp-text">COST RECOVERY MONTH</h6></center> -->
 	    	    	<h4 class="emp-text">{{summary.recovery_month | number:2 }}</h4>
 	    	    </div>
 		    </div>		    

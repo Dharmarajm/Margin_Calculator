@@ -13,8 +13,10 @@
     </div> -->
 
       <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
-      
-    <div class="row bill-content">
+    
+    <!--Old Code Begins here-->
+       
+    <!-- <div class="row bill-content">
       $<input class="textvalues" type="number" ng-model="salarySlider.min" ng-blur="salaryEdit(salarySlider.min)" autosize>
     </div>
     <div class="row bill-content">
@@ -46,6 +48,57 @@
       <rzslider rz-slider-model="perdiemSlider.min" id="periem_id" rz-slider-high="perdiemSlider.max" rz-slider-options="perdiemSlider">
        </rzslider>
     </div>
+ -->
+ 
+  <!--New code-->
+    <div class="button-bar">
+      <a class="button button-block" id="pto_std" ng-class="{'button-circle': dollar == true}" ng-click="dollarButton()">Dollar</a>
+      <a class="button button-block" id="pto_other" ng-class="{'button-circle': billrate == true }" ng-click="billrateButton()">% Bill Rate</a>
+    </div>
+    
+    <div ng-show="dollar" class="dollar">
+      <div class="row bill-content">
+       $<input class="textvalues" type="number" ng-model="salarySlider.min" max="250000" ng-blur="salaryEdit(salarySlider.min)" autosize>
+      </div>
+
+      <div class="row group1" >
+       <rzslider  rz-slider-model="salarySlider.min" id="salerySlider" rz-slider-options="salarySlider">
+       </rzslider>
+      </div>
+    </div>
+
+    <div ng-show="billrate">
+      <div class="row bill-content">
+        <!-- <h2>{{billrateSlider.min}}%</h2> -->
+        <input class="textvalues" type="number" ng-model="billrateSlider.min" max="100" ng-blur="billedit(billrateSlider.min)" autosize>%
+      </div>
+      <div class="row group1" >
+        <rzslider rz-slider-model="billrateSlider.min" id="periem_id" rz-slider-options="billrateSlider">
+        </rzslider>
+       </div>
+    </div>
+
+    <div class="row bill-content">
+        <p>HOURLY SALARY:&nbsp;<span class="pink">${{hour | number:2 }}</span> </p>
+    </div>
+    <div class="row bill-content">
+        <p>({{salaryhract}})</p>
+    </div>
+    <div class="per-diem">
+      <p>Per Diem</p>
+      <div class="row group-center">
+        <div class="col col-100 col-50-align">
+          <span>Hourly:</span>
+          <input type="number" ng-model="perdiemSlider.min" id="sal_perdiem" max="100">
+        </div>
+      </div>
+    </div>
+
+    <div class="row group1">
+      <rzslider rz-slider-model="perdiemSlider.min" id="periem_id" rz-slider-options="perdiemSlider">
+       </rzslider>
+    </div>
+    <br>
 
   </ion-content>
 

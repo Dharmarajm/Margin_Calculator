@@ -15,6 +15,24 @@ angular.module('Dashboard', [])
         console.log(val);
     };
 
+
+    $rootScope.result=function(active){
+        if(active == true){
+            $rootScope.active=true;
+            $rootScope.check_values='true';
+            localStorage.setItem("checkbox",$rootScope.check_values);      
+            $rootScope.Coachmark_id=2;
+            localStorage.setItem("coachmark",$rootScope.Coachmark_id);      
+        }else if(active == false){
+            $rootScope.active=false;
+            $rootScope.check_values='all';
+            localStorage.setItem("checkbox",$rootScope.check_values);      
+            $rootScope.Coachmark_id=1;
+            localStorage.setItem("coachmark",$rootScope.Coachmark_id);      
+        }        
+    }
+
+
   $scope.sharetwitter=function(message, image, link){
    $cordovaSocialSharing
     .shareViaTwitter(message, image, link)

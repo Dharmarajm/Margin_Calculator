@@ -7,61 +7,83 @@
    <ion-content class="ion-content content-view" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     
        <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
+    
 
-    <div class="button-bar">
-      <a class="button button-block" id="mis_bill" ng-class="{'button-circle': misc_bill == true}" ng-click="MiscBill()">Bill Rate</a>
-      <a class="button button-block" id="mis_hrs" ng-class="{'button-circle': misc_hour == true }" ng-click="MiscHour()">Hourly</a>
-      <a class="button button-block" id="mis_one" ng-class="{'button-circle': miscOne_time == true }" ng-click="MiscOne()">OneTime</a>
-  	</div>
 
-	  <div ng-show="misc_bill">
-	  	<div class="row bill-content">
-	  		<h2>{{miscslider.min}}%</h2>
-	  	</div>
-	  	<div class="row bill-content">
-	  		<p>HOURLY:&nbsp;<span class="pink">${{hour_total | number:2 }}</span> </p>
-	  	</div>
 
-	    <div class="row group1" >
-		       <rzslider rz-slider-model="miscslider.min" id="misc_slider" rz-slider-high="miscslider.max" rz-slider-options="miscslider">
-		       </rzslider>
-       </div>
+    <div ng-show="container">
+      <div class="button-bar">
+        <a class="button button-block" id="mis_bill" ng-class="{'button-circle': misc_bill == true}" ng-click="MiscBill()">Bill Rate</a>
+        <a class="button button-block" id="mis_hrs" ng-class="{'button-circle': misc_hour == true }" ng-click="MiscHour()">Hourly</a>
+        <a class="button button-block" id="mis_one" ng-class="{'button-circle': miscOne_time == true }" ng-click="MiscOne()">One Time</a>
+    	</div>
+
+	    <div ng-show="misc_bill">
+  	  	<div class="row bill-content">
+  	  		<h2>{{miscslider.min}}%</h2>
+  	  	</div>
+  	  	<div class="row bill-content">
+  	  		<p>HOURLY:&nbsp;<span class="pink">${{hour_total | number:2 }}</span> </p>
+  	  	</div>
+
+  	    <div class="row group1" >
+  		       <rzslider rz-slider-model="miscslider.min" id="misc_slider" rz-slider-options="miscslider">
+  		       </rzslider>
+         </div>
+      </div>
+
+  	  <div ng-show="misc_hour" class="misc_hour">
+  	  	<div class="row group1">
+  	  		<input type="number" ng-model="miscdata.hour" ng-blur="hourly(miscdata.hour)" placeholder="$" id="misc_hr">
+  	  	</div>
+  	  </div>
+
+  	  <div ng-show="miscOne_time" class="miscOne_time">
+  	  	<div class="row group1">
+  	  		<input type="number" ng-model="miscdata.onetime" ng-blur="onetime(miscdata.onetime)" placeholder="$" id="misc_one">
+  	  	</div>
+  	  </div>
+
+
+
+    	<div class="row group1 border">
+    	  <textarea placeholder="Misc notes" rows="4" id="mis_note"></textarea>
+    	</div>
+
+
+      <div class="row group1 border">
+        <button class="button button-block button-purple" ng-click="AddMisc()">SAVE</button>
+      </div>
+
     </div>
 
-	  <div ng-show="misc_hour" class="misc_hour">
-	  	<div class="row group1">
-	  		<input type="number" ng-model="miscdata.hour" ng-blur="hourly(miscdata.hour)" placeholder="$" id="misc_hr">
-	  	</div>
-	  </div>
+    <div class="smry-table misc-table">
+      <div class="card-border">       
+            <h2>MISCELLANEOUS COST 
+              <span ng-show="plusbutton" class="add-misc" ng-click="plus()">
+                <i class="icon ion-plus"></i>
+              </span>
+            </h2>
+        <table width="100%">
 
-	  <div ng-show="miscOne_time" class="miscOne_time">
-	  	<div class="row group1">
-	  		<input type="number" ng-model="miscdata.onetime" ng-blur="onetime(miscdata.onetime)" placeholder="$" id="misc_one">
-	  	</div>
-	  </div>
+          <tr ng-repeat="m in misc" ng-show="misc.length > 0">
+            <td>Misc{{$index+1}}</td>
+            <td>{{m.name}}</td>
+            <td>${{m.value}}</td>
+            <td><i class="icon ion-close" ng-click="remove($index)"></i></td>
+          </tr>
+          <tr ng-show="misc.length < 1">
+           <td> No records</td>
+          </tr>
+        </table>
 
-
-
-  	<div class="row group1 border">
-  	  <textarea placeholder="Misc notes" rows="4" id="mis_note"></textarea>
-  	</div>
-     <div class="smry-table" ng-show="misc.length > 0">
-        <div class="card-border">       
-          <table width="100%">
-
-            <tr ng-repeat="m in misc" >
-              <td>{{m.name}}</td>
-              <td>{{m.value}}</td>
-              <td><i class="icon ion-minus" ng-click="remove($index)"></i></td>
-            </tr>
-          </table>
-        </div>
       </div>
+    </div>
+      
+      
  
    </ion-content>
-  	<div class="add-icon" ng-click="AddMisc()">
-  		<i class="icon ion-plus"></i>
-  	</div>
+  	
     <div class="bar bar-footer hide-on-keyboard-open" ng-controller="LoginCtrl">
      <div class="row" style="justify-content: space-between;">
       <div class="footer-title">

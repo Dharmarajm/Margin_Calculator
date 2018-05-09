@@ -17,6 +17,10 @@ angular.module('Relocation', [])
     };
 
 
+   $rootScope.Coachmark_id=2;
+   localStorage.setItem("coachmark",$rootScope.Coachmark_id);  
+      
+
     $scope.RelocateNote=function(name){
      $rootScope.relocation_notes=name; 
     }
@@ -68,13 +72,13 @@ angular.module('Relocation', [])
     }
 
     $scope.relocations=function(values){
-     $ionicLoading.show({
+     /*$ionicLoading.show({
       content: 'Loading',
       animation: 'fade-in',
       showBackdrop: true,
       maxWidth: 200,
       showDelay: 0
-     });
+     });*/
       $scope.reLocationValue=values;
       $rootScope.doRefresh();   
     }

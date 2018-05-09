@@ -25,13 +25,19 @@
           <h2>{{pto.days}}</h2>
         </div>
       </div>
+      <br>
+      <div class="row group1 disable">
+        <rzslider rz-slider-model="disableslider.min" id="ptoSlider" rz-slider-options="disableslider">
+        </rzslider>
+      </div>
     </div>
 
     <div ng-show="other">
       <div class="row group-center">
         <div class="col col-50 col-50-align line">
           <label>HOURS</label>
-          <h2 editable-text="slider.min" ng-blur="ptohours(slider.min)"></h2>
+          <!-- <h2 editable-text="slider.min" ng-blur="ptohours(slider.min)"></h2> -->
+          <input class="textvalues" type="number" ng-model="slider.min"  max="250" ng-blur="ptohours(slider.min)" style="width:100%">
         </div>
         <div class="col col-50 col-50-align">
           <label>DAYS</label>
@@ -40,12 +46,72 @@
       </div>
       <br>
       <div class="row group1">
-        <rzslider rz-slider-model="slider.min" id="ptoSlider" rz-slider-high="slider.max" rz-slider-options="slider">
+        <rzslider rz-slider-model="slider.min" id="ptoSlider" rz-slider-options="slider">
         </rzslider>
       </div>
     </div>
+   
+    <div class="chs_pto">
+      <div class="content-header text-center">
+        <p>Choose PTO</p>
+      </div>
+       
+      
+      <div class="row radio">
+        <div class="col col-50">
+          <label class="container" ng-model="pto.standard" ng-click="ptobutton(pto.standard,'standard')">Standard
+            <input type="radio"  name="radio" id="med_rad_1" ng-checked="checkedstandard">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="container" ng-model="pto.other" ng-click="ptobutton(pto.other,'other')">Other
+            <input type="radio"  name="radio" id="med_rad_2" ng-checked="checkedother">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
 
+      <div class="row">
+        <div class="col col-100">
+          <div class="card-border">
+            <div class="row">
+              <div class="col col-50 text-center">
+                <p class="pink">Hours</p>
+                <h4>{{ptoHrs}}</h4>
+              </div>
+              <div class="col col-50 text-center">
+                <p class="pink">Days</p>
+                <h4>{{getptoDays}}</h4>                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col col-50">
+          <div class="card-border">
+            <p class="pink">{{ptoHrs}}/{{getptoDays}}</p>
+             <h4>{{slider.min}}/{{otherDays}}</h4> 
+          </div>
+        </div> -->
+      </div>
+    </div>
 
+   <!--  <div class="row radio">
+      <div class="col col-50">
+       <p>Hours  :{{pto.hours}} </p>  
+      </div>
+      <div class="col col-50">
+       <p>Hours  :{{slider.min}}</p>
+      </div>
+    </div>
+    <div class="row radio">
+      <div class="col col-50">
+       <p>Days  :{{pto.days}} </p>  
+      </div>
+      <div class="col col-50">
+       <p>Days  :{{otherDays}}</p>
+      </div>
+    </div> -->
 
   </ion-content>
 

@@ -27,7 +27,7 @@
     
     <div class="row group-center">
       <div class="col col-50">
-        <h3><strong>${{relocation.relocation}}</strong></h3>
+        <h3><strong><span>$</span>{{relocation.relocation}}</strong></h3>
       </div>
       <div class="col col-50">
 <!--         <h3>$<strong editable-text="sliderRelocation.min"  ng-blur="relocation(sliderRelocation.min)" ng-model="sliderRelocation.min" ng-change="ss()"></strong></h3>        
@@ -35,7 +35,7 @@
       
         <div class="input-group">
           <span class="textvalues">$</span>
-          <input class="textvalues" type="number" id="reloaction_id" ng-model="sliderRelocation.min" max="relocation.relocation" ng-blur="relocations(sliderRelocation.min)">          
+          <input class="textvalues" type="number" id="reloaction_id" ng-model="sliderRelocation.min" max="{{relocation.relocation}}" ng-blur="relocations(sliderRelocation.min)">          
         </div>
 
       </div>
@@ -43,7 +43,7 @@
 
     <br>
     <div class="row group1">
-      <rzslider rz-slider-model="sliderRelocation.min" rz-slider-high="sliderRelocation.max" id="relocationSlider" rz-slider-options="sliderRelocation"></rzslider>
+      <rzslider rz-slider-model="sliderRelocation.min" id="relocationSlider" rz-slider-options="sliderRelocation"></rzslider>
         </rzslider>
     </div>
 

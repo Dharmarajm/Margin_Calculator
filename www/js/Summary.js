@@ -6,7 +6,24 @@ angular.module('Summary', [])
     alert("Cost Summary for James is send to your email.")
     $state.go("dashboard")
   }*/
-
+       /*if($rootScope.billrateText != null){
+          if($rootScope.adjRate == 0 || $rootScope.adjRate == null || $rootScope.adjRate == "" || $rootScope.adjRate == undefined){
+              $scope.hour=0;
+            }else{
+              $scope.hour=($rootScope.adjRate/100)*$rootScope.billrateText;
+            }
+            $rootScope.SalaryValue=$scope.hour*2080; 
+       }
+       if($rootScope.salaryText != null){
+         $scope.hour=$rootScope.salaryText/2080;
+        if($rootScope.adjRate == 0 || $rootScope.adjRate == null || $rootScope.adjRate == "" || $rootScope.adjRate == undefined){
+          $scope.bill=0;
+          
+        }else{
+          $scope.bill=($scope.hour/$rootScope.adjRate)*100;
+        }
+       }*/
+     
 
 $scope.recruiter=$rootScope.recruiters_Details.first_name;
 
@@ -23,6 +40,10 @@ $scope.recruiter=$rootScope.recruiters_Details.first_name;
   }else{
     $rootScope.cons={bill_rate:'',client_fee:''}  
   }
+
+   $rootScope.Coachmark_id=2;
+   localStorage.setItem("coachmark",$rootScope.Coachmark_id);  
+    
 
        var data ={
       "cost_calc":
@@ -44,12 +65,23 @@ $scope.recruiter=$rootScope.recruiters_Details.first_name;
           "misc":$rootScope.misc
         }
       }
+      
+      $ionicLoading.show({
+       content: 'Loading',
+       animation: 'fade-in',
+       showBackdrop: true,
+       maxWidth: 200,
+       showDelay: 0
+      });
 
       $http({
         method: 'post',
         url: CommonURL + '/recruiters/cost_calc',
         data: data
       }).then(function(response) {
+            $timeout(function() {
+             $ionicLoading.hide();
+            });
             $scope.summary=response.data;    
       })
 
@@ -108,6 +140,8 @@ $scope.recruiter=$rootScope.recruiters_Details.first_name;
                   $rootScope.consultant == null;
                   $rootScope.candidatename=null;
                   $rootScope.ptoHrs="";
+                  $rootScope.ptovalue="";
+                  $rootScope.ptoname=null;
                   $rootScope.relocation_value="";
                   $rootScope.reLocationValue="";
                   $rootScope.medicalvalue="";
@@ -129,6 +163,9 @@ $scope.recruiter=$rootScope.recruiters_Details.first_name;
                   $rootScope.misc=null;
                   $rootScope.salaryText=null;
                   $rootScope.perdiemText=null;
+                  $rootScope.billrateText=null;
+                  $rootScope.salaryhract = "Dollar";
+                  localStorage.removeItem('Item');
                   $rootScope.lcamin="";
                   $rootScope.locationval="";
                   $rootScope.otherDays=0;

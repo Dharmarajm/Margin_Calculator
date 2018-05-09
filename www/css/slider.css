@@ -205,8 +205,8 @@ rzslider span.bubble.selection {
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 4px;
-  background: #6c6769;
+  height: 2px;
+  background: #ababab;
   border-radius: 2px;
 }
 
@@ -229,7 +229,7 @@ rzslider span.bubble.selection {
 }
 
 .rzslider .rz-pointer {
-  top: -14px;
+  top: -16px;
   z-index: 3;
   width: 32px;
   height: 32px;
@@ -249,9 +249,9 @@ rzslider span.bubble.selection {
   content: '';
 }
 
-.rzslider .rz-pointer:hover:after {
+/*.rzslider .rz-pointer:hover:after {
   background-color: #d75b7e;
-}
+}*/
 
 .rzslider .rz-pointer.rz-active {
   z-index: 4;
