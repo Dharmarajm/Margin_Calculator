@@ -112,15 +112,15 @@ rzslider span.bubble.selection {
 .animate-in-primary {
     -webkit-animation: animateInPrimary;
     animation: animateInPrimary;
-    -webkit-animation-duration: 750ms;
-    animation-duraton: 750ms;
+    -webkit-animation-duration: 0.1s;
+    animation-duraton: 0.1s;
 }
  
 .animate-in-secondary {
     -webkit-animation: animateInSecondary;
     animation: animateInSecondary;
-    -webkit-animation-duration: 750ms;
-    animation-duraton: 750ms;
+    -webkit-animation-duration: 0.1s;
+    animation-duraton: 0.1s;
 }
 
 /*! angularjs-slider - v6.5.1 - 

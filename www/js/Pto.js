@@ -32,6 +32,7 @@ angular.module('Pto', [])
     
 
   $scope.pto=$rootScope.OverAllData[0].pto;
+ /* console.log($scope.pto)*/
   $scope.standard = true;
   $scope.standarButton = function() {
     $scope.standard = true;

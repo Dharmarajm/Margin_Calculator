@@ -942,17 +942,17 @@ a.button.button-block.button-circle {
   text-transform: lowercase;
 }
 
-.disable .rzslider .rz-selection {
-    background: #ababab4d;
+.disable .rzslider .rz-bar.rz-selection {
+    background: rgba(171, 171, 171, 0.2)!important
 }
 .disable .rzslider .rz-pointer:after {
     background: none;
 }
 .disable .rzslider .rz-pointer {
-    background-color: #d75b7e4f;
+    background-color: rgba(215, 91, 126, 0.2)!important;
 }
 .disable .rzslider .rz-bar {
-    background: #ababab4d;
+    background: rgba(171, 171, 171, 0.2)!important;
 }
 .group-center input{
     width: 100%;
