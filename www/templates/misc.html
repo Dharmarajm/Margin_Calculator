@@ -34,13 +34,13 @@
 
   	  <div ng-show="misc_hour" class="misc_hour">
   	  	<div class="row group1">
-  	  		<input type="number" ng-model="miscdata.hour" ng-blur="hourly(miscdata.hour)" placeholder="$" id="misc_hr">
+  	  		<input type="number" ng-model="miscdata.hour" placeholder="$" id="misc_hr">
   	  	</div>
   	  </div>
 
   	  <div ng-show="miscOne_time" class="miscOne_time">
   	  	<div class="row group1">
-  	  		<input type="number" ng-model="miscdata.onetime" ng-blur="onetime(miscdata.onetime)" placeholder="$" id="misc_one">
+  	  		<input type="number" ng-model="miscdata.onetime" placeholder="$" id="misc_one">
   	  	</div>
   	  </div>
 
@@ -52,7 +52,9 @@
 
 
       <div class="row group1 border">
-        <button class="button button-block button-purple" ng-click="AddMisc()">SAVE</button>
+        <button class="button button-block" style="background-color:#d85b7e;color:#fff" ng-click="AddMisc()">
+          SAVE
+        </button>
       </div>
 
     </div>
@@ -69,7 +71,7 @@
           <tr ng-repeat="m in misc" ng-show="misc.length > 0">
             <td>Misc{{$index+1}}</td>
             <td>{{m.name}}</td>
-            <td>${{m.value}}</td>
+            <td>${{m.value | number:2}}</td>
             <td><i class="icon ion-close" ng-click="remove($index)"></i></td>
           </tr>
           <tr ng-show="misc.length < 1">
@@ -87,10 +89,10 @@
     <div class="bar bar-footer hide-on-keyboard-open" ng-controller="LoginCtrl">
      <div class="row" style="justify-content: space-between;">
       <div class="footer-title">
-        Adj.Rate:<span>${{adjRate | number:2 }}</span>
+        Adj.Rate:<span>${{(adjRate | number:2) || 0 }}</span>
       </div>
       <div class="footer-title1">
-        Margin:<span>${{marginDollar | number:2 }}&nbsp;|&nbsp;{{marginPercentage | number:2 }}%</span>
+        Margin:<span>${{(marginDollar | number:2) || 0 }}&nbsp;|&nbsp;{{(marginPercentage | number:2) || 0 }}%</span>
       </div>
      </div>
     </div>

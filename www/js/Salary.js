@@ -1,6 +1,6 @@
 angular.module('Salary', [])
 
-.controller('SalaryCtrl', function($scope,$state,$http,$rootScope,$ionicLoading,$timeout) {
+.controller('SalaryCtrl', function($scope,$state,$http,$rootScope,$ionicLoading,$timeout,$ionicPopup) {
 
 
     if($rootScope.candidatename == "Consultant Name" ||  $rootScope.candidatename == undefined || $rootScope.candidatename == null || $rootScope.candidatename == ""){  
@@ -209,11 +209,13 @@ angular.module('Salary', [])
     }else{
       $scope.hour=($rootScope.adjRate/100)*$scope.billrateSlider.min;
     }
+    $rootScope.SalaryValue=$scope.hour*2080;
   }else{
     $scope.dollar = true;
     $scope.billrate = false;
     $rootScope.salaryhract = "Dollar";
     $scope.hour=$scope.salarySlider.min/2080;
+    $rootScope.SalaryValue=$scope.salarySlider.min;
   }
 
   $scope.dollarButton = function() {

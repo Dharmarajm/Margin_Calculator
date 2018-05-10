@@ -19,7 +19,7 @@ angular.module('starter', ['ionic',
   'ng-walkthrough'
 ])
 
-.run(function($ionicPlatform,$state,$ionicPopup) {
+.run(function($ionicPlatform,$state,$ionicPopup,$rootScope) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -62,6 +62,11 @@ angular.module('starter', ['ionic',
        }]
       });
      };
+
+      if($state.current.name=='tab.consultant' || $rootScope.Coachmark_id == 1){
+         // $rootScope.demoActive1 = false; 
+         return;
+      } 
 
       if($state.current.name=='login' || $state.current.name=='register' || $state.current.name=='dashboard' ){
            showConfirm();

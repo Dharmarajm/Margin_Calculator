@@ -72,6 +72,14 @@ angular.module('Register', [])
         }
 
 
+      },function(error){
+        $timeout(function() {
+         $ionicLoading.hide();
+        });
+        $scope.regalert1=$ionicPopup.alert({
+          title: 'MARGINO',
+          template: '<center>Failed to connect Server</center>'
+        })
       })
     }
     /*localStorage.setItem("user", 0)*/
@@ -82,10 +90,17 @@ angular.module('Register', [])
 
 })
 
-.controller('changePasswordCtrl',function($scope,$rootScope,$http,$state){
+.controller('changePasswordCtrl',function($scope,$rootScope,$http,$state,$ionicLoading,$timeout,$ionicPopup){
   
   $scope.change={new_password:'',old_password:''}
   $scope.ConfirmChange=function(){
+    $ionicLoading.show({
+       content: 'Loading',
+       animation: 'fade-in',
+       showBackdrop: true,
+       maxWidth: 200,
+       showDelay: 0
+    });
     var data = {
       "recruiter_id": $rootScope.recruiters_Details.id,
       "old_password": $scope.change.old_password,
@@ -96,6 +111,9 @@ angular.module('Register', [])
       url: CommonURL + '/recruiters/change_password',
       data: data
     }).then(function(response) {
+      $timeout(function() {
+         $ionicLoading.hide();
+      });
       if(response.data.result != 'Invalid') {
         localStorage.setItem("user", 0)
         $state.go('login');
@@ -105,7 +123,15 @@ angular.module('Register', [])
           content: "Invalid password "
         })  
       }
-    })
+    },function(error){
+        $timeout(function() {
+         $ionicLoading.hide();
+        });
+        $scope.regalert2=$ionicPopup.alert({
+          title: 'MARGINO',
+          template: '<center>Failed to connect Server</center>'
+        })
+      })
   }
 
 

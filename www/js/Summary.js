@@ -83,6 +83,14 @@ $scope.recruiter=$rootScope.recruiters_Details.first_name;
              $ionicLoading.hide();
             });
             $scope.summary=response.data;    
+      },function(error){
+        $timeout(function() {
+         $ionicLoading.hide();
+        });
+        $scope.alertSumInt=$ionicPopup.alert({
+          title: 'MARGINO',
+          template: '<center>Failed to connect Server</center>'
+        })
       })
 
 
@@ -95,7 +103,6 @@ $scope.recruiter=$rootScope.recruiters_Details.first_name;
                maxWidth: 200,
                showDelay: 0
             });
-            console.log($rootScope.OverAllData[0])  
             var data ={
                 "cost_calc_email":{
                       "candidate_name":$rootScope.candidatename,
@@ -203,6 +210,14 @@ $scope.recruiter=$rootScope.recruiters_Details.first_name;
                               localStorage.setItem("coachmark",$rootScope.Coachmark_id);           
                         }
                       }       
+                },function(error){
+                    $timeout(function() {
+                     $ionicLoading.hide();
+                    });
+                    $scope.sumalert=$ionicPopup.alert({
+                      title: 'MARGINO',
+                      template: '<center>Failed to connect Server</center>'
+                    })
                 })
       }      
 	

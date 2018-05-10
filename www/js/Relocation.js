@@ -1,6 +1,6 @@
 angular.module('Relocation', [])
 
-.controller('RelocationCtrl', function($scope,$state,$http,$rootScope,$ionicLoading,$timeout) {
+.controller('RelocationCtrl', function($scope,$state,$http,$rootScope,$ionicLoading,$timeout,$ionicPopup) {
    
     if($rootScope.candidatename == "Consultant Name" ||  $rootScope.candidatename == undefined || $rootScope.candidatename == null || $rootScope.candidatename == ""){  
       $rootScope.candidatename="Consultant Name"; 

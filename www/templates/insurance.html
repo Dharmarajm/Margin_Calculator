@@ -126,10 +126,10 @@
    <div class="bar bar-footer" ng-controller="LoginCtrl">
     <div class="row" style="justify-content: space-between;">
       <div class="footer-title">
-        Adj.Rate:<span>${{adjRate | number:2 }}</span>
+        Adj.Rate:<span>${{(adjRate | number:2) || 0 }}</span>
       </div>
       <div class="footer-title1">
-        Margin:<span>${{marginDollar | number:2 }}&nbsp;|&nbsp;{{marginPercentage | number:2 }}%</span>
+        Margin:<span>${{(marginDollar | number:2) || 0 }}&nbsp;|&nbsp;{{(marginPercentage | number:2) || 0 }}%</span>
       </div>
     </div>
   </div>

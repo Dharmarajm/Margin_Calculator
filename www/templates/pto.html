@@ -5,7 +5,7 @@
 
 
   <h1 class="consultant-name">{{candidatename}}</h1>
-  <ion-content class="ion-content content-view pot-content " ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
+  <ion-content class="ion-content content-view pot-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     
     <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
 
@@ -18,11 +18,11 @@
       <div class="row group-center">
         <div class="col col-50 col-50-align line">
           <label>HOURS</label>
-          <h2>{{pto.hours}}</h2>
+          <h2>{{pto.hours || 0 }}</h2>
         </div>
         <div class="col col-50 col-50-align">
           <label>DAYS</label>
-          <h2>{{pto.days}}</h2>
+          <h2>{{pto.days || 0 }}</h2>
         </div>
       </div>
       <br>
@@ -118,10 +118,10 @@
   <div class="bar bar-footer" ng-controller="LoginCtrl">
     <div class="row" style="justify-content: space-between;">
       <div class="footer-title">
-        Adj.Rate:<span>${{adjRate | number:2 }}</span>
+        Adj.Rate:<span>${{(adjRate | number:2) || 0 }}</span>
       </div>
       <div class="footer-title1">
-        Margin:<span>${{marginDollar | number:2 }}&nbsp;|&nbsp;{{marginPercentage | number:2 }}%</span>
+        Margin:<span>${{(marginDollar | number:2) || 0 }}&nbsp;|&nbsp;{{(marginPercentage | number:2) || 0 }}%</span>
       </div>
     </div>
   </div>

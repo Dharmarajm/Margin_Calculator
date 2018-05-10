@@ -1,6 +1,6 @@
 angular.module('Consultant', [])
 
-.controller('ConsultantCtrl', function($scope,$state,$http,$rootScope,$timeout,$ionicLoading) {
+.controller('ConsultantCtrl', function($scope,$state,$http,$rootScope,$timeout,$ionicLoading,$ionicPopup) {
 
 /*if($rootScope.cons.bill_rate != "" || $rootScope.cons.client_fee != "" && $rootScope.cons.bill_rate !=undefined || $rootScope.cons.client_fee != undefined){
   $rootScope.cons.bill_rate=$rootScope.cons.bill_rate;
@@ -103,6 +103,11 @@ if($rootScope.cons != undefined){
            $timeout(function() {
               $scope.$broadcast('scroll.refreshComplete');
             }, 2000);
+      },function(error){
+        $rootScope.sumalert=$ionicPopup.alert({
+          title: 'MARGINO',
+          template: '<center>Failed to connect Server</center>'
+        })
       })      
   }
 
@@ -136,10 +141,7 @@ $scope.billvalues=function(values){
   });*/
   $rootScope.bill_rate=values;
   $rootScope.doRefresh();
-  /*$rootScope.reloadmisc=null;
-  $rootScope.hour_total=0;*/
- /*}*/
-}
+ }
 
 $scope.clientvalues=function(values){
  /*if(values!='' && values!=null && values!=undefined){ */
@@ -152,9 +154,7 @@ $scope.clientvalues=function(values){
   });*/
   $rootScope.doRefresh();
   $rootScope.client_fee=values;
-  /*$rootScope.reloadmisc=null;
-  $rootScope.hour_total=0;*/
- /*} */
+  
 }
 
 if($rootScope.consultant == undefined && $rootScope.consultant == null && $rootScope.consultant == ""){  

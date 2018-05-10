@@ -1,6 +1,6 @@
 angular.module('Misc', [])
 
-.controller('MiscCtrl', function($scope,$state,$http,$rootScope,$ionicLoading,$timeout) {
+.controller('MiscCtrl', function($scope,$state,$http,$rootScope,$ionicLoading,$timeout,$ionicPopup) {
 
     if($rootScope.candidatename == "Consultant Name" ||  $rootScope.candidatename == undefined || $rootScope.candidatename == null || $rootScope.candidatename == ""){  
       $rootScope.candidatename="Consultant Name"; 
@@ -79,23 +79,25 @@ angular.module('Misc', [])
     $scope.$broadcast('rzSliderForceRender');
   });
 
+  /*
   if($rootScope.miscdata != undefined){
     $rootScope.miscdata.hour= $rootScope.miscdata.hour;
     $rootScope.miscdata.onetime= $rootScope.miscdata.onetime;
   }
   else{
-    $rootScope.miscdata = { "hour":"" };  
-    $rootScope.miscdata = { "onetime":"" };
-  }
+    $rootScope.miscdata = { hour:"",onetime:"" };
+  }*/
 
-  $scope.hourly=function(name){
+  /*$scope.hourly=function(name){
    $rootScope.miscdata.hour = name; 
   }
   
 
   $scope.onetime=function(name){
    $rootScope.miscdata.onetime=name; 
-  }
+  }*/
+
+  $rootScope.miscdata = { hour:"",onetime:"" };
 
   if($rootScope.hour_total == "" || $rootScope.hour_total == null || $rootScope.hour_total == undefined || $rootScope.hour_total == 0){
      $rootScope.hour_total=0;
@@ -121,22 +123,7 @@ angular.module('Misc', [])
 
 
   $scope.AddMisc=function(){
-    if($scope.value == "Bill Rate" ){
-      $scope.value="% Bill Rate"+"("+$scope.miscslider.min+")";
-      $scope.selected_data=$rootScope.miscValue;
-      $rootScope.reloadmisc=null;
-      $scope.miscslider.min=0;
-      $rootScope.miscValue=$scope.miscslider.min;
-      console.log($rootScope.hour_total)
-      if($rootScope.hour_total > 0 ){
-        $scope.selected_data=$rootScope.hour_total
-      }
-      else{
-        $scope.selected_data=0;
-      }
-
-    }
-    else if($scope.value == "One Time"){
+    if($scope.value == "One Time"){
       $scope.selected_data=$rootScope.miscdata.onetime; 
       $rootScope.miscdata.onetime="";
     }
@@ -144,14 +131,24 @@ angular.module('Misc', [])
       $scope.selected_data=$rootScope.miscdata.hour;
       $rootScope.miscdata.hour = ""; 
     }
-    else{
-      if($scope.value != "Hourly" || $scope.value == "One Time"){
-        $scope.value = "Bill Rate";
+    else
+    {
+      $scope.value="% Bill Rate"+"("+$scope.miscslider.min+")";
+      $rootScope.reloadmisc=null;
+      $scope.miscslider.min=0;
+      if($rootScope.hour_total == 0 ){
+        $scope.selected_data=0;
       }
-    }
+      else{
+        $scope.selected_data=$rootScope.hour_total
+      }
 
+    }
     if($scope.selected_data == "" || $scope.selected_data == null || $scope.selected_data == undefined ){
-      alert("Enter a value")
+      var alertPopup = $ionicPopup.alert({
+          title: "MARGINO",
+          content: "Enter a  value"
+      })
     }
     else{
       $rootScope.misc.push({
@@ -159,7 +156,6 @@ angular.module('Misc', [])
         "value":$scope.selected_data
       })
       $rootScope.hour_total=0;
-      $scope.value = "Bill Rate";
       $scope.container=false;
       $scope.plusbutton=true;
     }

@@ -1,10 +1,26 @@
 angular.module('Dashboard', [])
 
-.controller('DashCtrl', function($scope,$state,$http,$rootScope,$cordovaSocialSharing,$cordovaInAppBrowser) {
+.controller('DashCtrl', function($scope,$state,$http,$rootScope,$timeout,$cordovaSocialSharing,$cordovaInAppBrowser,$ionicLoading) {
   $rootScope.company_name=$rootScope.company_Details.company_name;
+  
+  $ionicLoading.show({
+      content: 'Loading',
+      animation: 'fade-in',
+      showBackdrop: true,
+      maxWidth: 200,
+      showDelay: 0
+  });
+
   $http.get(CommonURL + "/recruiters/configuration_details?company_id="+$rootScope.company_Details.id)
     .then(function(response) {
         $rootScope.OverAllData = response.data;
+        $timeout(function() {
+        $ionicLoading.hide();
+      });
+   },function(err){
+      $timeout(function() {
+        $ionicLoading.hide();
+      });
    });
  
   $scope.start = function() {
