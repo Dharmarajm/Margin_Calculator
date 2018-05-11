@@ -4,4 +4,6 @@ angular.module('Setting', [])
 	$scope.changePassword=function(){
 		$state.go('changePassword')
 	}
+	$rootScope.Coachmark_id=2;
+    localStorage.setItem("coachmark",$rootScope.Coachmark_id);
 })

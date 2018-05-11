@@ -17,7 +17,7 @@ angular.module('Pto', [])
     }else if($rootScope.ptoname == 'other'){
      $scope.checkedother=true;
      $rootScope.ptoHrs=$rootScope.slider.min;
-      $rootScope.otherDays=Math.round($rootScope.slider.min/8)
+      $rootScope.otherDays=Math.round($rootScope.slider.min*8)
       $rootScope.getptoDays=$rootScope.otherDays;
     }
   }else{
@@ -34,21 +34,35 @@ angular.module('Pto', [])
   $scope.pto=$rootScope.OverAllData[0].pto;
  /* console.log($scope.pto)*/
   $scope.standard = true;
+  $scope.active_values="Standard";
+
   $scope.standarButton = function() {
+    $scope.active_values="Standard";
     $scope.standard = true;
     $scope.other = false;
     angular.element(document).ready(function () {
      $scope.$broadcast('rzSliderForceRender');
     });
+    $rootScope.ptoHrs=$scope.pto.hours;
+    $rootScope.getptoDays=$scope.pto.days;
+    $rootScope.New_Hrs_Values=$scope.pto.hours;
+    $rootScope.doRefresh();
   }
   $scope.otherButton = function() {
+    $scope.active_values="Other";
     $scope.standard = false;
     $scope.other = true;
     angular.element(document).ready(function () {
      $scope.$broadcast('rzSliderForceRender');
     });
+    $rootScope.ptoHrs=$rootScope.slider.min;
+    $rootScope.otherDays=Math.round($rootScope.slider.min*8)
+    $rootScope.getptoDays=$rootScope.otherDays;
+    $rootScope.New_Hrs_Values= $rootScope.otherDays;
+    $rootScope.doRefresh();
   }
-  
+
+
   if($rootScope.otherDays == null || $rootScope.otherDays == "" || $rootScope.otherDays==undefined){
     $rootScope.otherDays=0;
   }
@@ -56,12 +70,13 @@ angular.module('Pto', [])
     $rootScope.otherDays=$rootScope.otherDays
   }
   $scope.myEndListener = function() {
-    $rootScope.otherDays=Math.round($rootScope.slider.min/8);
-    if($rootScope.ptoname == 'other'){
+    $rootScope.otherDays=Math.round($rootScope.slider.min*8);
+    //if($rootScope.ptoname == 'other'){
      $rootScope.ptoHrs=$rootScope.slider.min; 
      $rootScope.getptoDays=$rootScope.otherDays;
+     $rootScope.New_Hrs_Values= $rootScope.otherDays;
      $rootScope.doRefresh();  
-    }   
+    //}   
   };
 
    angular.element(document).ready(function () {
@@ -72,7 +87,7 @@ angular.module('Pto', [])
     min: 0,
     // max: 250,
     floor: 0,
-    ceil: 250,
+    ceil: 31,
     showSelectionBar: true,
     onEnd: $scope.myEndListener
   }
@@ -80,7 +95,7 @@ angular.module('Pto', [])
   $rootScope.disableslider = {
     min: $rootScope.OverAllData[0].pto.hours,
     floor: 0,
-    ceil: 250,
+    ceil: 31,
     showSelectionBar: true,
     readOnly: true
   };
@@ -90,11 +105,11 @@ angular.module('Pto', [])
       min: $rootScope.ptoText,
       // max: 250,
       floor: 0,
-      ceil: 250,
+      ceil: 31,
       showSelectionBar: true,
       onEnd: $scope.myEndListener
     };
-    $rootScope.otherDays=Math.round($rootScope.ptoText/8);
+    $rootScope.otherDays=Math.round($rootScope.ptoText*8);
   }
 
   $scope.$watch('slider.min',function(data){      
@@ -111,16 +126,16 @@ angular.module('Pto', [])
     showDelay: 0
    });*/
    $rootScope.ptoHrs=values;
-   $rootScope.otherDays=Math.round(values/8);
+   $rootScope.otherDays=Math.round(values*8);
    $rootScope.doRefresh();
   }
-  
+ /* 
   $scope.ptobutton=function(medical,name){
      $rootScope.ptovalue=medical;
      $rootScope.ptoname=name;
      if($rootScope.ptoname == 'other'){
       $rootScope.ptoHrs=$rootScope.slider.min;
-      $rootScope.otherDays=Math.round($rootScope.slider.min/8)
+      $rootScope.otherDays=Math.round($rootScope.slider.min*8)
       $rootScope.getptoDays=$rootScope.otherDays;
       $rootScope.doRefresh();
     }else if($rootScope.ptoname == 'standard'){
@@ -128,7 +143,7 @@ angular.module('Pto', [])
       $rootScope.getptoDays=$scope.pto.days;
       $rootScope.doRefresh();
     }
-  }
+  }*/
 
 })  
 

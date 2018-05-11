@@ -121,21 +121,29 @@ angular.module('Misc', [])
     $scope.container=true;
   }
 
+  $scope.minus=function(){
+    $scope.plusbutton=true;
+    $scope.container=false;
+  }
+
 
   $scope.AddMisc=function(){
     if($scope.value == "One Time"){
       $scope.selected_data=$rootScope.miscdata.onetime; 
       $rootScope.miscdata.onetime="";
+      $scope.disp_name="one_time";
     }
     else if($scope.value == "Hourly"){
       $scope.selected_data=$rootScope.miscdata.hour;
-      $rootScope.miscdata.hour = ""; 
+      $rootScope.miscdata.hour = "";
+      $scope.disp_name="hourly" 
     }
     else
     {
       $scope.value="% Bill Rate"+"("+$scope.miscslider.min+")";
       $rootScope.reloadmisc=null;
       $scope.miscslider.min=0;
+      $scope.disp_name="bill_rate"
       if($rootScope.hour_total == 0 ){
         $scope.selected_data=0;
       }
@@ -152,7 +160,8 @@ angular.module('Misc', [])
     }
     else{
       $rootScope.misc.push({
-        "name":$scope.value,
+        "name":$scope.disp_name,
+        "disp_name":$scope.value,
         "value":$scope.selected_data
       })
       $rootScope.hour_total=0;

@@ -52,8 +52,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
   border-width: 1px !important;
   border:solid #c5cad5;
   border-radius: 50%;
-  height: 40px;
-  width: auto;
+  height:60%;
+  width: 60%;
   align-items: center;
   display: flex;
   margin: 0px 4px;
@@ -358,7 +358,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
   height: 56px;
 }
 .bar .title{
-  top: auto;
+  /*top: auto;*/
 }
 .platform-android .bar .title{
   text-align: center;
@@ -377,7 +377,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, label, span, input, button
   background-position-x: center;
   background-position-y: center;
   background-image: url('../img/user-1.png');
-  width: 52%;
+  width: 52 %;
 }
 .user-off{
   background-repeat: no-repeat;
@@ -830,7 +830,7 @@ a.button.button-block.button-circle {
     text-transform: uppercase;
 }
 .sidebar{
-  margin-top: 105px;
+ /* margin-top: 105px;*/
   background-color: #5153a3;
 }
 .sidebar a{
@@ -1053,4 +1053,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .pad-0{
   padding: 0;
+}
+.logo_side{
+  padding: 20px;
+}
+.bar .title {
+    height: 56px!important;
+    line-height: 56px!important;
+}
+.ion-minus-circled{
+  color: #d85b7e;
+  font-size:22px;
 }

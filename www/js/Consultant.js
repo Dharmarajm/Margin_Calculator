@@ -27,7 +27,7 @@ if($rootScope.cons != undefined){
     $rootScope.marginDollar=0;
   }
 
-  
+  console.log(localStorage.getItem('coachmark'))
     if(localStorage.getItem('coachmark') != 2 || localStorage.getItem('coachmark') == null){
       var demoId=1;
       $rootScope.Coachmark_id=1;
@@ -56,6 +56,9 @@ if($rootScope.cons != undefined){
             break; 
         }
 
+
+        
+
  $rootScope.doRefresh =function() {
        var data ={
       "cost_calc":
@@ -65,7 +68,7 @@ if($rootScope.cons != undefined){
         "client_fee":$rootScope.cons.client_fee,
         "visa_status":$rootScope.visaStateValue,
         "payment_term":$rootScope.netTerm,
-        "pto_hours":$rootScope.ptoHrs,
+        "pto_hours":$rootScope.New_Hrs_Values,
         "state": $rootScope.relocation_value,
         "relocation":$rootScope.reLocationValue,
         "medical":$rootScope.medicalvalue,

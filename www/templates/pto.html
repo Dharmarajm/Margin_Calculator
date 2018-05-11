@@ -17,13 +17,13 @@
     <div ng-show="standard">
       <div class="row group-center">
         <div class="col col-50 col-50-align line">
-          <label>HOURS</label>
-          <h2>{{pto.hours || 0 }}</h2>
-        </div>
-        <div class="col col-50 col-50-align">
           <label>DAYS</label>
           <h2>{{pto.days || 0 }}</h2>
         </div>
+        <div class="col col-50 col-50-align">
+          <label>HOURS</label>
+          <h2>{{pto.hours || 0 }}</h2>
+        </div>       
       </div>
       <br>
       <div class="row group1 disable">
@@ -35,14 +35,15 @@
     <div ng-show="other">
       <div class="row group-center">
         <div class="col col-50 col-50-align line">
-          <label>HOURS</label>
-          <!-- <h2 editable-text="slider.min" ng-blur="ptohours(slider.min)"></h2> -->
+          <label>DAYS</label>
           <input class="textvalues" type="number" ng-model="slider.min"  max="250" ng-blur="ptohours(slider.min)" style="width:100%">
+          
         </div>
         <div class="col col-50 col-50-align">
-          <label>DAYS</label>
+          <label>HOURS</label>
+          <!-- <h2 editable-text="slider.min" ng-blur="ptohours(slider.min)"></h2> -->
           <h2>{{otherDays}}</h2>
-        </div>
+        </div>        
       </div>
       <br>
       <div class="row group1">
@@ -50,8 +51,15 @@
         </rzslider>
       </div>
     </div>
-   
+
     <div class="chs_pto">
+      <div class="content-header text-center">
+        <p style="font-size: 12px">Selected PTO :{{active_values}} <a ng-show="active_values == 'Standard'">({{pto.days}}/{{pto.hours}})</a> 
+         <a ng-show="active_values == 'Other'">({{slider.min}}/{{otherDays}})</p>
+      </div>
+    </div>
+   
+  <!--   <div class="chs_pto">
       <div class="content-header text-center">
         <p>Choose PTO</p>
       </div>
@@ -86,15 +94,9 @@
               </div>
             </div>
           </div>
-        </div>
-        <!-- <div class="col col-50">
-          <div class="card-border">
-            <p class="pink">{{ptoHrs}}/{{getptoDays}}</p>
-             <h4>{{slider.min}}/{{otherDays}}</h4> 
-          </div>
-        </div> -->
+        </div>      
       </div>
-    </div>
+    </div> -->
 
    <!--  <div class="row radio">
       <div class="col col-50">
@@ -112,6 +114,9 @@
        <p>Days  :{{otherDays}}</p>
       </div>
     </div> -->
+
+
+
 
   </ion-content>
 

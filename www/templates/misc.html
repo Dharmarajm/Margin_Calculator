@@ -13,7 +13,7 @@
 
     <div ng-show="container">
       <div class="button-bar">
-        <a class="button button-block" id="mis_bill" ng-class="{'button-circle': misc_bill == true}" ng-click="MiscBill()">Bill Rate</a>
+        <a class="button button-block" id="mis_bill" ng-class="{'button-circle': misc_bill == true}" ng-click="MiscBill()">% Bill Rate</a>
         <a class="button button-block" id="mis_hrs" ng-class="{'button-circle': misc_hour == true }" ng-click="MiscHour()">Hourly</a>
         <a class="button button-block" id="mis_one" ng-class="{'button-circle': miscOne_time == true }" ng-click="MiscOne()">One Time</a>
     	</div>
@@ -55,7 +55,10 @@
         <button class="button button-block" style="background-color:#d85b7e;color:#fff" ng-click="AddMisc()">
           SAVE
         </button>
+
       </div>
+
+      <p class="forgot_pw" ng-click="minus()">CANCEL</p>
 
     </div>
 
@@ -65,14 +68,20 @@
               <span ng-show="plusbutton" class="add-misc" ng-click="plus()">
                 <i class="icon ion-plus"></i>
               </span>
+             <!--  <span ng-show="container" class="add-misc" ng-click="minus()">
+                <i class="icon ion-minus"></i>
+
+              </span> -->
             </h2>
         <table width="100%">
 
           <tr ng-repeat="m in misc" ng-show="misc.length > 0">
             <td>Misc{{$index+1}}</td>
-            <td>{{m.name}}</td>
-            <td>${{m.value | number:2}}</td>
-            <td><i class="icon ion-close" ng-click="remove($index)"></i></td>
+            <td>{{m.disp_name}}</td>
+            <td>$</td>
+            <td class="total_value">{{m.value | number:2}}</td>
+            <td><i class="icon ion-minus-circled" ng-click="remove($index)"></i>
+
           </tr>
           <tr ng-show="misc.length < 1">
            <td> No records</td>

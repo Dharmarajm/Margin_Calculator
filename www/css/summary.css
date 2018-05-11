@@ -57,3 +57,6 @@
 .bar.bar-assertive img{
 	width: 100%;
 }
+.total_value{
+	text-align: right!important;
+}

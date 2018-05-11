@@ -137,5 +137,23 @@ angular.module('Register', [])
 
   $scope.cancel=function(){
     $state.go("dashboard")
+     if($rootScope.active == true){
+          $rootScope.active=true;
+          $rootScope.check_values='true';
+          localStorage.setItem("checkbox",$rootScope.check_values);      
+          $rootScope.Coachmark_id=2;
+          localStorage.setItem("coachmark",$rootScope.Coachmark_id);      
+      }else if($rootScope.active == false){
+          $rootScope.active=false;
+          $rootScope.check_values='all';
+          localStorage.setItem("checkbox",$rootScope.check_values);
+          $scope.demoActive1 = true;      
+          $rootScope.Coachmark_id=1;
+          localStorage.setItem("coachmark",$rootScope.Coachmark_id);      
+      }else{          
+          $scope.demoActive1 = true;      
+          $rootScope.Coachmark_id=1;
+          localStorage.setItem("coachmark",$rootScope.Coachmark_id);           
+      }
   }
 })
