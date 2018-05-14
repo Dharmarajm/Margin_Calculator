@@ -8,8 +8,9 @@
   <ion-content class="ion-content content-view relocation-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
     <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
-     <br>
-    <div class="row bill-content">
+     
+    <div class="row bill-content" ng-show="locMsg">
+      <br>
       <p>{{locMsg}}</p>
     </div>
     

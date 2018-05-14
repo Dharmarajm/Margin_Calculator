@@ -170,7 +170,7 @@ if($rootScope.consultant == undefined && $rootScope.consultant == null && $rootS
 }
 
 $scope.namevalues=function(values){
-  $rootScope.doRefresh();
+  //$rootScope.doRefresh();
   $rootScope.candidatename=values;
 }
 

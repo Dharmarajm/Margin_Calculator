@@ -13,6 +13,7 @@ angular.module('Visa', [])
     });*/
   	$rootScope.visvalue=name;
   	$rootScope.visaStateValue=value;
+    $rootScope.doRefresh();
   	$timeout(function() {
         $ionicLoading.hide();
     });

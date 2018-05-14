@@ -47,6 +47,12 @@ angular.module('Salary', [])
     $rootScope.doRefresh();   
   };
 
+
+  $scope.perdiemEdit=function(values){
+    $rootScope.perdiemValue=values;
+    $rootScope.doRefresh();
+  }
+
   $scope.billrateSliderEnd = function() {
     /*$ionicLoading.show({
        content: 'Loading',
