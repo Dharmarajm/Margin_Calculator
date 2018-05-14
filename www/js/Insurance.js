@@ -28,7 +28,18 @@ angular.module('Insurance', [])
     $scope.dental = $rootScope.OverAllData[0].dental_employer;
    }
 	
-
+  if($rootScope.medicalname == null || $rootScope.medicalname ==undefined){
+    $scope.med_emp_contribution=0;
+  }
+  else{
+    $scope.med_emp_contribution=$rootScope.OverAllData[0].medical_employee[$rootScope.medicalname]
+  }
+  if($rootScope.dentalname == null || $rootScope.dentalname == undefined){
+    $scope.den_emp_contribution=0
+  }
+  else{
+    $scope.den_emp_contribution=$rootScope.OverAllData[0].medical_employee[$rootScope.dentalname]
+  }
 	$scope.medicalButton=function(medical,name){
 	 /*$ionicLoading.show({
         content: 'Loading',
@@ -39,6 +50,7 @@ angular.module('Insurance', [])
      });*/
      $rootScope.medicalvalue=medical;
      $rootScope.medicalname=name;
+     $scope.med_emp_contribution=$rootScope.OverAllData[0].medical_employee[$rootScope.medicalname]
      $rootScope.doRefresh();
 	}
 
@@ -50,8 +62,9 @@ angular.module('Insurance', [])
         maxWidth: 200,
         showDelay: 0
      });*/
-    $rootScope.dentalvalue=dental;    
+    $rootScope.dentalvalue=dental;  
     $rootScope.dentalname=name;
+    $scope.den_emp_contribution=$rootScope.OverAllData[0].medical_employee[$rootScope.dentalname]
     $rootScope.doRefresh();   
   }
 

@@ -171,12 +171,14 @@ angular.module('Misc', [])
       $scope.plusbutton=true;
 
     }
+    $rootScope.doRefresh();
       
     
   }
 
   $scope.remove=function(index){
     $rootScope.misc.splice(index,1)
+    $rootScope.doRefresh();
   }
 
   

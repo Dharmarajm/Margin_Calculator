@@ -123,14 +123,14 @@ $scope.recruiter=$rootScope.recruiters_Details.first_name;
           $scope.dental_employee_contribution = 0;
         }
         else{
-         $scope.dental_employee_contribution = $rootScope.OverAllData[0].medical_employee[$rootScope.dentalname]
+         $scope.dental_employee_contribution = $rootScope.OverAllData[0].dental_employee[$rootScope.dentalname]
         }
 
         if($rootScope.medicalname == null || $rootScope.medicalname==undefined || $rootScope.medicalname==""){
           $scope.medical_employee_contribution = 0;
         }
         else{
-         $scope.medical_employee_contribution = $rootScope.OverAllData[0].medical_employee[$rootScope.dentalname]
+         $scope.medical_employee_contribution = $rootScope.OverAllData[0].medical_employee[$rootScope.medicalname]
         }
 
        

@@ -27,7 +27,7 @@ if($rootScope.cons != undefined){
     $rootScope.marginDollar=0;
   }
 
-  console.log(localStorage.getItem('coachmark'))
+  
     if(localStorage.getItem('coachmark') != 2 || localStorage.getItem('coachmark') == null){
       var demoId=1;
       $rootScope.Coachmark_id=1;

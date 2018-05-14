@@ -97,5 +97,6 @@ angular.module('Relocation', [])
     $rootScope.relocation_name=state.state_name;
     $rootScope.relocation_value=state.tax_per_hour;
     $state.go("tab.relocation")
+    $rootScope.doRefresh();
   }
 })
