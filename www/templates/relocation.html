@@ -1,4 +1,4 @@
-<ion-view cache-view="false" ng-cloak>
+<ion-view cache-view="false">
   <ion-nav-title>
     <span class="bar-stable"><strong class="header-title">LOCATION</strong></span>
   </ion-nav-title>
@@ -8,6 +8,10 @@
   <ion-content class="ion-content content-view relocation-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
 
     <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
+     <br>
+    <div class="row bill-content">
+      <p>{{locMsg}}</p>
+    </div>
     
     <div class="groupButton">
       <button class="button button-block button-white" id="select_locate" ng-click="selectState()">

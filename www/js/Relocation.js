@@ -8,8 +8,14 @@ angular.module('Relocation', [])
     else{
       $rootScope.candidatename=$rootScope.candidatename;
     }
-  
-    $scope.relocation=$rootScope.OverAllData[0].relocation;
+    if($rootScope.OverAllData[0].relocation == null || $rootScope.OverAllData[0].relocation == "" || $rootScope.OverAllData[0].relocation ==undefined){
+      $scope.locMsg="Relocation is waived"
+      $scope.relocation={relocation:0}
+    }
+    else{
+      $scope.relocation=$rootScope.OverAllData[0].relocation;  
+    }
+    
    
     $scope.locationValue = function() {
       $rootScope.reLocationValue=$scope.sliderRelocation.min;

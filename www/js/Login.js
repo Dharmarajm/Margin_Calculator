@@ -178,6 +178,7 @@ angular.module('Login', [])
                   $rootScope.consultant == null;
                   $rootScope.candidatename=null;
                   $rootScope.ptoHrs="";
+                  $rootScope.active_values="Standard"
                   $rootScope.ptovalue="";
                   $rootScope.ptoname=null;
                   $rootScope.relocation_value="";
@@ -203,7 +204,8 @@ angular.module('Login', [])
                   $rootScope.perdiemText=null;
                   $rootScope.billrateText=null;
                   $rootScope.salaryhract = "Dollar";
-                  localStorage.removeItem('Item')
+                  localStorage.removeItem('Item');
+                  localStorage.removeItem('pto');
                   $rootScope.lcamin="";
                   $rootScope.locationval="";
                   $rootScope.otherDays=0;

@@ -1,4 +1,4 @@
-<ion-view cache-view="false" ng-cloak>
+<ion-view cache-view="false">
   <ion-nav-title>
     <span class="bar-stable"><strong class="header-title">PTO</strong></span>
   </ion-nav-title>
@@ -8,6 +8,10 @@
   <ion-content class="ion-content content-view pot-content" ng-class="{'animate-in-primary': data == 'swiperight' , 'animate-in-secondary': data == 'swipeleft' }">
     
     <!-- <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher> -->
+    <br>
+    <div class="row bill-content">
+      <p>{{ptoMsg}}</p>
+    </div>
 
     <div class="button-bar">
       <a class="button button-block" id="pto_std" ng-class="{'button-circle': standard == true}" ng-click="standarButton()">Standard</a>
@@ -42,7 +46,7 @@
         <div class="col col-50 col-50-align">
           <label>HOURS</label>
           <!-- <h2 editable-text="slider.min" ng-blur="ptohours(slider.min)"></h2> -->
-          <h2>{{otherDays}}</h2>
+          <h2>{{otherHrs}}</h2>
         </div>        
       </div>
       <br>
@@ -54,8 +58,10 @@
 
     <div class="chs_pto">
       <div class="content-header text-center">
-        <p style="font-size: 12px">Selected PTO :{{active_values}} <a ng-show="active_values == 'Standard'">({{pto.days}}/{{pto.hours}})</a> 
-         <a ng-show="active_values == 'Other'">({{slider.min}}/{{otherDays}})</p>
+        <p style="font-size: 12px">Selected PTO :{{active_values}}
+          <a ng-show="active_values == 'Standard'">({{pto.days}}/{{pto.hours}})</a> 
+          <a ng-show="active_values == 'Other'">({{slider.min}}/{{otherHrs}})</a>
+        </p>
       </div>
     </div>
    

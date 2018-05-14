@@ -63,6 +63,7 @@ if($rootScope.cons != undefined){
        var data ={
       "cost_calc":
         {
+        "company_id":$rootScope.company_Details.id, 
         "salary":$rootScope.SalaryValue,
         "bill_rate":$rootScope.cons.bill_rate,
         "client_fee":$rootScope.cons.client_fee,

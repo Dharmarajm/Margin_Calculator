@@ -14,7 +14,6 @@ angular.module('Salary', [])
    $rootScope.Coachmark_id=2;
    localStorage.setItem("coachmark",$rootScope.Coachmark_id);  
 
-
   $scope.SalarySliderEnd = function() {
     /*$ionicLoading.show({
        content: 'Loading',
@@ -23,8 +22,9 @@ angular.module('Salary', [])
        maxWidth: 200,
        showDelay: 0
     });*/
-    $rootScope.SalaryValue=$scope.salarySlider.min;
-    $scope.annual=$scope.salarySlider.min*2080;
+    $rootScope.SalaryValue=$scope.salarySlider.min*2080;
+    $scope.annual=Math.round($scope.salarySlider.min*2080);
+    $scope.HoulyBill=$scope.salarySlider.min*100/$rootScope.adjRate;
     /*if($rootScope.adjRate == 0 || $rootScope.adjRate == null || $rootScope.adjRate == "" || $rootScope.adjRate == undefined){
       $scope.billrateSlider.min=0; 
     }else{
@@ -63,7 +63,7 @@ angular.module('Salary', [])
       $scope.hour=($rootScope.adjRate/100)*$scope.billrateSlider.min;
     }
     /*$scope.salarySlider.min = $scope.hour*2080;*/
-
+    $scope.annualBillSalary=Math.round($scope.hour*2080);
     $rootScope.SalaryValue=$scope.hour*2080;
     $rootScope.doRefresh();   
   };
@@ -84,7 +84,7 @@ angular.module('Salary', [])
         /*max: 250000,*/
         floor: 0,
         /*ceil: 250000,*/
-        ceil: 150.00,
+        ceil: $rootScope.adjRate,
         precision:2,
         step:0.01,
         showSelectionBar: true,
@@ -109,7 +109,7 @@ angular.module('Salary', [])
             /*max: 250000,*/
             floor: 0,
             /*ceil: 250000,*/
-            ceil: 150.00,
+            ceil: $rootScope.adjRate,
             precision:2,
             step:0.01,
             showSelectionBar: true,
@@ -117,7 +117,8 @@ angular.module('Salary', [])
           };     
   }
 
-  $scope.annual=$scope.salarySlider.min*2080;
+  $scope.annual=Math.round($scope.salarySlider.min*2080);
+  $scope.HoulyBill=$scope.salarySlider.min*100/$rootScope.adjRate;
   if($rootScope.adjRate == 0 || $rootScope.adjRate == null || $rootScope.adjRate == "" || $rootScope.adjRate == undefined){
     $scope.bill=0;
     
@@ -170,8 +171,9 @@ angular.module('Salary', [])
   });
   
   $scope.salaryEdit=function(values){
-      $rootScope.SalaryValue=values;
-      $scope.hour=values*2080;
+      $rootScope.SalaryValue=values*2080;
+      $scope.annual=values*2080;
+      $scope.HoulyBill=$scope.salarySlider.min*100/$rootScope.adjRate;
       
       if($rootScope.adjRate == 0 || $rootScope.adjRate == null || $rootScope.adjRate == "" || $rootScope.adjRate == undefined){
         $scope.bill=0;
@@ -194,6 +196,7 @@ angular.module('Salary', [])
         $scope.hour=($rootScope.adjRate/100)*$rootScope.billrateValue;
       }
       /*$scope.salarySlider.min = $scope.hour*2080;*/
+      $scope.annualBillSalary=Math.round($scope.hour*2080)
       $rootScope.SalaryValue=$scope.hour*2080;
       $rootScope.doRefresh();  
   }
@@ -217,6 +220,7 @@ angular.module('Salary', [])
     }else{
       $scope.hour=($rootScope.adjRate/100)*$scope.billrateSlider.min;
     }
+    $scope.annualBillSalary=Math.round($scope.hour*2080)
     $rootScope.SalaryValue=$scope.hour*2080;
   }else{
     $scope.dollar = true;
@@ -225,6 +229,7 @@ angular.module('Salary', [])
     $scope.hour=$scope.salarySlider.min*2080;
     $rootScope.SalaryValue=$scope.salarySlider.min;
   }
+  $scope.New_Values=1;
   $scope.dollarButton = function() {
     $scope.dollar = true;
     $scope.billrate = false;
@@ -257,7 +262,13 @@ angular.module('Salary', [])
     $rootScope.doRefresh();
   }
 
-}).directive('autosize', function($document) {
+})
+
+
+
+
+
+.directive('autosize', function($document) {
   return {
     require: 'ngModel',
     link: function(scope, element, attrs, ctrl) {

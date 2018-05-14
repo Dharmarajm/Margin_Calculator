@@ -97,7 +97,7 @@ angular.module('Misc', [])
    $rootScope.miscdata.onetime=name; 
   }*/
 
-  $rootScope.miscdata = { hour:"",onetime:"" };
+  $rootScope.miscdata = { hour:"",onetime:"",mis_notes:""};
 
   if($rootScope.hour_total == "" || $rootScope.hour_total == null || $rootScope.hour_total == undefined || $rootScope.hour_total == 0){
      $rootScope.hour_total=0;
@@ -162,11 +162,14 @@ angular.module('Misc', [])
       $rootScope.misc.push({
         "name":$scope.disp_name,
         "disp_name":$scope.value,
-        "value":$scope.selected_data
+        "value":$scope.selected_data,
+        "notes":$rootScope.miscdata.mis_notes
       })
+      $rootScope.miscdata.mis_notes="";
       $rootScope.hour_total=0;
       $scope.container=false;
       $scope.plusbutton=true;
+
     }
       
     

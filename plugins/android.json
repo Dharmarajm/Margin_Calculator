@@ -13,9 +13,6 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.margincalculator917148"
         },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.ionicframework.margincalculator917148"
-        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.margincalculator917148"
         },
@@ -25,10 +22,19 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.margincalculator917148"
         },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.margincalculator917148"
+        },
+        "cordova-plugin-uniquedeviceid": {
+            "PACKAGE_NAME": "com.ionicframework.margincalculator917148"
+        },
         "cordova-plugin-x-socialsharing": {
             "PACKAGE_NAME": "com.ionicframework.margincalculator917148"
         },
-        "ionic-plugin-keyboard": {
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.margincalculator917148"
+        },
+        "cordova-plugin-hockeyapp": {
             "PACKAGE_NAME": "com.ionicframework.margincalculator917148"
         }
     },

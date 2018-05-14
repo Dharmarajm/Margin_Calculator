@@ -1,4 +1,4 @@
-<ion-view cache-view="false" ng-cloak>
+<ion-view cache-view="false">
   <ion-nav-title>
     <span class="bar-stable"><strong class="header-title">SALARY</strong></span>
   </ion-nav-title>
@@ -65,12 +65,12 @@
        <rzslider  rz-slider-model="salarySlider.min" id="salerySlider" rz-slider-options="salarySlider">
        </rzslider>
       </div>
-
+      <br>
       <div class="row bill-content">
-        <p>ANNUAL SALARY:&nbsp;<span class="pink">${{annual | number:2 }}</span> </p>
+        <p>ANNUAL SALARY:&nbsp;<span class="pink">${{annual}}</span></p>
       </div>
       <div class="row bill-content">
-          <p>(% Bill Rate - {{billrateSlider.min}})</p>
+          <p>%Bill Rate:&nbsp;<span class="pink">{{(HoulyBill | number:1) || 0 }}%</span></p>
       </div>
 
     </div>
@@ -83,12 +83,12 @@
         <rzslider rz-slider-model="billrateSlider.min" id="periem_id" rz-slider-options="billrateSlider">
         </rzslider>
        </div>
-
+      <br>
       <div class="row bill-content">
-        <p>HOURLY SALARY:&nbsp;<span class="pink">${{hour | number:2 }}</span> </p>
+        <p>HOURLY SALARY:&nbsp;<span class="pink">${{hour | number:2 }}</span></p>
       </div>
       <div class="row bill-content">
-          <p>(ANNUAL SALARY - ${{annual | number:2 }})</p>
+        <p>ANNUAL SALARY:&nbsp;<span class="pink">${{annualBillSalary || 0 }}</span></p>
       </div>
 
     </div>

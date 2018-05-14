@@ -1065,3 +1065,7 @@ input[type=number]::-webkit-outer-spin-button {
   color: #d85b7e;
   font-size:22px;
 }
+/*[ng:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none !important;
+}
+*/
