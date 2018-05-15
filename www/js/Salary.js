@@ -165,6 +165,16 @@ angular.module('Salary', [])
               showSelectionBar: true,
               onEnd: $scope.billrateSliderEnd
             }; 
+
+     if($rootScope.adjRate == 0 || $rootScope.adjRate == null || $rootScope.adjRate == "" || $rootScope.adjRate == undefined){
+        $scope.hour=0;
+        
+      }else{
+        $scope.hour=($rootScope.adjRate/100)*$scope.billrateSlider.min;
+      }
+      /*$scope.salarySlider.min = $scope.hour*2080;*/
+      $scope.annualBillSalary=Math.round($scope.hour*2080)
+      $rootScope.SalaryValue=$scope.hour*2080;       
   }
 
   $scope.$watch('billrateSlider.min',function(data){      
@@ -242,7 +252,7 @@ angular.module('Salary', [])
     localStorage.setItem('Item',$scope.salaryTab)
     $rootScope.salaryhract = "Dollar";
     $scope.hour=$scope.salarySlider.min*2080;
-    $rootScope.SalaryValue=$scope.salarySlider.min;
+    $rootScope.SalaryValue=$scope.salarySlider.min*2080;
     angular.element(document).ready(function () {
      $scope.$broadcast('rzSliderForceRender');
     });
@@ -260,6 +270,7 @@ angular.module('Salary', [])
     }else{
       $scope.hour=($rootScope.adjRate/100)*$scope.billrateSlider.min;
     }
+    $scope.annualBillSalary=Math.round($scope.hour*2080)
     $rootScope.SalaryValue=$scope.hour*2080;
     angular.element(document).ready(function () {
      $scope.$broadcast('rzSliderForceRender');
