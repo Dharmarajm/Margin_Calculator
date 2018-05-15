@@ -122,7 +122,6 @@ angular.module('Salary', [])
             onEnd: $scope.SalarySliderEnd
           };     
   }
-
   $scope.annual=Math.round($scope.salarySlider.min*2080);
   $scope.HoulyBill=$scope.salarySlider.min*100/$rootScope.adjRate;
   if($rootScope.adjRate == 0 || $rootScope.adjRate == null || $rootScope.adjRate == "" || $rootScope.adjRate == undefined){
@@ -233,7 +232,7 @@ angular.module('Salary', [])
     $scope.billrate = false;
     $rootScope.salaryhract = "Dollar";
     $scope.hour=$scope.salarySlider.min*2080;
-    $rootScope.SalaryValue=$scope.salarySlider.min;
+    $rootScope.SalaryValue=$scope.salarySlider.min*2080;
   }
   $scope.New_Values=1;
   $scope.dollarButton = function() {
