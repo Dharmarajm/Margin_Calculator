@@ -107,11 +107,6 @@ if($rootScope.cons != undefined){
            $timeout(function() {
               $scope.$broadcast('scroll.refreshComplete');
             }, 2000);
-      },function(error){
-        $rootScope.sumalert=$ionicPopup.alert({
-          title: 'MARGINO',
-          template: '<center>Failed to connect Server</center>'
-        })
       })      
   }
 

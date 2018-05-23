@@ -14,9 +14,9 @@ angular.module('Visa', [])
   	$rootScope.visvalue=name;
   	$rootScope.visaStateValue=value;
     $rootScope.doRefresh();
-  	$timeout(function() {
+  	/*$timeout(function() {
         $ionicLoading.hide();
-    });
+    });*/
   	$state.go("tab.consultant")
   }
    /* $rootScope.visame = name;
