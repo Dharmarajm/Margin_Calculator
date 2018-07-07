@@ -16,5 +16,8 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [],
+  "dependencies": {
+    "angular-walkthrough": "^0.6.12"
+  }
 }

@@ -1,4 +1,3 @@
-/*This is using rzModule Slider directive*/
 
 angular.module('starter', ['ionic',
   'rzModule',
@@ -19,7 +18,7 @@ angular.module('starter', ['ionic',
   'ng-walkthrough'
 ])
 
-.run(function($ionicPlatform,$state,$ionicPopup,$rootScope) {
+.run(function($ionicPlatform, $state, $ionicPopup, $rootScope) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -29,52 +28,51 @@ angular.module('starter', ['ionic',
       StatusBar.styleDefault();
     }
 
-   document.addEventListener("deviceready", function() {
-    hockeyapp.start(success, error, "414a60f9c04a4ef9b23505ddeb87386a");
-    
-    function error(error) {
-     console.log(error);
-    }
-    
-    function success(status) {
-     console.log(status);
-    }
-    
-   }, false);
+    /*document.addEventListener("deviceready", function() {
+      hockeyapp.start(success, error, "414a60f9c04a4ef9b23505ddeb87386a");
+
+      function error(error) {
+        console.log(error);
+      }
+
+      function success(status) {
+        console.log(status);
+      }
+
+    }, false);*/
 
   });
 
   $ionicPlatform.registerBackButtonAction(function(e) {
     e.preventDefault();
-     function showConfirm() {
+
+    function showConfirm() {
       var confirmPopup = $ionicPopup.show({
-       title : 'MARGINO',
-       template : 'Are you sure want to exit ?',
-       buttons : [{
-        text : 'Cancel',
-        type : 'button-danger',
-       }, {
-        text : 'Ok',
-        type : 'button-positive',
-        onTap : function() {
-         ionic.Platform.exitApp();         
-        }
-       }]
+        title: 'MARGINO',
+        template: 'Are you sure want to exit ?',
+        buttons: [{
+          text: 'Cancel',
+          type: 'button-danger',
+        }, {
+          text: 'Ok',
+          type: 'button-positive',
+          onTap: function() {
+            ionic.Platform.exitApp();
+          }
+        }]
       });
-     };
+    };
 
-      if($state.current.name=='tab.consultant' || $rootScope.Coachmark_id == 1){
-         // $rootScope.demoActive1 = false; 
-         return;
-      } 
-
-      if($state.current.name=='login' || $state.current.name=='register' || $state.current.name=='dashboard' ){
-           showConfirm();
-      }
-      else {
-        navigator.app.backHistory();
-      }
-    }, 100);
+    if ($state.current.name == 'tab.consultant' || $rootScope.Coachmark_id == 1) {
+      // $rootScope.demoActive1 = false; 
+      return;
+    }
+    if ($state.current.name == 'login' || $state.current.name == 'register' || $state.current.name == 'dashboard') {
+      showConfirm();
+    } else {
+      navigator.app.backHistory();
+    }
+  }, 100);
 
 
 })
@@ -84,20 +82,17 @@ angular.module('starter', ['ionic',
 
   $stateProvider
 
-  .state('login', {
+    .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
   })
-
 
   .state('forgotPassword', {
     url: '/forgotPassword',
     templateUrl: 'templates/forgotPassword.html',
     controller: 'forgotCtrl'
   })
-
-    
 
   .state('register', {
     url: '/register',
@@ -129,7 +124,6 @@ angular.module('starter', ['ionic',
     templateUrl: 'templates/tabs.html'
   })
 
-
   .state('tab.consultant', {
     url: '/consultant',
     views: {
@@ -146,12 +140,11 @@ angular.module('starter', ['ionic',
     controller: 'VisaStatusCtrl'
   })
 
-   .state('net', {
+  .state('net', {
     url: '/net',
     templateUrl: 'templates/net.html',
     controller: 'NetCtrl'
   })
-
 
   .state('tab.pto', {
     url: '/pto',
@@ -162,7 +155,6 @@ angular.module('starter', ['ionic',
       }
     }
   })
-
 
   .state('tab.relocation', {
     url: '/relocation',
@@ -180,7 +172,6 @@ angular.module('starter', ['ionic',
     controller: 'LocationCtrl'
   })
 
-
   .state('tab.insurance', {
     url: '/insurance',
     views: {
@@ -190,7 +181,6 @@ angular.module('starter', ['ionic',
       }
     }
   })
-
 
   .state('tab.misc', {
     url: '/misc',
@@ -202,7 +192,6 @@ angular.module('starter', ['ionic',
     }
   })
 
-
   .state('tab.salary', {
     url: '/salary',
     views: {
@@ -212,7 +201,6 @@ angular.module('starter', ['ionic',
       }
     }
   })
-
 
   .state('tab.summary', {
     url: '/summary',
@@ -225,7 +213,7 @@ angular.module('starter', ['ionic',
   });
 
 
-/*This using root page if the condition is one time you register next only show login page*/
+  /*This using root page if the condition is one time you register next only show login page*/
   if (localStorage.getItem("user") == 0) {
     $urlRouterProvider.otherwise('/login');
   } else {
@@ -235,42 +223,44 @@ angular.module('starter', ['ionic',
 })
 
 /*This dircetive using Swipe the page right and left*/
-.directive('tabsSwipable', function($ionicGesture,$rootScope) {
-  return {
-    restrict: 'A',
-    require: 'ionTabs',
-    link: function(scope, elm, attrs, tabsCtrl) {
-      
-      /*Swipe left function using all tabs page*/
-      var onSwipeLeft = function() {
-        $rootScope.doRefresh();
-        var target = tabsCtrl.selectedIndex() + 1;
-        if (target < tabsCtrl.tabs.length) {
-          scope.data = "swipeleft";
-          scope.$apply(tabsCtrl.select(target));
-        }
-      };
+.directive('tabsSwipable', function($ionicGesture, $rootScope) {
+    return {
+      restrict: 'A',
+      require: 'ionTabs',
+      link: function(scope, elm, attrs, tabsCtrl) {
 
-      /*Swipe right function using all tabs page*/
-      var onSwipeRight = function() {
-        $rootScope.doRefresh();
-        var target = tabsCtrl.selectedIndex() - 1;
-        if (target >= 0) {
-          scope.data = "swiperight";
-          scope.$apply(tabsCtrl.select(target));
-        }
-      };
+        /*Swipe left function using all tabs page*/
+        var onSwipeLeft = function() {
+          $rootScope.doRefresh();
+          var target = tabsCtrl.selectedIndex() + 1;
+          if (target < tabsCtrl.tabs.length) {
+            scope.data = "swipeleft";
+            scope.$apply(tabsCtrl.select(target));
+          }
+        };
 
-      var swipeGesture = $ionicGesture.on('swipeleft', onSwipeLeft, elm)
-        .on('swiperight', onSwipeRight);
-      scope.$on('$destroy', function() {
-        $ionicGesture.off(swipeGesture, 'swipeleft', onSwipeLeft);
-        $ionicGesture.off(swipeGesture, 'swiperight', onSwipeRight);
-      });
-    }
-  };
-})
+        /*Swipe right function using all tabs page*/
+        var onSwipeRight = function() {
+          $rootScope.doRefresh();
+          var target = tabsCtrl.selectedIndex() - 1;
+          if (target >= 0) {
+            scope.data = "swiperight";
+            scope.$apply(tabsCtrl.select(target));
+          }
+        };
+
+        var swipeGesture = $ionicGesture.on('swipeleft', onSwipeLeft, elm)
+          .on('swiperight', onSwipeRight);
+        scope.$on('$destroy', function() {
+          $ionicGesture.off(swipeGesture, 'swipeleft', onSwipeLeft);
+          $ionicGesture.off(swipeGesture, 'swiperight', onSwipeRight);
+        });
+      }
+    };
+  })
+
 /*This is using common Url  this variable using all http method*/
 //var CommonURL = "http://192.168.1.72:4011/api/v1";
 //var CommonURL = "http://115.111.129.98:4001/api/v1";
-var CommonURL="http://www.margino.biz/api/v1";
+var CommonURL="https://www.margino.biz/api/v1";
+//var CommonURL = "http://35.169.58.170:4000/api/v1";
